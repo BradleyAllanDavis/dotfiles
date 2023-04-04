@@ -39,17 +39,6 @@
               };
             }
           ];
-
-
-          # inherit system pkgs;
-          # username = "bradley";
-          # homeDirectory = "/home/bradley";
-          # stateVersion = "22.11";
-          # configuration = {
-          #   imports = [
-          #     ./home.nix
-          #   ];
-          # };
         };
       };
     };
