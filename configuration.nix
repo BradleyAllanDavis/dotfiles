@@ -5,31 +5,17 @@
 {
   config,
   pkgs,
-  nixpkgs-unstable,
-  # home-manager,
   ...
 }:
 
 let
   user = "bradley";
   userDescription = "Bradley";
-  # unstable = import <nixpkgs-unstable> {};
-  # unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
 in
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # <home-manager/nixos>
-    # <nixpkgs-unstable>
   ];
-
-  # nixpkgs.config = {
-  #   packageOverrides = pkgs: with pkgs; {
-  #     unstable = import unstableTarball {
-  #       config = config.nixpkgs.config;
-  #     };
-  #   };
-  # };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -135,137 +121,6 @@ in
     packages = with pkgs; [];
   };
 
-  # home-manager.extraSpecialArgs = { inherit nixpkgs-unstable; }
-
-  # programs.light.enable = true;
-
-  home-manager.useGlobalPkgs = true;
-
-  # home-manager.users.${user} = {
-  #   pkgs,
-  #   # nixpkgs-unstable,
-  #   # unstable ? import <nixpkgs-unstable> { },
-  #   ...
-  # }: {
-  #   # nixpkgs.config = import ./nixpkgs-config.nix
-  #   nixpkgs.config.allowUnfree = true;
-
-  #   # programs.bash.enable = true;
-  #   home.stateVersion = "22.11";
-
-  #   home.packages = with pkgs; [
-  #     xorg.xbacklight
-
-  #     # search nix docs
-  #     manix
-
-  #     # starship
-  #     # unstable.starship
-
-  #     # shells
-  #     fish
-
-  #     # bash
-  #     nix-bash-completions
-
-  #     # text editors
-  #     neovim
-  #     helix
-
-  #     # terminals
-  #     alacritty
-  #     kitty
-  #     # hyper
-
-  #     # window managers
-  #     i3-gaps
-
-  #     # git
-  #     tig
-  #     lazygit
-
-  #     # zsh
-  #     zsh
-  #     zsh-fzf-tab
-  #     # zsh-completions
-  #     nix-zsh-completions
-  #     zsh-nix-shell
-  #     # oh-my-zsh
-  #     # fzf-zsh
-
-  #     tmux
-  #     python
-  #     fzf
-  #     bat
-  #     ack
-  #     direnv
-  #     xclip
-  #     curl
-  #     spotify-tui
-  #     spotify-tray
-  #     diff-so-fancy
-  #     llvm
-  #     polybar
-  #     # compton, neocomp
-  #     dunst
-  #     redshift
-  #     neomutt
-  #     tree
-  #     taskwarrior
-  #     findutils
-  #     trashy
-  #     tldr
-  #     atool
-  #     httpie
-  #     htop
-  #     ripgrep
-
-  #     # file manager
-  #     ranger
-  #     vifm
-
-  #     # application launcher
-  #     rofi
-  #     dmenu
-
-  #     # dotfiles management
-  #     # stow
-  #     # yadm
-  #     # dotdrop
-  #     # chezmoi
-  #     # dotbot
-
-  #     # bitcoin
-  #     bitcoin
-  #     # bitcoind
-
-  #     # GUI apps
-  #     _1password-gui
-  #     brave
-  #     expressvpn
-  #     spotify
-  #     slack
-  #     discord
-  #     zoom-us
-  #     gparted
-  #     github-desktop
-  #     postman
-  #     signal-desktop
-  #     tdesktop
-  #     whatsapp-for-linux
-  #     steam
-
-  #     # jetbrains
-  #     jetbrains.idea-ultimate
-  #     # jetbrains.datagrip
-  #     # jetbrains.clion
-  #     # jetbrains.goland
-  #     # jetbrains.webstorm
-  #     # jetbrains.pycharm-professional
-  #     # jetbrains.jdk
-  #   ];
-  # };
-
   fonts.fonts = with pkgs; [
     nerdfonts
     # (nerdfonts.override { fonts = [ "SFMono Nerd Font" "Hack Nerd Font Mono" ]; })
@@ -275,9 +130,6 @@ in
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run: $ nix search wget
-  # let
-  #   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-  # in {
   environment.systemPackages = with pkgs; [
     vim
     git
@@ -286,7 +138,6 @@ in
     starship
     xclip
   ];
-# }
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -307,15 +158,7 @@ in
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
-
-  # flakes
+  # Flakes
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''

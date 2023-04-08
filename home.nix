@@ -9,8 +9,6 @@
 
   manual.manpages.enable = false;
 
-  # nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
     xorg.xbacklight
 
@@ -122,4 +120,8 @@
     # jetbrains.pycharm-professional
     # jetbrains.jdk
   ];
+
+
+
+
 }
