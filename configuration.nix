@@ -6,6 +6,7 @@
   config,
   pkgs,
   nixpkgs-unstable,
+  # home-manager,
   ...
 }:
 
@@ -18,7 +19,7 @@ in
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    <home-manager/nixos>
+    # <home-manager/nixos>
     # <nixpkgs-unstable>
   ];
 
@@ -121,6 +122,11 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  # system.copySystemConfiguration = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
@@ -131,132 +137,134 @@ in
 
   # home-manager.extraSpecialArgs = { inherit nixpkgs-unstable; }
 
-  programs.light.enable = true;
+  # programs.light.enable = true;
 
-  home-manager.users.${user} = {
-    pkgs,
-    # nixpkgs-unstable,
-    # unstable ? import <nixpkgs-unstable> { },
-    ...
-  }: {
-    # nixpkgs.config = import ./nixpkgs-config.nix
-    nixpkgs.config.allowUnfree = true;
+  home-manager.useGlobalPkgs = true;
 
-    # programs.bash.enable = true;
-    home.stateVersion = "22.11";
+  # home-manager.users.${user} = {
+  #   pkgs,
+  #   # nixpkgs-unstable,
+  #   # unstable ? import <nixpkgs-unstable> { },
+  #   ...
+  # }: {
+  #   # nixpkgs.config = import ./nixpkgs-config.nix
+  #   nixpkgs.config.allowUnfree = true;
 
-    home.packages = with pkgs; [
-      xorg.xbacklight
+  #   # programs.bash.enable = true;
+  #   home.stateVersion = "22.11";
 
-      # search nix docs
-      manix
+  #   home.packages = with pkgs; [
+  #     xorg.xbacklight
 
-      # starship
-      # unstable.starship
+  #     # search nix docs
+  #     manix
 
-      # shells
-      fish
+  #     # starship
+  #     # unstable.starship
 
-      # bash
-      nix-bash-completions
+  #     # shells
+  #     fish
 
-      # text editors
-      neovim
-      helix
+  #     # bash
+  #     nix-bash-completions
 
-      # terminals
-      alacritty
-      kitty
-      # hyper
+  #     # text editors
+  #     neovim
+  #     helix
 
-      # window managers
-      i3-gaps
+  #     # terminals
+  #     alacritty
+  #     kitty
+  #     # hyper
 
-      # git
-      tig
-      lazygit
+  #     # window managers
+  #     i3-gaps
 
-      # zsh
-      zsh
-      zsh-fzf-tab
-      # zsh-completions
-      nix-zsh-completions
-      zsh-nix-shell
-      # oh-my-zsh
-      # fzf-zsh
+  #     # git
+  #     tig
+  #     lazygit
 
-      tmux
-      python
-      fzf
-      bat
-      ack
-      direnv
-      xclip
-      curl
-      spotify-tui
-      spotify-tray
-      diff-so-fancy
-      llvm
-      polybar
-      # compton, neocomp
-      dunst
-      redshift
-      neomutt
-      tree
-      taskwarrior
-      findutils
-      trashy
-      tldr
-      atool
-      httpie
-      htop
-      ripgrep
+  #     # zsh
+  #     zsh
+  #     zsh-fzf-tab
+  #     # zsh-completions
+  #     nix-zsh-completions
+  #     zsh-nix-shell
+  #     # oh-my-zsh
+  #     # fzf-zsh
 
-      # file manager
-      ranger
-      vifm
+  #     tmux
+  #     python
+  #     fzf
+  #     bat
+  #     ack
+  #     direnv
+  #     xclip
+  #     curl
+  #     spotify-tui
+  #     spotify-tray
+  #     diff-so-fancy
+  #     llvm
+  #     polybar
+  #     # compton, neocomp
+  #     dunst
+  #     redshift
+  #     neomutt
+  #     tree
+  #     taskwarrior
+  #     findutils
+  #     trashy
+  #     tldr
+  #     atool
+  #     httpie
+  #     htop
+  #     ripgrep
 
-      # application launcher
-      rofi
-      dmenu
+  #     # file manager
+  #     ranger
+  #     vifm
 
-      # dotfiles management
-      # stow
-      # yadm
-      # dotdrop
-      # chezmoi
-      # dotbot
+  #     # application launcher
+  #     rofi
+  #     dmenu
 
-      # bitcoin
-      bitcoin
-      # bitcoind
+  #     # dotfiles management
+  #     # stow
+  #     # yadm
+  #     # dotdrop
+  #     # chezmoi
+  #     # dotbot
 
-      # GUI apps
-      _1password-gui
-      brave
-      expressvpn
-      spotify
-      slack
-      discord
-      zoom-us
-      gparted
-      github-desktop
-      postman
-      signal-desktop
-      tdesktop
-      whatsapp-for-linux
-      steam
+  #     # bitcoin
+  #     bitcoin
+  #     # bitcoind
 
-      # jetbrains
-      jetbrains.idea-ultimate
-      # jetbrains.datagrip
-      # jetbrains.clion
-      # jetbrains.goland
-      # jetbrains.webstorm
-      # jetbrains.pycharm-professional
-      # jetbrains.jdk
-    ];
-  };
+  #     # GUI apps
+  #     _1password-gui
+  #     brave
+  #     expressvpn
+  #     spotify
+  #     slack
+  #     discord
+  #     zoom-us
+  #     gparted
+  #     github-desktop
+  #     postman
+  #     signal-desktop
+  #     tdesktop
+  #     whatsapp-for-linux
+  #     steam
+
+  #     # jetbrains
+  #     jetbrains.idea-ultimate
+  #     # jetbrains.datagrip
+  #     # jetbrains.clion
+  #     # jetbrains.goland
+  #     # jetbrains.webstorm
+  #     # jetbrains.pycharm-professional
+  #     # jetbrains.jdk
+  #   ];
+  # };
 
   fonts.fonts = with pkgs; [
     nerdfonts
@@ -273,8 +281,10 @@ in
   environment.systemPackages = with pkgs; [
     vim
     git
-    # unstable.starship
-    # nixpkgs-unstable.starship
+    python
+    tmux
+    starship
+    xclip
   ];
 # }
 
