@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/22.11";                                 # Nix Packages
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";             # Nix Packages (unstable)
+    nur.url = "github:nix-community/NUR";
 
     home-manager = {                                                            # Home Package Management
       url = "github:nix-community/home-manager";
@@ -11,7 +12,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, nur, home-manager }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -36,6 +37,7 @@
           inherit system pkgs;
           specialArgs = { inherit pkgs-unstable; };
           modules = [
+            nur.nixosModules.nur
             ./configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
