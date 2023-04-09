@@ -19,7 +19,6 @@
         inherit system;
         config.allowUnfree = true;
       };
-      lib = nixpkgs.lib;
 
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
@@ -34,7 +33,7 @@
       # defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
 
       nixosConfigurations = {
-        ${user} = lib.nixosSystem {
+        ${user} = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
           specialArgs = { inherit pkgs-unstable; };
           modules = [
