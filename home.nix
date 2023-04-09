@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+let
+
+  # pkgs-unstable = import <pkgs-unstable> {};
+
+in
+
 {
   home.username = "bradley";
   home.homeDirectory = "/home/bradley";
@@ -14,9 +20,6 @@
 
     # search nix docs
     manix
-
-    # starship
-    # unstable.starship
 
     # shells
     fish
@@ -120,6 +123,9 @@
     # jetbrains.pycharm-professional
     # jetbrains.jdk
   ];
+  # ] ++ (with pkgs-unstable; [
+  #   starship
+  # ]);
 
 
 
