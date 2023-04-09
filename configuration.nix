@@ -145,8 +145,8 @@ in
       vim
       neovim
       git
-      python
       tmux
+      python
       starship
       xclip
     ];
@@ -188,32 +188,3 @@ in
   };
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
