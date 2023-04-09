@@ -123,21 +123,34 @@ in
 
   fonts.fonts = with pkgs; [
     nerdfonts
-    # (nerdfonts.override { fonts = [ "SFMono Nerd Font" "Hack Nerd Font Mono" ]; })
+    # (nerdfonts.override {
+    #   fonts = [
+    #     "SFMono Nerd Font"
+    #     "Hack Nerd Font Mono"
+    #   ];
+    # })
   ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run: $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-    python
-    tmux
-    starship
-    xclip
-  ];
+  environment = {
+    variables = {
+      TERMINAL = "alacritty";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+    systemPackages = with pkgs; [
+      vim
+      neovim
+      git
+      python
+      tmux
+      starship
+      xclip
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

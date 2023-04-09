@@ -28,6 +28,9 @@
       user = "bradley";
       userDescription = "Bradley";
     in {
+      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+      defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
+
       nixosConfigurations = {
         ${user} = lib.nixosSystem {
           inherit system pkgs;

@@ -1,17 +1,15 @@
 { config, pkgs, ... }:
 
-let
-
-  # pkgs-unstable = import <pkgs-unstable> {};
-
-in
+# let
+#   pkgs-unstable = import <pkgs-unstable> {};
+# in
 
 {
   home.username = "bradley";
   home.homeDirectory = "/home/bradley";
 
-  home.stateVersion = "22.11";
   programs.home-manager.enable = true;
+  home.stateVersion = "22.11";
 
   manual.manpages.enable = false;
 
@@ -95,7 +93,7 @@ in
     # dotbot
 
     # bitcoin
-    bitcoin
+    # bitcoin
     # bitcoind
 
     # GUI apps
