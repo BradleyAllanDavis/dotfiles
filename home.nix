@@ -14,6 +14,8 @@
   manual.manpages.enable = false;
 
   home.packages = with pkgs; [
+    git-crypt
+
     xorg.xbacklight
 
     # search nix docs

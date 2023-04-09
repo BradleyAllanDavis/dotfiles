@@ -25,40 +25,41 @@
         config.allowUnfree = true;
       };
 
-      user = "bradley";
+      username = "bradley";
       userDescription = "Bradley";
+      hostname = "nixos";
     in {
 
       # defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
       # defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
 
       nixosConfigurations = {
-        ${user} = nixpkgs.lib.nixosSystem {
+        ${hostname} = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
           specialArgs = { inherit pkgs-unstable; };
           modules = [
-            nur.nixosModules.nur
             ./configuration.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${user} = {
+              home-manager.users.${username} = {
                 imports = [ ./home.nix ];
               };
             }
+            nur.nixosModules.nur
           ];
         };
       };
       hmConfig = {
-        ${user} = home-manager.lib.homeManagerConfiguration {
+        ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit pkgs-unstable; };
           modules = [
             ./home.nix
             {
               home = {
-                username = "${user}";
-                homeDirectory = "/home/${user}";
+                username = "${username}";
+                homeDirectory = "/home/${username}";
                 stateVersion = "22.11";
               };
             }

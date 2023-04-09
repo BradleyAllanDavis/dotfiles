@@ -4,14 +4,16 @@ I am porting over my existing dotfiles to Nix.
 
 ## Build and Run
 
-Build
+### Home Manager
 ```
-nix build .#hmConfig.bradley.activationPackage
+nix build .#hmConfig.<username>.activationPackage
+./result/activate
 ```
 
-Switch
+### NixOS
 ```
-sudo nixos-rebuild switch --flake .#bradley
+nixos-rebuild build --flake .#<hostname>
+sudo nixos-rebuild switch --flake .#<hostname>
 ```
 
 
