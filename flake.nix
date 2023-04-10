@@ -12,7 +12,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, nur, home-manager }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -27,14 +27,14 @@
 
       username = "bradley";
       userDescription = "Bradley";
-      hostname = "nixos";
+      hostName = "nixos";
     in {
 
       # defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
       # defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
 
       nixosConfigurations = {
-        ${hostname} = nixpkgs.lib.nixosSystem {
+        ${hostName} = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
           specialArgs = { inherit pkgs-unstable; };
           modules = [

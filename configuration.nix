@@ -9,7 +9,7 @@
 }:
 
 let
-  user = "bradley";
+  userName = "bradley";
   userDescription = "Bradley";
 in
 {
@@ -31,7 +31,7 @@ in
   boot.initrd.luks.devices."luks-e3ddf490-ae07-413f-ba18-2dffe2aa03ec".device = "/dev/disk/by-uuid/e3ddf490-ae07-413f-ba18-2dffe2aa03ec";
   boot.initrd.luks.devices."luks-e3ddf490-ae07-413f-ba18-2dffe2aa03ec".keyFile = "/crypto_keyfile.bin";
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -51,8 +51,12 @@ in
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.pantheon.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.desktopManager.pantheon.enable = true;
+
+  # Enable KDE Plasma Desktop Environment.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -114,11 +118,11 @@ in
   # system.copySystemConfiguration = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user} = {
+  users.users.${userName} = {
     isNormalUser = true;
     description = "${userDescription}";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    # packages = with pkgs; [];
   };
 
   fonts.fonts = with pkgs; [
