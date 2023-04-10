@@ -36,6 +36,9 @@
     kitty
     # hyper
 
+    # nix lsp
+    nil
+
     # window managers
     i3-gaps
 
@@ -52,8 +55,11 @@
     # oh-my-zsh
     # fzf-zsh
 
-    tmux
+    # language runtimes
     python
+    nodejs
+
+    tmux
     fzf
     bat
     ack
@@ -78,8 +84,10 @@
     httpie
     htop
     ripgrep
+    pstree
 
     # file manager
+    lf
     ranger
     vifm
 
