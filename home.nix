@@ -1,15 +1,22 @@
-{ config, pkgs, ... }:
+# { config, pkgs, pkgs-unstable, userName, userDescription, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 # let
-#   pkgs-unstable = import <pkgs-unstable> {};
+#   inherit userName;
 # in
 
 {
   home.username = "bradley";
   home.homeDirectory = "/home/bradley";
 
+  # home.username = "${userName}";
+  # home.homeDirectory = "/home/${userName}";
+
   programs.home-manager.enable = true;
   home.stateVersion = "22.11";
+
+  xdg.enable = true;
+  xdg.configHome = "/home/bradley/.config";
 
   manual.manpages.enable = false;
 
@@ -53,7 +60,7 @@
     nix-zsh-completions
     zsh-nix-shell
     # oh-my-zsh
-    # fzf-zsh
+    fzf-zsh
 
     # language runtimes
     python
@@ -85,6 +92,8 @@
     htop
     ripgrep
     pstree
+    jq
+    nix-direnv
 
     # file manager
     lf

@@ -15,6 +15,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager }:
     let
       system = "x86_64-linux";
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -25,14 +26,10 @@
         config.allowUnfree = true;
       };
 
-      username = "bradley";
-      userDescription = "Bradley";
-      hostName = "nixos";
+      userName = "bradley";
+      # userDescription = "Bradley";
+      hostName = "desktop";
     in {
-
-      # defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-      # defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
-
       nixosConfigurations = {
         ${hostName} = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
@@ -42,24 +39,25 @@
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = {
+              home-manager.users.${userName} = {
                 imports = [ ./home.nix ];
               };
             }
-            nur.nixosModules.nur
+            # nur.nixosModules.nur
           ];
         };
       };
       hmConfig = {
-        ${username} = home-manager.lib.homeManagerConfiguration {
+        ${userName} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          # extraSpecialArgs = { inherit pkgs-unstable userName userDescription; };
           extraSpecialArgs = { inherit pkgs-unstable; };
           modules = [
             ./home.nix
             {
               home = {
-                username = "${username}";
-                homeDirectory = "/home/${username}";
+                username = "${userName}";
+                homeDirectory = "/home/${userName}";
                 stateVersion = "22.11";
               };
             }
