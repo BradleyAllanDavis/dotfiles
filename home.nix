@@ -1,16 +1,10 @@
-# { config, pkgs, pkgs-unstable, userName, userDescription, ... }:
-{ config, pkgs, pkgs-unstable, ... }:
-
-# let
-#   inherit userName;
-# in
+{ config, pkgs, pkgs-unstable, username, userDescription, ... }:
 
 {
   home.username = "bradley";
   home.homeDirectory = "/home/bradley";
-
-  # home.username = "${userName}";
-  # home.homeDirectory = "/home/${userName}";
+  # home.username = "${username}";
+  # home.homeDirectory = "/home/${username}";
 
   programs.home-manager.enable = true;
   home.stateVersion = "22.11";

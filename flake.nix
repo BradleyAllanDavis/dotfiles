@@ -26,8 +26,8 @@
         config.allowUnfree = true;
       };
 
-      userName = "bradley";
-      # userDescription = "Bradley";
+      username = "bradley";
+      userDescription = "Bradley Davis";
       hostName = "desktop";
     in {
       nixosConfigurations = {
@@ -39,25 +39,25 @@
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${userName} = {
+              home-manager.users.${username} = {
                 imports = [ ./home.nix ];
               };
             }
-            # nur.nixosModules.nur
+            nur.nixosModules.nur
           ];
         };
       };
       hmConfig = {
-        ${userName} = home-manager.lib.homeManagerConfiguration {
+        ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          # extraSpecialArgs = { inherit pkgs-unstable userName userDescription; };
-          extraSpecialArgs = { inherit pkgs-unstable; };
+          extraSpecialArgs = { inherit pkgs-unstable username userDescription; };
+          # extraSpecialArgs = { inherit pkgs-unstable; };
           modules = [
             ./home.nix
             {
               home = {
-                username = "${userName}";
-                homeDirectory = "/home/${userName}";
+                username = "${username}";
+                homeDirectory = "/home/${username}";
                 stateVersion = "22.11";
               };
             }
