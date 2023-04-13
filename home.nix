@@ -14,6 +14,7 @@
 
   manual.manpages.enable = false;
 
+  # Raw config files to link to $HOME
   home.file.".ackrc".source = ./config/ackrc;
 
   home.packages = with pkgs; [
