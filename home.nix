@@ -1,13 +1,13 @@
 { config, pkgs, pkgs-unstable, username, userDescription, ... }:
 
 {
+  programs.home-manager.enable = true;
+  home.stateVersion = "22.11";
+
   home.username = "bradley";
   home.homeDirectory = "/home/bradley";
   # home.username = "${username}";
   # home.homeDirectory = "/home/${username}";
-
-  programs.home-manager.enable = true;
-  home.stateVersion = "22.11";
 
   xdg.enable = true;
   xdg.configHome = "/home/bradley/.config";
