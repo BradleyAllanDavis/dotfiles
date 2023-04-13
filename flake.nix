@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/22.11";                                 # Nix Packages
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";             # Nix Packages (unstable)
+    unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";             # Nix Packages (unstable)
     nur.url = "github:nix-community/NUR";
 
     home-manager = {                                                            # Home Package Management
@@ -12,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nur, home-manager }:
+  outputs = { self, nixpkgs, unstable, nur, home-manager }:
     let
       system = "x86_64-linux";
 
@@ -21,7 +21,7 @@
         config.allowUnfree = true;
       };
 
-      pkgs-unstable = import nixpkgs-unstable {
+      pkgs-unstable = import unstable {
         inherit system;
         config.allowUnfree = true;
       };

@@ -5,6 +5,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
@@ -151,7 +152,7 @@ in
       git
       tmux
       python
-      starship
+      pkgs-unstable.starship
       xclip
     ];
   };
