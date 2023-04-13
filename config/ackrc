@@ -1,0 +1,23 @@
+# Use "less -r" as my pager
+--pager=less
+
+# only search with case sensitivity if there is mixed case
+--smart-case
+
+# Reasonable solarized colors
+--color-filename=yellow
+--color-match=white
+--color-lineno=reset
+
+--with-filename
+
+# follow symlinks
+--follow
+
+# directory ignores
+--ignore-dir=.git
+--ignore-dir=.svn
+--ignore-dir=venv
+
+# sort results by filename
+--sort-files

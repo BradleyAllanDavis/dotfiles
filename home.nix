@@ -14,6 +14,8 @@
 
   manual.manpages.enable = false;
 
+  home.file.".ackrc".source = ./config/ackrc;
+
   home.packages = with pkgs; [
     git-crypt
 
