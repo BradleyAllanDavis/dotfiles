@@ -52,7 +52,9 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${username} = {
-                imports = [ ./home.nix ];
+                imports = [
+                  ./home.nix
+                ];
               };
             }
             nur.nixosModules.nur
@@ -64,12 +66,14 @@
           inherit pkgs-darwin darwin;
           system = "x86_64-darwin";
           modules = [
-            ./hosts/${macHostName}/configuration.nix
+            ./hosts/${macHostName}/nix.conf
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${username} = {
-                imports = [ ./home.nix ];
+                imports = [
+                  #./home.nix
+                ];
               };
             }
           ];
