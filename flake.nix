@@ -43,20 +43,21 @@
       nixosConfigurations = {
         ${desktopHostName} = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
+          specialArgs = { inherit username userDescription; };
           modules = [
+            home-manager.nixosModules.home-manager
             ./hosts/${desktopHostName}/configuration.nix
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${username} = {
-                imports = [
-                  ./hosts/${desktopHostName}/home.nix
-                ];
-              };
-            }
+            # home-manager.nixosModules.home-manager {
+            #   home-manager.useGlobalPkgs = true;
+            #   home-manager.useUserPackages = true;
+            #   home-manager.users.${username} = {
+            #     imports = [
+            #       ./hosts/desktop/home.nix
+            #     ];
+            #   };
+            # }
             nur.nixosModules.nur
           ];
-          # inputs = { inherit username userDescription; };
         };
       };
       hmConfig = {
@@ -65,13 +66,13 @@
           extraSpecialArgs = { inherit username userDescription; };
           modules = [
             ./hosts/desktop/home.nix
-            {
-              home = {
-                username = "${username}";
-                homeDirectory = "/home/${username}";
-                stateVersion = "22.11";
-              };
-            }
+            # {
+            #   home = {
+            #     username = "${username}";
+            #     homeDirectory = "/home/${username}";
+            #     stateVersion = "22.11";
+            #   };
+            # }
           ];
         };
       };

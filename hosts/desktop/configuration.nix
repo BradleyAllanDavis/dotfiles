@@ -1,22 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
-  # username,
-  # userDescription,
+  # home-manager,
+  username,
+  userDescription,
   ...
 }:
 
-let
-  userName = "bradley";
-  userDescription = "Bradley";
-in
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
     ./hardware-configuration.nix
+    # ./home.nix
   ];
 
   # Bootloader
@@ -49,12 +43,6 @@ in
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     autoRepeatDelay = 220;
@@ -62,6 +50,14 @@ in
 
     layout = "us";
     xkbVariant = "";
+
+  # Enable KDE Plasma Desktop Environment.
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+
+    # displayManager.sessionCommands = ''
+    #   ${pkgs.xorg.xset}`which xset` r rate 220 80
+    # '';
 
     # displayManager = {
     #   defaultSession = "none+i3";
@@ -78,12 +74,6 @@ in
     #  ];
     # };
   };
-
-  # services.xserver.autoRepeatDelay = 220;
-  # services.xserver.autoRepeatInterval = 50;
-  # services.xserver.displayManager.sessionCommands = ''
-  #   ${pkgs.xorg.xset}`which xset` r rate 220 80
-  # '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -114,7 +104,7 @@ in
   # system.copySystemConfiguration = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${userName} = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "${userDescription}";
     extraGroups = [ "networkmanager" "wheel" ];
