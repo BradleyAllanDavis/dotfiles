@@ -1,20 +1,16 @@
-# Welcome to my new Nix Flake dotfiles
+# Nix Flake Dotfiles
 
-I am porting over my existing dotfiles to Nix.
+Welcome to my new dotfiles based on Nix!
 
-## Build and Run
+This is a work in progress as I port over my existing dotfiles to Nix/NixOS.
 
-### Home Manager
-```
-nix build .#hmConfig.<username>.activationPackage
-./result/activate
-```
+## TODOs
 
-### NixOS
-```
-nixos-rebuild build --flake .#<hostname>
-sudo nixos-rebuild switch --flake .#<hostname>
-```
+- [ ] Parameterize nixpkgs for consumption by both macOS and NixOS.
+- [ ] 
+- [ ] 
+- [ ] 
+
 
 
 

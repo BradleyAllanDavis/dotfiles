@@ -1,0 +1,106 @@
+tap "epk/epk"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "jakehilborn/jakehilborn"
+tap "jesseduffield/lazygit"
+tap "lencx/chatgpt", "https://github.com/lencx/ChatGPT.git"
+brew "ack"
+brew "automake"
+brew "awscli"
+brew "bash"
+brew "bash-git-prompt"
+brew "boost"
+brew "libevent"
+brew "bitcoin"
+brew "brew-cask-completion"
+brew "glib"
+brew "pkg-config"
+brew "coreutils"
+brew "unbound"
+brew "gnutls"
+brew "libtool"
+brew "cask"
+brew "colordiff"
+brew "curl"
+brew "diff-so-fancy"
+brew "fish"
+brew "frpc"
+brew "frps"
+brew "fzf"
+brew "gcc"
+brew "gist"
+brew "git"
+brew "go"
+brew "harfbuzz"
+brew "openjdk"
+brew "groovy"
+brew "helm"
+brew "hub"
+brew "k9s"
+brew "kubernetes-cli"
+brew "kube-ps1"
+brew "kubectx"
+brew "mas"
+brew "maven"
+brew "neovim"
+brew "node"
+brew "pyenv"
+brew "python@3.10"
+brew "python@3.9"
+brew "ranger"
+brew "redis"
+brew "sbt"
+brew "scala"
+brew "starship"
+brew "telnet"
+brew "tig"
+brew "tldr"
+brew "tmux"
+brew "trash"
+brew "tree"
+brew "youtube-dl"
+brew "jakehilborn/jakehilborn/displayplacer"
+brew "jesseduffield/lazygit/lazygit"
+mas "24 Hour Wallpaper", id: 1226087575
+mas "Amphetamine", id: 937984704
+mas "Bear", id: 1091189122
+mas "Boop", id: 1518425043
+mas "CodeRunner", id: 955297617
+mas "Codye", id: 1516894961
+mas "com.echodot.Red", id: 1491764008
+mas "Cookbye", id: 1580777168
+mas "Craft", id: 1487937127
+mas "Cryptowatch Desktop", id: 1527457231
+mas "Developer", id: 640199958
+mas "Display Maid", id: 450063525
+mas "GarageBand", id: 682658836
+mas "GIF Keyboard", id: 1043270657
+mas "HazeOver", id: 430798174
+mas "Hex Fiend", id: 1342896380
+mas "HP Smart", id: 1474276998
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "LimeChat", id: 414030210
+mas "Medis", id: 1579200037
+mas "Messenger", id: 1480068668
+mas "Moom", id: 419330170
+mas "Noizio", id: 928871589
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Paste", id: 967805235
+mas "Patterns", id: 429449079
+mas "Peek", id: 1554235898
+mas "PopClip", id: 445189367
+mas "Quiver", id: 866773894
+mas "RadarScope", id: 432027450
+mas "Slack", id: 803453959
+mas "SnippetsLab", id: 1006087419
+mas "Telegram", id: 747648890
+mas "TestFlight", id: 899247664
+mas "Things", id: 904280696
+mas "ToothFairy", id: 1191449274
+mas "Transmit", id: 1436522307
+mas "WhatsApp", id: 1147396723
+mas "Xcode", id: 497799835

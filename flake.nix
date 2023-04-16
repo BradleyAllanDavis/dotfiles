@@ -2,25 +2,25 @@
   description = "My $HOME";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/22.11";                                 # Nix Packages
+    # Uncomment for NixOS
+    # nixpkgs.url = "github:NixOS/nixpkgs/22.11";                                 # Nix Packages
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";             # Nix Packages (unstable)
     nur.url = "github:nix-community/NUR";
+    # home-manager = {                                                            # Home Package Management
+    #   url = "github:nix-community/home-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    #nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";                                 # Nix Packages
+    # Uncomment for Darwin
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";                                 # Nix Packages
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     home-manager = {                                                            # Home Package Management
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # home-manager-darwin = {                                                            # Home Package Management
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs-darwin";
-    # };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nur, darwin, home-manager }:
@@ -52,19 +52,8 @@
           #inherit pkgs-darwin;
           system = "aarch64-darwin";
           modules = [
+            home-manager.darwinModules.home-manager
             ./hosts/${macHostName}/default.nix
-            #./hosts/${macHostName}/home.nix
-            #home-manager-darwin.darwinModules.home-manager
-            #./hosts/${macHostName}/nix.conf
-            #home-manager.nixosModules.home-manager {
-            #  home-manager.useGlobalPkgs = true;
-            #  home-manager.useUserPackages = true;
-            #  home-manager.users.${username} = {
-            #    imports = [
-            #      #./home.nix
-            #    ];
-            #  };
-            #}
           ];
           inputs = { inherit darwin home-manager pkgs; };
         };
