@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, username, userDescription, ... }:
+{ config, pkgs, username, userDescription, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -15,7 +15,7 @@
   manual.manpages.enable = false;
 
   # Raw config files to link to $HOME
-  home.file.".ackrc".source = ./config/ackrc;
+  home.file.".ackrc".source = ../../config/ackrc;
 
   home.packages = with pkgs; [
     git-crypt
@@ -62,7 +62,7 @@
     fzf-zsh
 
     # language runtimes
-    python
+    # python
     nodejs
 
     tmux
@@ -139,11 +139,5 @@
     # jetbrains.pycharm-professional
     # jetbrains.jdk
   ];
-  # ] ++ (with pkgs-unstable; [
-  #   starship
-  # ]);
-
-
-
 
 }

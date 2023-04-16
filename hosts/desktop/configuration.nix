@@ -5,7 +5,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
@@ -151,8 +150,8 @@ in
       neovim
       git
       tmux
-      python
-      pkgs-unstable.starship
+      python3
+      starship
       xclip
     ];
   };
