@@ -69,7 +69,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.${username} = {
                 imports = [
-                  ./home.nix
+                  ./hosts/desktop/home.nix
                 ];
               };
             }
