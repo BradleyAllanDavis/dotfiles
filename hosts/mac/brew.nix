@@ -135,10 +135,6 @@
       "tunnelblick"
       "visual-studio-code"
       "warp"
-      #"hammerspoon"
-      #"amethyst"
-      #"logseq"
-      #"iina"
     ];
     masApps = {
       "24 Hour Wallpaper" = 1226087575;
@@ -151,6 +147,7 @@
       "Cookbye" = 1580777168;
       "Craft" = 1487937127;
       "Cryptowatch Desktop" = 1527457231;
+      "DaisyDisk" = 411643860;
       "Developer" = 640199958;
       "Display Maid" = 450063525;
       "GarageBand" = 682658836;
@@ -160,6 +157,7 @@
       "HP Smart" = 1474276998;
       "iMovie" = 408981434;
       "Keynote" = 409183694;
+      "Kindle" = 405399194;
       "LimeChat" = 414030210;
       "Medis" = 1579200037;
       "Messenger" = 1480068668;
@@ -180,6 +178,7 @@
       "Things" = 904280696;
       "ToothFairy" = 1191449274;
       "Transmit" = 1436522307;
+      "Twitter" = 1482454543;
       "WhatsApp" = 1147396723;
       "Xcode" = 497799835;
     };

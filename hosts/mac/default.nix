@@ -3,6 +3,7 @@
   imports = [
     ./home.nix
     ./brew.nix
+    ./preferences.nix
   ];
 
   services.nix-daemon.enable = true;
@@ -18,6 +19,5 @@
   nix.gc.user = "bradley";
   nix.gc.automatic = true;
 
-  system.defaults.dock.autohide = true;
 
 }
