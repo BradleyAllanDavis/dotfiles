@@ -19,6 +19,8 @@
 
   home.packages = with pkgs; [
     git-crypt
+    lsd
+    entr
 
     xorg.xbacklight
 

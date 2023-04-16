@@ -19,6 +19,8 @@
 
     home.packages = with pkgs; [
       git-crypt
+      entr
+      lsd
     ];
 
     # programs.tmux = { # my tmux configuration, for example
