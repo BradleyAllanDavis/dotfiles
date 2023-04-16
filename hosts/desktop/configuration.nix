@@ -5,6 +5,8 @@
 {
   config,
   pkgs,
+  # username,
+  # userDescription,
   ...
 }:
 
@@ -47,22 +49,16 @@ in
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.lightdm.enable = true;
-  # services.xserver.desktopManager.pantheon.enable = true;
-
   # Enable KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
+  # Enable the X11 windowing system.
   services.xserver = {
-    # enable = true;
-    # autoRepeatDelay = 220;
-    # autoRepeatInterval = 50;
+    enable = true;
+    autoRepeatDelay = 220;
+    autoRepeatInterval = 50;
 
     layout = "us";
     xkbVariant = "";
@@ -151,7 +147,6 @@ in
       git
       tmux
       python3
-      starship
       xclip
     ];
   };

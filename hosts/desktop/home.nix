@@ -1,4 +1,10 @@
-{ config, pkgs, username, userDescription, ... }:
+{
+  config,
+  pkgs,
+  # username,
+  # userDescription,
+  ...
+}:
 
 {
   programs.home-manager.enable = true;
@@ -18,6 +24,7 @@
   home.file.".ackrc".source = ../../config/ackrc;
 
   home.packages = with pkgs; [
+    starship
     git-crypt
     lsd
     entr

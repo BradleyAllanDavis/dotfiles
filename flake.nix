@@ -50,12 +50,13 @@
               home-manager.useUserPackages = true;
               home-manager.users.${username} = {
                 imports = [
-                  ./hosts/desktop/home.nix
+                  ./hosts/${desktopHostName}/home.nix
                 ];
               };
             }
             nur.nixosModules.nur
           ];
+          # inputs = { inherit username userDescription; };
         };
       };
       hmConfig = {
