@@ -9,8 +9,6 @@
       "homebrew/cask"
       "homebrew/core"
       "homebrew/services"
-      "jakehilborn/jakehilborn"
-      "jesseduffield/lazygit"
     ];
     brews = [
       "ack"
