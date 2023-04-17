@@ -30,16 +30,6 @@
       desktopHostName = "desktop";
       macHostName = "mac";
     in {
-      darwinConfigurations = {
-        ${macHostName} = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          pkgs = pkgs-darwin;
-          modules = [
-            home-manager.darwinModules.home-manager
-            ./hosts/${macHostName}/default.nix
-          ];
-        };
-      };
       nixosConfigurations = {
         ${desktopHostName} = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
@@ -48,6 +38,16 @@
             home-manager.nixosModules.home-manager
             ./hosts/${desktopHostName}/configuration.nix
             nurpkgs.nixosModules.nur
+          ];
+        };
+      };
+      darwinConfigurations = {
+        ${macHostName} = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          pkgs = pkgs-darwin;
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./hosts/${macHostName}
           ];
         };
       };
