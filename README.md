@@ -8,7 +8,8 @@ This is a work in progress as I port over my existing dotfiles to Nix/NixOS.
 
 - [ ] Parameterize nixpkgs for consumption by both macOS and NixOS.
 - [ ] Migrate macOS preferences
-- [ ] 
+- [ ] Wrapper script to call flake with hostname
+- [ ]
 
 ## Darwin
 

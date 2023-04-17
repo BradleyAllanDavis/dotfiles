@@ -51,15 +51,6 @@
           ];
         };
       };
-      hmConfig = {
-        ${username} = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { inherit username userDescription; };
-          modules = [
-            ./hosts/${desktopHostName}/home.nix
-          ];
-        };
-      };
     };
 
 }
