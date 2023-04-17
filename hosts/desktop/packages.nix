@@ -1,4 +1,9 @@
 pkgs: with pkgs; [
+  git
+  neovim
+  tmux
+  xclip
+
   starship
   git-crypt
   lsd
@@ -16,7 +21,6 @@ pkgs: with pkgs; [
   nix-bash-completions
 
   # text editors
-  neovim
   helix
 
   # terminals
@@ -44,7 +48,7 @@ pkgs: with pkgs; [
   fzf-zsh
 
   # language runtimes
-  # python
+  python3
   nodejs
 
   tmux
