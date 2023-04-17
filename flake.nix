@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nur.url = "github:nix-community/NUR";
+    nurpkgs.url = "github:nix-community/NUR";
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nur, darwin, home-manager }:
+  outputs = { self, nixpkgs, nurpkgs, darwin, home-manager }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -47,7 +47,7 @@
           modules = [
             home-manager.nixosModules.home-manager
             ./hosts/${desktopHostName}/configuration.nix
-            nur.nixosModules.nur
+            nurpkgs.nixosModules.nur
           ];
         };
       };

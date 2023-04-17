@@ -57,7 +57,7 @@
         "type": "github"
       }
     },
-    "nur": {
+    "nurpkgs": {
       "locked": {
         "lastModified": 1681731920,
         "narHash": "sha256-neuZnv55Tpu+IJ4PqUSsSnJQ7rlnZO5uLQV6DMe2qNw=",
@@ -77,7 +77,7 @@
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nur": "nur"
+        "nurpkgs": "nurpkgs"
       }
     }
   },
