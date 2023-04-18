@@ -13,6 +13,7 @@ in
 {
   imports = [
     ../config
+    ./brew.nix
   ];
 
   programs.home-manager.enable = true;
@@ -22,9 +23,6 @@ in
     username = "${username}";
     homeDirectory = "/home/${username}";
     packages = packages pkgs;
-    # pointerCursor = {
-    #   size = 20;
-    # };
   };
 
   xdg.enable = true;

@@ -18,7 +18,6 @@
     isNormalUser = true;
     description = "${userDescription}";
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [];
   };
 
   security.sudo.wheelNeedsPassword = false;

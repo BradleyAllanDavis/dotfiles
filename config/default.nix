@@ -1,7 +1,7 @@
 {
   home = {
     file = {
-      ".ackrc".source = ./ackrc;
+      ".ackrc".source = ./files/ackrc;
     };
   };
 }

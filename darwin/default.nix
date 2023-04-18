@@ -1,23 +1,33 @@
-# { pkgs, ... }:
+# macOS configuration
+
+{ lib, inputs, nixpkgs, home-manager, darwin, username, userDescription, ... }:
+
+let
+  system = "aarch64-darwin";
+
+  pkgs-darwin = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
+
+  macbookHostName = "mac";
+in
 {
-  imports = [
-    ./home.nix
-    ./brew.nix
-    ./preferences.nix
-  ];
+  ${macbookHostName} = darwin.lib.darwinSystem {
+    inherit system;
+    pkgs = pkgs-darwin;
+    specialArgs = { inherit username inputs; };
+    modules = [
+      ./configuration.nix
 
-  services.nix-daemon.enable = true;
-
-  nix.extraOptions = ''
-    build-users-group = nixbld
-    auto-optimise-store = true
-    bash-prompt-prefix = (nix:$name)\040
-    experimental-features = nix-command flakes
-    extra-nix-path = nixpkgs=flake:nixpkgs
-  '';
-
-  nix.gc.user = "bradley";
-  nix.gc.automatic = true;
-
-
+      home-manager.darwinModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = { inherit username userDescription; };
+        home-manager.users.${username} = [
+          ./home.nix
+        ];
+      }
+    ];
+  };
 }
