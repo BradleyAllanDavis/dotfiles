@@ -9,6 +9,7 @@ let
     inherit system;
     config.allowUnfree = true;
   };
+
   lib = nixpkgs.lib;
 
   desktopHostName = "desktop";

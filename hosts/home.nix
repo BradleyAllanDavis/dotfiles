@@ -11,18 +11,24 @@ let
   packages = import ./packages.nix;
 in
 {
+  imports = [
+    ../config
+  ];
+
   programs.home-manager.enable = true;
-  home.stateVersion = "22.11";
 
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
-
-  home.packages = packages pkgs;
+  home = {
+    stateVersion = "22.11";
+    username = "${username}";
+    homeDirectory = "/home/${username}";
+    packages = packages pkgs;
+    # pointerCursor = {
+    #   size = 20;
+    # };
+  };
 
   xdg.enable = true;
   xdg.configHome = "/home/${username}/.config";
 
   manual.manpages.enable = false;
-
-  home.file.".ackrc".source = ../config/ackrc;
 }

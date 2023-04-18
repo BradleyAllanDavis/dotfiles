@@ -4,7 +4,6 @@
 
 {
   imports = [
-
   ];
 
   system = {
@@ -15,6 +14,15 @@
     stateVersion = "22.11";
   };
 
+  users.users.${username} = {
+    isNormalUser = true;
+    description = "${userDescription}";
+    extraGroups = [ "networkmanager" "wheel" ];
+    # packages = with pkgs; [];
+  };
+
+  security.sudo.wheelNeedsPassword = false;
+
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -24,20 +32,13 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-    package = pkgs.nixVersions.unstable;    # Enable nixFlakes on system
+    package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
       keep-outputs          = true
       keep-derivations      = true
     '';
-  };
-
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${userDescription}";
-    extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [];
   };
 
   environment = {
@@ -52,6 +53,11 @@
       tmux
       starship
       xclip
+      killall
+      nano
+      pciutils
+      usbutils
+      wget
     ];
   };
 
@@ -63,6 +69,12 @@
     #     "Hack Nerd Font Mono"
     #   ];
     # })
+    # carlito                                 # NixOS
+    # vegur                                   # NixOS
+    # source-code-pro
+    # jetbrains-mono
+    # font-awesome                            # Icons
+    # corefonts                               # MS
   ];
 
   boot.loader = {
@@ -84,6 +96,11 @@
 
   time.timeZone = "America/Matamoros";
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  # };
 
   services.xserver = {
     enable = true;
