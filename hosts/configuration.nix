@@ -1,24 +1,35 @@
-{
-  config,
-  pkgs,
-  # home-manager,
-  username,
-  userDescription,
-  ...
-}:
+# Main system configuration
+
+{ config, pkgs, inputs, username, userDescription, ... }:
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./home.nix
+
   ];
 
-  system.stateVersion = "22.11";
+  system = {
+    autoUpgrade = {
+      enable = true;
+      channel = "https://nixos.org/channels/nixos-unstable";
+    };
+    stateVersion = "22.11";
+  };
 
   nix = {
-    package = pkgs.nixFlakes;
+    settings = {
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    package = pkgs.nixVersions.unstable;    # Enable nixFlakes on system
+    registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
+      keep-outputs          = true
+      keep-derivations      = true
     '';
   };
 
@@ -36,7 +47,11 @@
       VISUAL = "nvim";
     };
     systemPackages = with pkgs; [
-      hello
+      git
+      neovim
+      tmux
+      starship
+      xclip
     ];
   };
 

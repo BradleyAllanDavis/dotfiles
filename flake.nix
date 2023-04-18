@@ -14,33 +14,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, nurpkgs, darwin, home-manager }:
+  outputs = inputs @ { self, nixpkgs, nurpkgs, darwin, home-manager }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
       pkgs-darwin = import nixpkgs {
         system = "aarch64-darwin";
         config.allowUnfree = true;
       };
       username = "bradley";
       userDescription = "Bradley Allan Davis";
-      desktopHostName = "desktop";
       macHostName = "mac";
     in {
-      nixosConfigurations = {
-        ${desktopHostName} = nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = { inherit username userDescription; };
-          modules = [
-            home-manager.nixosModules.home-manager
-            ./hosts/${desktopHostName}/configuration.nix
-            nurpkgs.nixosModules.nur
-          ];
-        };
-      };
+      nixosConfigurations = (
+        import ./hosts {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager nurpkgs username userDescription;
+        }
+      );
       darwinConfigurations = {
         ${macHostName} = darwin.lib.darwinSystem {
           system = "aarch64-darwin";

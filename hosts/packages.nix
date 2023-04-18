@@ -1,10 +1,4 @@
 pkgs: with pkgs; [
-  git
-  neovim
-  tmux
-  xclip
-
-  starship
   git-crypt
   lsd
   entr

@@ -20,7 +20,7 @@ Use Determinate Systems nix-installer to install Nix.
 These are other peoples' dotfiles that have elements I want to emulate.
 
 [malob, really nice with darwin, well documented](https://github.com/malob/nixpkgs)
-[]()
+[matthias](https://github.com/MatthiasBenaets/nixos-config)
 
 
 
