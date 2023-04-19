@@ -8,9 +8,9 @@
   ...
 }:
 
-let
-  packages = import ./packages.nix;
-in
+# let
+#   packages = import ./packages.nix;
+# in
 {
   imports = [
     ../config
@@ -21,12 +21,12 @@ in
   home = lib.mkForce {
     stateVersion = "22.11";
     username = "${username}";
-    homeDirectory = "/Users/${username}";
-    packages = packages pkgs;
+    # homeDirectory = "/Users/${username}";
+    # packages = packages pkgs;
   };
 
-  xdg.enable = true;
-  xdg.configHome = "/Users/${username}/.config";
+  # xdg.enable = true;
+  # xdg.configHome = "/Users/${username}/.config";
 
   manual.manpages.enable = false;
 
