@@ -10,19 +10,18 @@ let
     config.allowUnfree = true;
   };
 
-  # lib = nixpkgs.lib;
+  lib = nixpkgs.lib;
 
   macbookHostName = "mac";
 in
 {
   ${macbookHostName} = darwin.lib.darwinSystem {
     inherit system lib;
-    # specialArgs = { inherit username userDescription; };
     specialArgs = {
       inherit inputs lib username userDescription;
-      # host = {
-      #   hostName = "${macbookHostName}";
-      # };
+      host = {
+        hostName = "${macbookHostName}";
+      };
     };
     modules = [
       ./configuration.nix
@@ -30,7 +29,7 @@ in
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit lib username userDescription; };
+        home-manager.extraSpecialArgs = { inherit username userDescription; };
         home-manager.users.${username} = {
           imports = [
             ./home.nix

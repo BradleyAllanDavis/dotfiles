@@ -176,7 +176,6 @@
       "Things" = 904280696;
       "ToothFairy" = 1191449274;
       "Transmit" = 1436522307;
-      "Twitter" = 1482454543;
       "WhatsApp" = 1147396723;
       "Xcode" = 497799835;
     };
