@@ -5,12 +5,11 @@
 let
   system = "aarch64-darwin";
 
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
-
-  lib = nixpkgs.lib;
+  # pkgs = import nixpkgs {
+  #   inherit system;
+  #   config.allowUnfree = true;
+  # };
+  # lib = nixpkgs.lib;
 
   macbookHostName = "mac";
 in
@@ -18,7 +17,7 @@ in
   ${macbookHostName} = darwin.lib.darwinSystem {
     inherit system lib;
     specialArgs = {
-      inherit inputs lib username userDescription;
+      inherit inputs username userDescription;
       host = {
         hostName = "${macbookHostName}";
       };

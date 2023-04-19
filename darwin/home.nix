@@ -18,10 +18,10 @@ in
 
   programs.home-manager.enable = true;
 
-  home = lib.mkForce {
+  home = {
     stateVersion = "22.11";
     username = "${username}";
-    homeDirectory = "/Users/${username}";
+    # homeDirectory = "/Users/${username}";
     packages = packages pkgs;
   };
 
