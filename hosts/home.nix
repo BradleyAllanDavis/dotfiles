@@ -13,7 +13,6 @@ in
 {
   imports = [
     ../config
-    ./brew.nix
   ];
 
   programs.home-manager.enable = true;

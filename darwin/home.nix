@@ -1,5 +1,6 @@
 # General home-manager configuration
 {
+  lib,
   config,
   pkgs,
   username,
@@ -17,7 +18,7 @@ in
 
   programs.home-manager.enable = true;
 
-  home = {
+  home = lib.mkForce {
     stateVersion = "22.11";
     username = "${username}";
     homeDirectory = "/Users/${username}";

@@ -1,8 +1,9 @@
-{}:
+{ ... }:
 
 {
   imports = [
     ./preferences.nix
+    ./brew.nix
   ];
 
   services.nix-daemon.enable = true;
