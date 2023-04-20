@@ -10,11 +10,15 @@
       ".config/nvim/coc-settings.json".source = ./files/nvim/coc-settings.json;
       ".config/nvim/init.vim".source = ./files/vimrc;
       ".config/starship.toml".source = ./files/starship.toml;
+      ".wallpapers/wall".source = ./files/wallpapers/1920x1080/solarized_texture_horizontal.jpg;
       ".gdbinit".source = ./files/gdbinit;
+      ".ghc/ghci.conf".source = ./files/ghc/ghci.conf;
       ".hushlogin".source = ./files/hushlogin;
       ".ideavimrc".source = ./files/ideavimrc;
       ".inputrc".source = ./files/inputrc;
       ".lesskey".source = ./files/lesskey;
+      ".local/share/fonts/SF Mono Regular Nerd Font Complete.otf".source = ./files/local/share/fonts/SF_Mono_Regular_Nerd_Font_Complete.otf;
+      ".screenlayout/home.sh".source = ./files/screenlayout/home.sh;
       ".shell_config/aliases".source = ./files/bash/aliases;
       ".shell_config/directories".source = ./files/bash/directories;
       ".shell_config/dotfiles".source = ./files/bash/dotfiles;
@@ -34,6 +38,8 @@
       ".tmux/snapshot.conf".source = ./files/tmux/snapshot.conf;
       ".tmux/tpm.conf".source = ./files/tmux/tpm.conf;
       ".vimrc".source = ./files/vimrc;
+      ".wallpapers/1920x1080/solarized_texture_horizontal.jpg".source = ./files/wallpapers/1920x1080/solarized_texture_horizontal.jpg;
+      ".wallpapers/1920x1080/solarized_texture_vertical.jpg".source = ./files/wallpapers/1920x1080/solarized_texture_vertical.jpg;
       ".xbindkeysrc".source = ./files/xbindkeysrc;
       ".xinitrc".source = ./files/xinitrc;
       ".xmodmap".source = ./files/xmodmap;
