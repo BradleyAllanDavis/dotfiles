@@ -1,0 +1,115 @@
+# SSH Settings {{{
+# if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+#   export TERM="xterm-256color"
+# fi
+# }}}
+# SSH Keys {{{
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+  echo "Initializing new SSH agent..."
+  `which ssh-agent` | sed 's/^echo/#echo/' > "${SSH_ENV}"
+  echo "... succeeded"
+  chmod 600 "${SSH_ENV}"
+  . "${SSH_ENV}" > /dev/null
+  `which ssh-add`;
+}
+
+# Source SSH settings, if applicable
+if [ -f "${SSH_ENV}" ]; then
+  . "${SSH_ENV}" > /dev/null
+  #ps ${SSH_AGENT_PID} doesn't work under cywgin
+  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+    start_agent;
+  }
+else
+  start_agent;
+fi
+
+# Add all private keys to agent
+for possiblekey in ${HOME}/.ssh/id_*; do
+  if grep -q PRIVATE "$possiblekey"; then
+    ssh-add -q "$possiblekey"
+  fi
+done
+# }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

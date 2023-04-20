@@ -1,0 +1,119 @@
+export platform=$(uname)
+if [[ $platform == 'Darwin' ]]; then
+  # brew
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # Shortcuts
+  alias brewrc='vim $DOTFILES/.config/homebrew/Brewfile'
+  alias macrc='vim $DOTFILES/.config/macOS/preferences.sh'
+
+  # `ls` colors
+  export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+  # Homebrew
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications --fontdir=/Library/Fonts"
+  alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+  newbrews() {
+    rm $DOTFILES/.config/homebrew/Brewfile
+    brew bundle dump --file=$DOTFILES/.config/homebrew/Brewfile
+  }
+
+  # Show/hide hidden files in Finder
+  alias show='defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder'
+  alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder'
+
+  # Hide/show all desktop icons (useful when presenting)
+  alias hidedesktop='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
+  alias showdesktop='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
+
+  # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+  # (useful when executing time-consuming commands)
+  alias badge="tput bel"
+
+  # Lock the screen (when going AFK)
+  alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+  # Reload the shell (i.e. invoke as a login shell)
+  alias reload='exec $SHELL -l'
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

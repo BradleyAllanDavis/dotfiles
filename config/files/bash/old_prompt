@@ -1,0 +1,445 @@
+# PS1 {{{
+right_prompt_text() {
+  echo -e "right_prompt_text"
+}
+
+function prompt_right() {
+  echo -e "\033[0;36m$(echo $(right_prompt_text))\033[0m"
+}
+
+# function prompt_right() {
+#   echo -e "\033[0;36m\\\t\033[0m"
+# }
+
+function prompt_left() {
+  echo -e "\033[0;35mhereissometext\033[0m"
+}
+
+function prompt() {
+    compensate=5
+    PS1=$(printf "%*s\r%s\n\$ " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+}
+PROMPT_COMMAND=prompt
+
+PROMPT_COMMAND=generate_prompt
+generate_prompt() {
+  # Unset color to terminal's fg color?
+  PS1="\[\033]0;\W\007\]"
+
+  # Kubernetes context and namespace
+  # PS1+="\n$(kube_ps1)"
+
+  # Make PS1 bold
+  PS1+="${bold_esc}"
+  PS1+="\n"
+
+  # Number of files in directory and total size
+  # PS1+="${reset_esc}(\$(ls -1 | wc -l | sed 's: ::g') files, \$(ls -lah | grep -m 1 total | sed 's/1:total //') bytes)";
+  # PS1+="\n";
+
+  # Using which shell
+  # PS1+="${white_esc} using ";
+  # PS1+="${bryellow_esc}#!`echo $0`: ";
+
+  # Highlight the user in red when root user
+  if [[ "${USER}" == "root" ]]; then
+    local user_style="${red_esc}"
+  else
+    local user_style="${orange_esc}"
+  fi
+  PS1+="${white_esc}${user_style}\u"
+
+  # Highlight the hostname in red when SSHed
+  if [[ "${SSH_TTY}" ]]; then
+    local host_style="${bold_esc}${red_esc}"
+  else
+    local host_style="${yellow_esc}"
+  fi;
+  # PS1+="${white_esc} at "
+  PS1+="${white_esc} | ${host_style}\h"
+
+  # In what directory
+  # PS1+="${white_esc} in "
+  PS1+="${white_esc} | "
+  PS1+="${green_esc}\w"
+
+  # Git status
+  if [ -n "${GITPROMPT+x}" ]; then
+    PS1+="$(git_prompt)"
+  fi
+
+  PS1+="${reset_esc}"
+  PS1+="\n"
+
+  # Virtualenv
+  # PS1+="$(venv_info)"
+
+  # Number of background jobs
+  local JOBS='
+  case "\j" in
+    0) echo "";;
+    1) echo "[1] " ;;
+    2) echo "[2] " ;;
+    3) echo "[3] " ;;
+    *) echo "[*] " ;;
+  esac'
+  PS1+="${reset_esc}\`${JOBS}\`"
+  # PS1+="${white_esc}\`${JOBS}\`"
+
+  # TODO: Not working, red character if exit status of previous command is non-zero
+  # local exit_status="$?"
+  # PS1+="\\[\\e[\`[ $exit_status == 0 ] && echo 37 || echo 31\`m\\]\$(prompt_character)\\[\\e[m\\] "
+
+  # Prompt character without exit status
+  PS1+="${brwhite_esc}$(prompt_character)${reset_esc} "
+}
+# }}}
+# Git {{{
+# Put it all together
+git_prompt() {
+  # Check if the current directory is in a Git repository
+  if [ "$(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}")" == '0' ]; then
+    # echo -e "${white_esc} on $(git_branch) ${white_esc}is $(git_upstream_status) $(git_current_changes)"
+    # echo -e "${white_esc} | $(git_branch) ${white_esc}- $(git_upstream_status) ${white_esc}- $(git_current_changes)"
+    echo -e "${white_esc} | $(git_branch) ${white_esc}- $(git_upstream_status)$(git_current_changes)"
+  else
+    return
+  fi
+}
+
+git_current_changes() {
+  local changes=''
+
+  # Check if the current directory is in .git before running git checks
+  if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+
+    # Ensure the index is up to date
+    git update-index --really-refresh -q &>/dev/null
+
+    # Check for uncommitted changes in the index. '+'
+    if ! $(git diff --quiet --ignore-submodules --cached); then
+      changes+="${white_esc} - ${yellow_esc}uncommitted"
+      # changes+='+'
+    fi
+
+    # Check for unstaged changes '!'
+    if ! $(git diff-files --quiet --ignore-submodules --); then
+      [[ -z "${changes// }" ]] || changes+=""
+      changes+="${white_esc} - ${orange_esc}unstaged"
+      # changes+='!'
+    fi
+
+    # Check for untracked files '?'
+    if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+      [[ -z "${changes// }" ]] || changes+=""
+      changes+="${white_esc} - ${red_esc}untracked"
+      # changes+='?'
+    fi
+
+    # Check for stashed files '$'
+    if $(git rev-parse --verify refs/stash &>/dev/null); then
+      [[ -z "${changes// }" ]] || changes+=""
+      changes+="${white_esc} - ${blue_esc}stashed"
+      # changes+='$'
+    fi
+  fi
+
+  # [ -n "${changes}" ] && changes="${white_esc}has ${changes} ${white_esc}changes"
+  [ -n "${changes}" ] && changes="${white_esc}${changes}"
+  echo -e "${changes}"
+}
+
+git_branch() {
+  local branch_name="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+    git rev-parse --short HEAD 2> /dev/null || \
+    echo '(unknown branch)')"
+
+  if [ "$branch_name" == 'master' ]; then
+    echo -e "${violet_esc}${branch_name}"
+  elif [ "$branch_name" == 'main' ]; then
+    echo -e "${violet_esc}${branch_name}"
+  else
+    echo -e "${purple_esc}${branch_name}"
+  fi
+}
+
+# Stores the divergence from upstream in $p
+git_upstream_status() {
+  local key value
+  local svn_remote svn_url_pattern count n
+  local upstream=git legacy="" verbose="" name=""
+
+  svn_remote=()
+  # get some config options from git-config
+  local output="$(git config -z --get-regexp '^(svn-remote\..*\.url|bash\.showupstream)$' 2>/dev/null | tr '\0\n' '\n ')"
+  while read -r key value; do
+    case "$key" in
+      bash.showupstream)
+        GIT_PS1_SHOWUPSTREAM="$value"
+        if [[ -z "${GIT_PS1_SHOWUPSTREAM}" ]]; then
+          p=""
+          return
+        fi
+        ;;
+      svn-remote.*.url)
+        svn_remote[$((${#svn_remote[@]} + 1))]="$value"
+        svn_url_pattern="$svn_url_pattern\\|$value"
+        upstream=svn+git # default upstream is SVN if available, else git
+        ;;
+    esac
+  done <<< "$output"
+
+  # parse configuration values
+  for option in ${GIT_PS1_SHOWUPSTREAM}; do
+    case "$option" in
+      git|svn) upstream="$option" ;;
+      verbose) verbose=1 ;;
+      legacy)  legacy=1  ;;
+      name)    name=1 ;;
+    esac
+  done
+
+  # Find our upstream
+  case "$upstream" in
+    git)    upstream="@{upstream}" ;;
+    svn*)
+      # get the upstream from the "git-svn-id: ..." in a commit message
+      # (git-svn uses essentially the same procedure internally)
+      local -a svn_upstream
+      svn_upstream=($(git log --first-parent -1 \
+        --grep="^git-svn-id: \(${svn_url_pattern#??}\)" 2>/dev/null))
+              if [[ 0 -ne ${#svn_upstream[@]} ]]; then
+                svn_upstream=${svn_upstream[${#svn_upstream[@]} - 2]}
+                svn_upstream=${svn_upstream%@*}
+                local n_stop="${#svn_remote[@]}"
+                for ((n=1; n <= n_stop; n++)); do
+                  svn_upstream=${svn_upstream#${svn_remote[$n]}}
+                done
+
+                if [[ -z "$svn_upstream" ]]; then
+                  # default branch name for checkouts with no layout:
+                  upstream=${GIT_SVN_ID:-git-svn}
+                else
+                  upstream=${svn_upstream#/}
+                fi
+              elif [[ "svn+git" = "$upstream" ]]; then
+                upstream="@{upstream}"
+              fi
+              ;;
+          esac
+
+  # Find how many commits we are ahead/behind our upstream
+  if [[ -z "$legacy" ]]; then
+    count="$(git rev-list --count --left-right \
+      "$upstream"...HEAD 2>/dev/null)"
+        else
+          # produce equivalent output to --count for older versions of git
+          local commits
+          if commits="$(git rev-list --left-right "$upstream"...HEAD 2>/dev/null)"
+          then
+            local commit behind=0 ahead=0
+            for commit in $commits
+            do
+              case "$commit" in
+                "<"*) ((behind++)) ;;
+                *)    ((ahead++))  ;;
+              esac
+            done
+            count="$behind	$ahead"
+          else
+            count=""
+          fi
+        fi
+
+  # calculate the result
+  if [[ -z "$verbose" ]]; then
+    case "$count" in
+      "") # no upstream
+        p="${red_esc}orphan" ;;
+      "0	0") # equal to upstream
+        p="${green_esc}current" ;;
+      "0	"*) # ahead of upstream
+        p="${orange_esc}ahead" ;;
+      *"	0") # behind upstream
+        p="${orange_esc}behind" ;;
+      *)	    # diverged from upstream
+        p="${red_esc}diverged" ;;
+    esac
+  else
+    case "$count" in
+      "") # no upstream
+        p="" ;;
+      "0	0") # equal to upstream
+        p=" u=" ;;
+      "0	"*) # ahead of upstream
+        p=" u+${count#0	}" ;;
+      *"	0") # behind upstream
+        p=" u-${count%	0}" ;;
+      *)	    # diverged from upstream
+        p=" u+${count#*	}-${count%	*}" ;;
+    esac
+    if [[ -n "$count" && -n "$name" ]]; then
+      __git_ps1_upstream_name=$(git rev-parse \
+        --abbrev-ref "$upstream" 2>/dev/null)
+              if [ $pcmode = yes ] && [ $ps1_expanded = yes ]; then
+                p="$p \${__git_ps1_upstream_name}"
+              else
+                p="$p ${__git_ps1_upstream_name}"
+                # not needed anymore; keep user's
+                # environment clean
+                unset __git_ps1_upstream_name
+              fi
+            fi
+          fi
+          echo -e "${p}"
+        }
+# }}}
+# Kubernetes {{{
+if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
+  source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+fi
+# }}}
+# Char {{{
+prompt_character() {
+  # git branch >/dev/null 2>/dev/null && echo "±" && return # Git repo
+  # sw_vers >/dev/null 2>/dev/null && echo "⌘ " && return   # Mac
+  # echo "↪"
+  echo "₿"
+}
+# }}}
+# PS2 {{{
+PS2="${yellow_esc}→ ${reset_esc}";
+export PS2;
+# }}}
+# Virtualenv {{{
+venv_info () {
+  if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ] ; then
+    VIRT_ENV_TXT=""
+    if [ "x" != x ] ; then
+      VIRT_ENV_TXT=""
+    else
+      if [ "`basename \"$VIRTUAL_ENV\"`" = "__" ] ; then
+        # special case for Aspen magic directories
+        # see http://www.zetadev.com/software/aspen/
+        VIRT_ENV_TXT="[`basename \`dirname \"$VIRTUAL_ENV\"\``]"
+      elif [ "$VIRTUAL_ENV" != "" ]; then
+        VIRT_ENV_TXT="(`basename \"$VIRTUAL_ENV\"`)"
+      fi
+    fi
+    if [ "${VIRT_ENV_TXT}" != "" ]; then
+      echo ${VIRT_ENV_TXT}" "
+    fi
+  fi
+}
+# }}}
+# Toggle Git Prompt {{{
+export GITPROMPT=1
+alias gp='export GITPROMPT=1'
+alias ngp='unset GITPROMPT'
+# }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=bash

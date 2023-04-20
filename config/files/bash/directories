@@ -1,0 +1,107 @@
+# alias root='cd /'
+alias h='cd ~'
+alias dl='cd ~/Downloads'
+alias dt='cd ~/Desktop'
+alias dk='cd ~/Desktop'
+alias db='cd ~/Dropbox'
+alias docs='cd ~/Documents'
+alias p='cd ~/Projects'
+# alias c='cd ~/Code'
+# alias s='cd ~/Secrets'
+# alias dr='cd ~/Drive'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

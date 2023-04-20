@@ -1,0 +1,132 @@
+#!/bin/bash
+
+# $DOTFILES directory {{{
+# Resolve $SOURCE until the file is no longer a symlink
+# SOURCE="${BASH_SOURCE[0]}"
+# while [ -h "$SOURCE" ]; do
+#   current_dir="$( builtin cd -P "$( dirname "$SOURCE" )" && pwd )"
+#   SOURCE="$(readlink "$SOURCE")"
+#   # if $SOURCE was a relative symlink, we need to resolve it relative to the
+#   # path where the symlink file was located
+#   [[ $SOURCE != /* ]] && SOURCE="$current_dir/$SOURCE"
+# done
+
+# current_dir="$( builtin cd -P "$( dirname "$SOURCE" )" && pwd )"
+# # df="$(dirname "$current_dir")" # When needing parent directory
+# DOTFILES="$current_dir"
+
+# export DOTFILES
+# unset current_dir
+# unset SOURCE
+# }}}
+# Source bash config files {{{
+for file in ~/.shell_config/bash/*; do
+  if [[ -f $file ]]; then
+    source $file
+  fi
+done
+# }}}
+
+# tmux {{{
+# Install tmux plugin manager if not installed
+command -v git >/dev/null 2>&1 && [[ ! -d "$HOME/.tmux/plugins/tpm" ]] && git clone http://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# }}}
+# bash-completion {{{
+export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
+[[ -r /usr/local/etc/profile.d/bash_completion.sh ]] && . /usr/local/etc/profile.d/bash_completion.sh
+
+ # Use bash-completion, if available
+ [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+   . /usr/share/bash-completion/bash_completion
+
+ if [ -f /sw/etc/bash_completion ]; then
+   . /sw/etc/bash_completion
+ fi
+ # }}}
+ # Kubernetes {{{
+ # Export all configs
+ #[[ -f $HOME/.kube/configs ]] && \
+ for file in `ls ~/.kube/configs/`
+ do
+   export KUBECONFIG="$HOME/.kube/configs/$file:$KUBECONFIG";
+ done
+
+# Autocomplete
+# source <(kubectl completion bash)
+# }}}
+# git-completion {{{
+[ -f $DOTFILES/.config/git/git-completion.bash ] && source $DOTFILES/.config/git/git-completion.bash
+# }}}
+# Java {{{
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home
+# }}}
+# Starship prompt {{{
+#if [ -x "$(command -v starship)" ]; then
+if command -v starship &> /dev/null; then
+  eval "$(starship init bash)"
+fi
+# }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

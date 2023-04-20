@@ -1,0 +1,171 @@
+
+
+
+# History {{{
+histtimeformat=$(echo -e "${yellow}"[%b-%d %H:%M:%S]"${reset}"'  ')
+export HISTTIMEFORMAT=$histtimeformat
+export HISTCONTROL=ignoreboth:erasedups
+export HISTSIZE=100000000 # Everything
+export HISTFILESIZE=${HISTSIZE}
+export HISTIGNORE='ls:la:cd:exit:clear:hist:h:d:b:r:vrc:g:brc:dots:f:s:c:i3c:plc'
+shopt -s histappend # Append to history, don't overwrite it
+shopt -s cmdhist # Attempt to save all lines of multiple line command in same entry
+shopt -s lithist # Save multiline commands to history with embedded newlines
+
+# Allow tmux to have shared history
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+# }}}
+# NixOS {{{
+# export NIX_PATH="nixos-config=/home/bradley/.dotfiles/.config/configuration.nix:$NIX_PATH"
+# export NIX_PATH="nixos-config=/home/bradley/.dotfiles/.config/configuration.nix"
+# }}}
+# PATH {{{
+# Add local bins to path if not already there
+# TODO: If on macOS
+[[ ":$PATH:" != *":$HOME/.bin:"* ]] && export PATH="$HOME/.bin:${PATH}"
+export PATH="/usr/local/sbin:${PATH}"
+export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
+# }}}
+# Variables {{{
+export gh="https://www.github.com"
+export mygh="$gh/bad884"
+# }}}
+# Manpager {{{
+export LESS_TERMCAP_mb=$orange   # enter blinking mode
+export LESS_TERMCAP_md=$yellow   # enter double-bright mode
+export LESS_TERMCAP_me=$reset    # turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se=$reset    # leave standout mode
+export LESS_TERMCAP_so=$white    # enter standout mode
+export LESS_TERMCAP_ue=$reset    # leave underline mode
+export LESS_TERMCAP_us=$blue     # enter underline mode
+export MANPAGER="less -j3 -X -F -R"
+# export LESSKEY="$HOME/.lesskey"
+# export MANPAGER='vimpager'
+# }}}
+# Options {{{
+# Disable flow control so vim can use <C-S> and <C-Q> among others
+[[ $- == *i* ]] && stty -ixon
+
+# Auto `cd` to directory if just directory is typed
+[ "${BASH_VERSINFO[0]}" -ge 4 ] && shopt -s autocd
+
+# No empty completion
+shopt -s no_empty_cmd_completion
+
+# Correct cd typos
+shopt -s cdspell
+
+# Lets try some new shell options
+shopt -s cdable_vars
+shopt -s checkwinsize
+shopt -s checkwinsize
+shopt -s dotglob
+shopt -s expand_aliases
+shopt -s extglob
+shopt -s nocaseglob
+
+# Vi style command editing
+set -o vi
+# }}}
+
+export LESS="-RFiQMXJ"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Needed for tmuxline
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# export GIT_SSL_NO_VERIFY=true
+
+export OPENAI_API_KEY=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
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

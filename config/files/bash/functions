@@ -1,0 +1,410 @@
+# vim/nvim {{{
+# Use nvim if available
+if command -v nvim >/dev/null 2>&1; then
+  export EDITOR="nvim"
+else
+  export EDITOR="vim"
+fi
+export VISUAL=$EDITOR
+export USE_EDITOR=$EDITOR
+export K9S_EDITOR=$EDITOR
+
+v() {
+  if [ $# -eq 0 ]; then
+    if command -v fzf >/dev/null 2>&1; then
+      local files=$(fzf --query="$1" --select-1 --exit-0 | sed -e "s/\(.*\)/\'\1\'/")
+      local command="${EDITOR} -p $files"
+      [ -n "$files" ] && eval $command
+    else
+      command ${EDITOR} "$@"
+    fi
+  else
+    command ${EDITOR} "$@"
+  fi;
+}
+alias n='nvim'
+# }}}
+# git {{{
+g() {
+  if [[ $# -gt 0 ]]; then
+    git "$@"
+  else
+    # git status --short --branch
+    git status --short
+  fi
+}
+
+gl() {
+  git log --pretty=format:"%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]" --decorate --date=short
+}
+
+gc() {
+  git commit -m "$*"
+}
+
+gca() {
+  git commit -am "$*"
+}
+
+gcp() {
+  git add .
+  git commit -am "$*"
+  git push
+}
+
+gd() {
+  git diff HEAD
+}
+
+gs() {
+  git stash
+}
+
+gcof() {
+  git checkout -- "$*"
+}
+
+gpush() {
+  git push
+}
+# }}}
+# tmux {{{
+t() {
+  if [[ "$1" == "a" ]]; then
+    tmux attach-session -t "$2"
+  elif [[ "$1" == "ls" ]]; then
+    tmux ls
+  elif [[ "$1" == "new" ]]; then
+    tmux -2 new -s "$2"
+  elif [[ "$1" == "kill" ]]; then
+    tmux -2 kill-session -t "$2"
+  elif [[ "$1" == "server" ]]; then
+    tmux kill-server
+  elif [[ "$1" == "keys" ]]; then
+    tmux list-keys
+  elif [[ "$1" == "commands" ]]; then
+    tmux list-commands
+  elif [[ $# -gt 0 ]]; then
+    tmux -2 "$@"
+  else
+    # tmux new-session -A -s main
+    tmux
+  fi
+}
+# }}}
+# tmux-static {{{
+ts() {
+  if [[ "$1" == "a" ]]; then
+    tmux-static attach-session -t "$2"
+  elif [[ "$1" == "ls" ]]; then
+    tmux-static ls
+  elif [[ "$1" == "new" ]]; then
+    tmux-static -2 new -s
+  elif [[ "$1" == "kill" ]]; then
+    tmux-static -2 kill-session -t "$2"
+  elif [[ "$1" == "server" ]]; then
+    tmux-static kill-server
+  elif [[ "$1" == "keys" ]]; then
+    tmux-static list-keys
+  elif [[ "$1" == "commands" ]]; then
+    tmux-static list-commands
+  elif [[ $# -gt 0 ]]; then
+    tmux-static -2 "$@"
+  else
+    # tmux new-session -A -s main
+    tmux-static
+  fi
+}
+# }}}
+# history {{{
+# Easier history calling
+hist() {
+  if [[ "$1" == "e" ]]; then # Export
+    history -a
+    echo "History exported"
+  elif [[ "$1" == "i" ]]; then # Import
+    history -n
+    echo "History imported"
+  elif [[ "$1" == "g" ]]; then # Grep
+    history | grep
+  elif [[ $# -gt 0 ]]; then
+    history "$@"
+  else # Print history
+    history
+  fi
+}
+# }}}
+# mkdir {{{
+# Create a new directory and enter it
+mkd() {
+  mkdir -pv "$@" && cd "$_"
+}
+# }}}
+# rm {{{
+alias rm='rm -v'
+# alias rmf='rm -rfv --preserve-root'
+# alias rmf='rm -rfv --preserve-root'
+rmrf() {
+  rm -rfv "$@"
+}
+rmf() {
+  rm -fv "$@"
+}
+# }}}
+# Hackintosh {{{
+spoof() {
+  sudo ifconfig en0 ether 00:e0:4c:68:01:4c
+}
+spoof2() {
+  sudo ifconfig en0 ether f0:18:98:a4:f7:20
+}
+# }}}
+# Python {{{
+newpips() {
+  rm $DOTFILES/.config/pip/requirements.txt
+  pip freeze > $DOTFILES/.config/pip/requirements.txt
+}
+# }}}
+# System Utils {{{
+# Auto `ls` after cd
+cd() {
+  builtin cd "$@"
+  ls
+}
+
+# Easier make calling
+mk() {
+  if [[ "$1" == "c" ]]; then
+    make clean -j8
+  elif [[ $# -gt 0 ]]; then
+    make "$@" -j8
+  else
+    make
+  fi
+}
+
+# Find files named
+findf () {
+  find . -name "$@"
+}
+
+
+# Easy checking if command exists
+exists() {
+  command -v "$1" > /dev/null 2>&1
+}
+
+# one simple function to extract WHATEVER kind of compressed data you have
+extract() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xvjf $1    ;;
+      *.tar.gz)    tar xvzf $1    ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xvf $1     ;;
+      *.tbz2)      tar xvjf $1    ;;
+      *.tgz)       tar xvzf $1    ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)           echo "don't know how to extract '$1'..." ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
+}
+
+# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
+targz() {
+  local tmpFile="${@%/}.tar";
+  tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
+
+  size=$(
+  stat -f"%z" "${tmpFile}" 2> /dev/null; # macOS `stat`
+  stat -c"%s" "${tmpFile}" 2> /dev/null;  # GNU `stat`
+  );
+
+  local cmd="";
+  if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+    # the .tar file is smaller than 50 MB and Zopfli is available; use it
+    cmd="zopfli";
+  else
+    if hash pigz 2> /dev/null; then
+      cmd="pigz";
+    else
+      cmd="gzip";
+    fi;
+  fi;
+
+  echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
+  "${cmd}" -v "${tmpFile}" || return 1;
+  [ -f "${tmpFile}" ] && rm "${tmpFile}";
+
+  zippedSize=$(
+  stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # macOS `stat`
+  stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
+  );
+
+  echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
+}
+
+function extract {
+  if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+  else
+    if [ -f $1 ] ; then
+      # NAME=${1%.*}
+      # mkdir $NAME && cd $NAME
+      case $1 in
+        *.tar.bz2)   tar xvjf ../$1    ;;
+        *.tar.gz)    tar xvzf ../$1    ;;
+        *.tar.xz)    tar xvJf ../$1    ;;
+        *.lzma)      unlzma ../$1      ;;
+        *.bz2)       bunzip2 ../$1     ;;
+        *.rar)       unrar x -ad ../$1 ;;
+        *.gz)        gunzip ../$1      ;;
+        *.tar)       tar xvf ../$1     ;;
+        *.tbz2)      tar xvjf ../$1    ;;
+        *.tgz)       tar xvzf ../$1    ;;
+        *.zip)       unzip ../$1       ;;
+        *.Z)         uncompress ../$1  ;;
+        *.7z)        7z x ../$1        ;;
+        *.xz)        unxz ../$1        ;;
+        *.exe)       cabextract ../$1  ;;
+        *)           echo "extract: '$1' - unknown archive method" ;;
+      esac
+    else
+      echo "$1 - file does not exist"
+    fi
+  fi
+}
+
+# Kill a process named
+kp() {
+  ps aux | grep $1 > /dev/null
+  mypid=$(pidof $1)
+  if [ "$mypid" != "" ]; then
+    kill -9 $(pidof $1)
+    if [[ "$?" == "0" ]]; then
+      echo "PID $mypid ($1) killed."
+    fi
+  else
+    echo "None killed."
+  fi
+  return;
+}
+# }}}
+# Other {{{
+# Update dotfiles to most recent from github, destroying any uncommitted changes
+dots() {
+  PWD=$(pwd)
+  builtin cd "$DOTFILES"
+  git reset --hard
+  git pull
+  source $HOME/.bashrc
+  builtin cd "$PWD"
+  unset PWD
+}
+
+# Conditional bash config sourcing
+b() {
+  echo ""
+  echo "Source bash dotfiles..."
+  source $HOME/.bashrc
+  echo "\$DOTFILES = $DOTFILES"
+}
+
+# Add newlines around statement
+newline_echo() {
+  printf "\n%b\n" "$1"
+}
+# }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

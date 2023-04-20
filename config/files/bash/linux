@@ -1,0 +1,61 @@
+export platform=$(uname)
+if [[ "$platform" == 'Linux' ]]; then
+  # Set key repeat delay and rate
+  [ -f `which xset` ] && `which xset` r rate 220 70
+
+  # Gnome
+  # if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+  #   export TERM='gnome-256color'
+  #   alias logout="gnome-session-quit --no-prompt"
+  #   alias lock="gnome-screensaver-command -l"
+  # fi
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

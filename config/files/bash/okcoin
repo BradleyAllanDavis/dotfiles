@@ -1,0 +1,6 @@
+alias dacs="cd $DACS"
+alias c="cd $DACS/Documents/Code"
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh

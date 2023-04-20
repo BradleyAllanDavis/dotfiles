@@ -1,0 +1,213 @@
+# cd pyramid {{{
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+alias .........='cd ../../../../../../../..'
+alias ..........='cd ../../../../../../../../..'
+alias ...........='cd ../../../../../../../../../..'
+alias ............='cd ../../../../../../../../../../..'
+alias .............='cd ../../../../../../../../../../../..'
+alias ..............='cd ../../../../../../../../../../../../..'
+alias ...............='cd ../../../../../../../../../../../../../..'
+# }}}
+# ls {{{
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  export lscolorflag='--color=auto'
+  # alias ls='ls -ghF ${lscolorflag} --group-directories-first'
+  alias ls='ls -ghF ${lscolorflag}'
+else # Mac
+  export lscolorflag='--color'
+  alias ls='ls -ghF ${lscolorflag}'
+fi
+
+# case $(uname) in
+#   'Linux')   LS_OPTIONS='-ghF --color=auto --group-directories-first' ;;
+#   'Darwin')  LS_OPTIONS='-ghF -G' ;;
+# esac
+
+# Short
+alias l='\ls -F ${lscolorflag}'
+alias lh='l -A'
+
+# Long
+alias sl='ls'
+alias ll='ls'
+alias la='ls -A'
+# }}}
+# grep {{{
+alias grep='grep -n --color=auto --exclude-dir=".svn"'
+alias fgrep='fgrep -n --color=auto --exclude-dir=".svn"'
+alias egrep='egrep -n --color=auto --exclude-dir=".svn"'
+# }}}
+# df {{{
+# Use pydf if available
+if type pydf > /dev/null 2>&1; then
+  alias df="pydf"
+else
+  alias df="df -Tha --total"
+fi
+# }}}
+# du {{{
+# Use ncdu if available
+if type ncdu > /dev/null 2>&1; then
+  alias du="ncdu"
+else
+  alias du="du -ach | sort -h"
+fi
+# }}}
+# kubectl {{{
+alias k='kubectl'
+alias ktx='kubectx'
+alias ksh='kube-shell'
+# }}}
+# mvn {{{
+alias mci='mvn clean install'
+# }}}
+# Bitcoin {{{
+alias bli='bitcoin-cli'
+# }}}
+# mutt {{{
+alias mutti="mutt -F ~/.mutt/accounts/bad884@me.com/account"
+alias muttg="mutt -F ~/.mutt/accounts/bad884@gmail.com/account"
+alias muttc="mutt -F ~/.mutt/accounts/bdavis@cray.com/account"
+# }}}
+
+alias e='exit'
+# alias cp='cp -rv'
+alias mv='mv -v'
+alias clr='clear'
+alias more='less'
+# alias mc='make clean'
+alias tree="tree -a -I '.git'"
+
+# Enable aliases to be `sudo`ed
+alias sudo='sudo '
+
+# Less and cat syntax highlighting
+if type highlight > /dev/null 2>&1; then
+  # export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
+  export LESSOPEN="| $(which highlight) %s --out-format truecolor --line-numbers --quiet --force --style solarized-dark"
+fi
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+alias free="free -mt"
+alias mkdir="mkdir -pv"
+alias wget="wget -c"
+alias top="htop"
+alias chx='chmod 755'
+alias chr='chmod 644'
+alias back='cd "$OLDPWD"'
+alias psx="ps auxf"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias mux='pgrep -vxq tmux && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach || tmux attach'
+alias lg='lazygit'
+
+alias r='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias weather='curl wttr.in/minneapolis'
+alias chrome='google-chrome'
+alias termsize='echo "Rows = $(tput lines), Cols = $(tput cols)"'
+alias myip='curl icanhazip.com'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2 ft=sh
