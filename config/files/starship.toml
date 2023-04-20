@@ -85,24 +85,28 @@ format = "[](fg:base02 bg:none)[$branch](fg:purple bg:base02)[](fg:base02 
 always_show_remote = false
 
 [git_status] #   
-format = "[](fg:base02 bg:none)$ahead_behind$conflicted$diverged$staged$modified$renamed$deleted$untracked$stashed[](fg:base02 bg:none) "
+# format = "[](fg:base02 bg:none)$ahead_behind$conflicted$diverged$staged$modified$renamed$deleted$untracked$stashed[](fg:base02 bg:none) "
+format = "[](fg:base02 bg:none)$ahead_behind[](fg:base02 bg:none)$conflicted$diverged [](fg:base02 bg:none)$staged$modified$renamed$deleted$untracked$stashed[](fg:base02 bg:none) "
 
 up_to_date = "[ ](fg:green bg:base02)"
 ahead = "[ahead\\(×${count}\\)](fg:yellow bg:base02)"
 behind = "[behind\\(×${count}\\)](fg:yellow bg:base02)"
-conflicted = "[ conflicted ](fg:red bg:base02)"
-diverged = "[ diverged ](fg:red bg:base02)$ahead_behind"
+# conflicted = "[ conflicted ](fg:red bg:base02)"
+conflicted = "[](fg:base02 bg:none)[conflicted](fg:red bg:base02)[](fg:base02 bg:none) "
+# diverged = "[ diverged ](fg:red bg:base02)$ahead_behind"
+diverged = "[](fg:base02 bg:none)[diverged](fg:red bg:base02)[](fg:base02 bg:none) "
 
 #   → ✗ 
-staged = "[ ${count}!](fg:green bg:base02)"
-modified = "[ ${count}!](fg:yellow bg:base02)"
-untracked = "[ ${count}?](fg:red bg:base02)"
-renamed = "[ ${count}→](fg:green bg:base02)"
-deleted = "[ ${count}✗](fg:red bg:base02)"
-stashed = "[ ${count}\\$](fg:blue bg:base02)"
+staged = "[${count}! ](fg:green bg:base02)"
+modified = "[${count}! ](fg:yellow bg:base02)"
+untracked = "[${count}? ](fg:red bg:base02)"
+renamed = "[${count}→ ](fg:green bg:base02)"
+deleted = "[${count}✗ ](fg:red bg:base02)"
+stashed = "[${count}\\$ ](fg:blue bg:base02)"
 
 [git_commit]
-format = "[](fg:base02 bg:none)[ ](fg:blue bg:base02)[$hash](fg:cyan bg:base02)[](fg:base02 bg:none) [](fg:base02 bg:none)[ ](fg:blue bg:base02)[$tag](fg:cyan bg:base02)[](fg:base02 bg:none) "
+# 
+format = "[](fg:base02 bg:none)[# ](fg:blue bg:base02)[$hash](fg:cyan bg:base02)[](fg:base02 bg:none) [](fg:base02 bg:none)[ ](fg:blue bg:base02)[$tag](fg:cyan bg:base02)[](fg:base02 bg:none) "
 commit_hash_length = 8
 disabled = false
 only_detached = true
