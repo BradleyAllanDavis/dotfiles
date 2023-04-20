@@ -1,15 +1,10 @@
 # General home-manager configuration
-{
-  lib,
-  config,
-  pkgs,
-  username,
-  userDescription,
-  ...
-}:
+
+{ lib, config, pkgs, username, userDescription, ... }:
 
 let
-  packages = import ./packages.nix;
+  darwin-packages = import ./packages.nix;
+  common-packages = import ../common-packages.nix;
 in
 {
   imports = [
@@ -22,7 +17,7 @@ in
     stateVersion = "22.11";
     username = "${username}";
     # homeDirectory = "/Users/${username}";
-    packages = packages pkgs;
+    packages = (darwin-packages pkgs) ++ (common-packages pkgs);
   };
 
   xdg.enable = true;

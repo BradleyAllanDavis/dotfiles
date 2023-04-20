@@ -47,16 +47,10 @@
       VISUAL = "nvim";
     };
     systemPackages = with pkgs; [
-      git
-      neovim
-      tmux
-      starship
       xclip
       killall
-      nano
       pciutils
       usbutils
-      wget
     ];
   };
 

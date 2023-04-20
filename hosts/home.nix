@@ -1,14 +1,10 @@
 # General home-manager configuration
-{
-  config,
-  pkgs,
-  username,
-  userDescription,
-  ...
-}:
+
+{ pkgs, username, ... }:
 
 let
-  packages = import ./packages.nix;
+  nixos-packages = import ./packages.nix;
+  common-packages = import ../common-packages.nix;
 in
 {
   imports = [
@@ -21,7 +17,7 @@ in
     stateVersion = "22.11";
     username = "${username}";
     homeDirectory = "/home/${username}";
-    packages = packages pkgs;
+    packages = (nixos-packages pkgs) ++ (common-packages pkgs);
   };
 
   xdg.enable = true;

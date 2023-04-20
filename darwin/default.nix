@@ -1,14 +1,20 @@
 # macOS configuration
 
-{ lib, inputs, nixpkgs, home-manager, darwin, username, userDescription, ... }:
+{ inputs, lib, nixpkgs, home-manager, darwin, username, userDescription, ... }:
 
 let
   system = "aarch64-darwin";
+
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
+
   macbookHostName = "mac";
 in
 {
   ${macbookHostName} = darwin.lib.darwinSystem {
-    inherit system lib;
+    inherit system lib pkgs;
     specialArgs = {
       inherit inputs username userDescription;
       host = {
@@ -17,6 +23,8 @@ in
     };
     modules = [
       ./configuration.nix
+      ./preferences.nix
+      ./brew.nix
 
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;

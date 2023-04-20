@@ -1,0 +1,34 @@
+pkgs: with pkgs; [
+  ack
+  alacritty
+  bat
+  curl
+  diff-so-fancy
+  entr
+  fish
+  fzf
+  git
+  git-crypt
+  helix
+  htop
+  jq
+  k9s
+  lazygit
+  lf
+  lsd
+  manix
+  neovim
+  ngrok
+  ranger
+  ripgrep
+  starship
+  tig
+  tldr
+  tree
+  tmux
+  vifm
+  wget
+  youtube-dl
+  zsh
+
+]

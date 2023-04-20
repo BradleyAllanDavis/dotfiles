@@ -1,39 +1,17 @@
 pkgs: with pkgs; [
-  git-crypt
-  lsd
-  entr
-
+  i3-gaps
   xorg.xbacklight
-
-  # search nix docs
-  manix
-
-  # shells
-  fish
 
   # bash
   nix-bash-completions
 
-  # text editors
-  helix
-
   # terminals
-  alacritty
   kitty
-  # hyper
 
   # nix lsp
   nil
 
-  # window managers
-  i3-gaps
-
-  # git
-  tig
-  lazygit
-
   # zsh
-  zsh
   zsh-fzf-tab
   # zsh-completions
   nix-zsh-completions
@@ -45,50 +23,27 @@ pkgs: with pkgs; [
   python3
   nodejs
 
-  tmux
-  fzf
-  bat
-  ack
+  trashy
   direnv
   xclip
-  curl
   spotify-tui
   spotify-tray
-  diff-so-fancy
   llvm
   polybar
   # compton, neocomp
   dunst
   redshift
   neomutt
-  tree
   taskwarrior
   findutils
-  trashy
-  tldr
   atool
   httpie
-  htop
-  ripgrep
   pstree
-  jq
   nix-direnv
-
-  # file manager
-  lf
-  ranger
-  vifm
 
   # application launcher
   rofi
   dmenu
-
-  # dotfiles management
-  # stow
-  # yadm
-  # dotdrop
-  # chezmoi
-  # dotbot
 
   # bitcoin
   # bitcoin
