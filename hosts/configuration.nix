@@ -97,6 +97,8 @@
 
   services.xserver = {
     enable = true;
+    videoDrivers = [ "amdgpu" ];
+
     autoRepeatDelay = 220;
     autoRepeatInterval = 50;
 
