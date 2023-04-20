@@ -84,11 +84,11 @@ use_os_path_sep = true
 format = "[](fg:base02 bg:none)[$branch](fg:purple bg:base02)[](fg:base02 bg:none) "
 always_show_remote = false
 
-[git_status] #   
+[git_status] #    
 # format = "[](fg:base02 bg:none)$ahead_behind$conflicted$diverged$staged$modified$renamed$deleted$untracked$stashed[](fg:base02 bg:none) "
 format = "[](fg:base02 bg:none)$ahead_behind[](fg:base02 bg:none)$conflicted$diverged [](fg:base02 bg:none)$staged$modified$renamed$deleted$untracked$stashed[](fg:base02 bg:none) "
 
-up_to_date = "[ ](fg:green bg:base02)"
+up_to_date = "[✓](fg:green bg:base02)"
 ahead = "[ahead\\(×${count}\\)](fg:yellow bg:base02)"
 behind = "[behind\\(×${count}\\)](fg:yellow bg:base02)"
 # conflicted = "[ conflicted ](fg:red bg:base02)"
