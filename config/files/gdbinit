@@ -1,0 +1,5 @@
+set prompt \033[0;34m(gdb) \033[0m
+
+/* Print array and structs in more readable format */
+set print pretty
+set print array-indexes

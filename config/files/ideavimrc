@@ -1,0 +1,6 @@
+set ideajoin
+set visualbell
+set noerrorbells
+
+ixnoremap p "_dP
+

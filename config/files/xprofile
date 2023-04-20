@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Use this in lieu of .xinitrc as .xinitrc won't be sourced if using
+# a display manager, while this should
+
+# Set up keyboard (xmodmap)
+[[ -f "$HOME/.xmodmap" ]] && xmodmap "$HOME/.xmodmap"
+
+# Key repear rate: xset r rate [delay (ms)] [rate(hz)], old hz was 50
+xset r rate 200 70
+
+# Bell: xset b [volume(% of maximum)] [pitch(hertz)] [duration(ms)]
+xset b 50 300 5
+
+# Mouse: xset m [acceleration] [threshold]
+xset m 8/2 4
+
+# Set the display to turn off after 30 minutes
+xset dpms 0 0 1800 &
+xset s off &
