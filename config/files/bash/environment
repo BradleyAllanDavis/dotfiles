@@ -1,6 +1,3 @@
-
-
-
 # History {{{
 histtimeformat=$(echo -e "${yellow}"[%b-%d %H:%M:%S]"${reset}"'  ')
 export HISTTIMEFORMAT=$histtimeformat
@@ -15,10 +12,6 @@ shopt -s lithist # Save multiline commands to history with embedded newlines
 # Allow tmux to have shared history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 # }}}
-# NixOS {{{
-# export NIX_PATH="nixos-config=/home/bradley/.dotfiles/.config/configuration.nix:$NIX_PATH"
-# export NIX_PATH="nixos-config=/home/bradley/.dotfiles/.config/configuration.nix"
-# }}}
 # PATH {{{
 # Add local bins to path if not already there
 # TODO: If on macOS
@@ -28,7 +21,7 @@ export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 # }}}
 # Variables {{{
 export gh="https://www.github.com"
-export mygh="$gh/bad884"
+export mygh="$gh/BradleyAllanDavis"
 # }}}
 # Manpager {{{
 export LESS_TERMCAP_mb=$orange   # enter blinking mode
@@ -82,8 +75,6 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # export GIT_SSL_NO_VERIFY=true
-
-export OPENAI_API_KEY=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
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
