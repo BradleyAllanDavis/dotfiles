@@ -99,7 +99,7 @@ modified = "[ ${count}!](fg:yellow bg:base02)"
 untracked = "[ ${count}?](fg:red bg:base02)"
 renamed = "[ ${count}→](fg:green bg:base02)"
 deleted = "[ ${count}✗](fg:red bg:base02)"
-stashed = "[ ${count}$](fg:blue bg:base02)"
+stashed = "[ ${count}\\$](fg:blue bg:base02)"
 
 [git_commit]
 format = "[](fg:base02 bg:none)[ ](fg:blue bg:base02)[$hash](fg:cyan bg:base02)[](fg:base02 bg:none) [](fg:base02 bg:none)[ ](fg:blue bg:base02)[$tag](fg:cyan bg:base02)[](fg:base02 bg:none) "
