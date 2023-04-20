@@ -20,11 +20,11 @@ right_format = """
 # $time\
 # $line_break\
 # $os\
+# $localip\
+# $hostname\
+# $username\
 format = """
 $status\
-$hostname\
-$localip\
-$username\
 $directory\
 $git_branch\
 $git_status\
@@ -36,11 +36,11 @@ $custom\
 $nix_shell\
 $cmd_duration\
 $sudo\
-$shell\
 $line_break\
 $jobs\
 $character\
 """
+# $shell\
 # $java\
 
 [status]

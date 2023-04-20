@@ -12,3 +12,6 @@ nix build .#darwinConfigurations.mac.system --extra-experimental-features "nix-c
 
 # now we can finally darwin-rebuild
 ./result/sw/bin/darwin-rebuild switch --flake .  # install nix-darwin
+
+# new ? doesnt work right now
+# sudo darwin-rebuild switch --flake .#mac
