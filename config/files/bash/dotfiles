@@ -1,45 +1,32 @@
 # Symlink script
-alias symrc="\$EDITOR $DOTFILES/.config/symlink_dotfiles.py"
-alias sym="`which python` $DOTFILES/.config/symlink_dotfiles.py"
+alias sym="`which python` $HOME/.config/symlink_dotfiles.py"
 
 # Delete all broken symlinks in current directory
 alias syms='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
-# Arch/AUR packages
-# alias arc="\$EDITOR $HOME/arch_linux/arch_packages.sh"
-# alias aur="\$EDITOR $HOME/arch_linux/aur_packages.sh"
-
-# NixOS 
-alias nrc="sudo -E \$EDITOR $DOTFILES/.config/nix/configuration.nix"
-alias rebuild="sudo nixos-rebuild switch"
-
 # Quick access to config files/dirs
-alias d='cd $DOTFILES'
-alias cdir="cd $DOTFILES/.config"
-alias brc="\$EDITOR $DOTFILES/.bashrc"
-alias zrc="\$EDITOR $DOTFILES/.zshrc"
-alias bp="\$EDITOR $DOTFILES/.bash_profile"
-alias gitrc="\$EDITOR $DOTFILES/.config/git/config"
-alias vrc="\$EDITOR $DOTFILES/.vimrc"
-alias trc="\$EDITOR $DOTFILES/.tmux.conf"
-alias tmrc="\$EDITOR $DOTFILES/.tmux.conf"
-alias tmc="\$EDITOR $DOTFILES/.tmux.conf"
-alias i3c="\$EDITOR $DOTFILES/.config/i3/config"
-alias plc="\$EDITOR $DOTFILES/.config/polybar/config"
-alias crc="\$EDITOR $DOTFILES/.config/compton.conf"
-alias drc="\$EDITOR $DOTFILES/.config/dunst/dunstrc"
-alias rrc="\$EDITOR $DOTFILES/.config/ranger/rc.conf"
-alias rfrc="\$EDITOR $DOTFILES/.config/rofi/config"
-alias rsrc="\$EDITOR $DOTFILES/.config/redshift.conf"
-alias mrc="\$EDITOR $DOTFILES/.mutt/muttrc"
-alias xpc="\$EDITOR $DOTFILES/.xprofile"
-alias xrc="\$EDITOR $DOTFILES/.xinitrc"
-alias myfonts="cd $DOTFILES/.local/share/fonts"
-alias pips="\$EDITOR $DOTFILES/.config/python/pip_packages.sh"
-alias sshrc="\$EDITOR $DOTFILES/.ssh/config"
-alias hrc="\$EDITOR $DOTFILES/.hyper.js"
-alias chrc="\$EDITOR $DOTFILES/.chunkwmrc"
-alias src="\$EDITOR $DOTFILES/.skhdrc"
+export DOTFILES="$HOME/.dotfiles"
+alias d="cd $DOTFILES"
+
+# alias cdir="cd $DOTFILES/.config"
+# alias brc="\$EDITOR $DOTFILES/.bashrc"
+# alias bp="\$EDITOR $DOTFILES/.bash_profile"
+# alias gitrc="\$EDITOR $DOTFILES/.config/git/config"
+# alias vrc="\$EDITOR $DOTFILES/.vimrc"
+# alias trc="\$EDITOR $DOTFILES/.tmux.conf"
+# alias tmrc="\$EDITOR $DOTFILES/.tmux.conf"
+# alias tmc="\$EDITOR $DOTFILES/.tmux.conf"
+# alias i3c="\$EDITOR $DOTFILES/.config/i3/config"
+# alias plc="\$EDITOR $DOTFILES/.config/polybar/config"
+# alias crc="\$EDITOR $DOTFILES/.config/compton.conf"
+# alias drc="\$EDITOR $DOTFILES/.config/dunst/dunstrc"
+# alias rrc="\$EDITOR $DOTFILES/.config/ranger/rc.conf"
+# alias rfrc="\$EDITOR $DOTFILES/.config/rofi/config"
+# alias rsrc="\$EDITOR $DOTFILES/.config/redshift.conf"
+# alias mrc="\$EDITOR $DOTFILES/.mutt/muttrc"
+# alias xpc="\$EDITOR $DOTFILES/.xprofile"
+# alias xrc="\$EDITOR $DOTFILES/.xinitrc"
+# alias sshrc="\$EDITOR $DOTFILES/.ssh/config"
 
 
 

@@ -69,12 +69,7 @@ alias ksh='kube-shell'
 alias mci='mvn clean install'
 # }}}
 # Bitcoin {{{
-alias bli='bitcoin-cli'
-# }}}
-# mutt {{{
-alias mutti="mutt -F ~/.mutt/accounts/bad884@me.com/account"
-alias muttg="mutt -F ~/.mutt/accounts/bad884@gmail.com/account"
-alias muttc="mutt -F ~/.mutt/accounts/bdavis@cray.com/account"
+alias bb='bitcoin-cli'
 # }}}
 
 alias e='exit'

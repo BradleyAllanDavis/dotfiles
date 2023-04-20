@@ -1,14 +1,12 @@
 # alias root='cd /'
-alias h='cd ~'
-alias dl='cd ~/Downloads'
-alias dt='cd ~/Desktop'
-alias dk='cd ~/Desktop'
-alias db='cd ~/Dropbox'
-alias docs='cd ~/Documents'
-alias p='cd ~/Projects'
-# alias c='cd ~/Code'
-# alias s='cd ~/Secrets'
-# alias dr='cd ~/Drive'
+alias h="cd $HOME"
+alias dl="cd $HOME/Downloads"
+alias dt="cd $HOME/Desktop"
+alias dk="cd $HOME/Desktop"
+alias db="cd $HOME/Dropbox"
+alias docs="cd $HOME/Documents"
+alias p="cd $HOME/Projects"
+alias c='cd ~/Code'
 
 
 

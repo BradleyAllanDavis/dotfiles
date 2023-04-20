@@ -1,26 +1,7 @@
 #!/bin/bash
 
-# $DOTFILES directory {{{
-# Resolve $SOURCE until the file is no longer a symlink
-# SOURCE="${BASH_SOURCE[0]}"
-# while [ -h "$SOURCE" ]; do
-#   current_dir="$( builtin cd -P "$( dirname "$SOURCE" )" && pwd )"
-#   SOURCE="$(readlink "$SOURCE")"
-#   # if $SOURCE was a relative symlink, we need to resolve it relative to the
-#   # path where the symlink file was located
-#   [[ $SOURCE != /* ]] && SOURCE="$current_dir/$SOURCE"
-# done
-
-# current_dir="$( builtin cd -P "$( dirname "$SOURCE" )" && pwd )"
-# # df="$(dirname "$current_dir")" # When needing parent directory
-# DOTFILES="$current_dir"
-
-# export DOTFILES
-# unset current_dir
-# unset SOURCE
-# }}}
 # Source bash config files {{{
-for file in $HOME/.shell_config/*; do
+for file in $HOME/.bash/*; do
   if [[ -f $file ]]; then
     source $file
   fi
