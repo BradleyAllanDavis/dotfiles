@@ -1,0 +1,236 @@
+# Enable palette
+palette = 'solarized'
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 30
+
+# Timeout for commands issued by starship
+command_timeout = 800
+
+# Only supported by fish and zsh
+right_format = """
+"""
+
+# $time\
+# $line_break\
+# $os\
+format = """
+$status\
+$hostname\
+$localip\
+$username\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$git_commit\
+$fill\
+$env_var\
+$custom\
+$nix_shell\
+$cmd_duration\
+$sudo\
+$shell\
+$line_break\
+$jobs\
+$character\
+"""
+# $java\
+
+[status]
+#  ✓
+format = "$symbol"
+symbol = '[](fg:base02 bg:none)[✗](fg:red bg:base02)[](fg:base02 bg:none) '
+success_symbol = '[](fg:base02 bg:none)[✓](fg:green bg:base02)[](fg:base02 bg:none) '
+disabled = false
+
+[os]
+format = "[](fg:base02 bg:none)[$symbol](fg:yellow bg:base02)[](fg:base02 bg:none) "
+disabled = false
+
+[os.symbols]
+Linux = ""
+Macos = ""
+NixOS = ""
+Windows = ""
+
+[hostname] # 
+format = "[](fg:base02 bg:none)[$hostname](fg:yellow bg:base02)[](fg:base02 bg:none) "
+ssh_only = false
+
+#  local ip
+
+[username] # 
+format = "[](fg:base02 bg:none)[$user](fg:$style bg:base02)[](fg:base02 bg:none) "
+show_always = true
+style_user = "orange"
+style_root = "red"
+
+[directory] # 
+format = "[](fg:base02 bg:none)[$path$read_only](fg:magenta bg:base02)[](fg:base02 bg:none) "
+read_only = "  "
+truncation_length = 4
+truncate_to_repo = false
+truncation_symbol = "…/"
+use_os_path_sep = true
+
+[git_branch] # 
+format = "[](fg:base02 bg:none)[$branch](fg:purple bg:base02)[](fg:base02 bg:none) "
+always_show_remote = false
+
+[git_status] #   
+format = "[](fg:base02 bg:none)$ahead_behind$conflicted$diverged$staged$modified$renamed$deleted$untracked$stashed[](fg:base02 bg:none) "
+
+up_to_date = "[ ](fg:green bg:base02)"
+ahead = "[ahead\\(×${count}\\)](fg:yellow bg:base02)"
+behind = "[behind\\(×${count}\\)](fg:yellow bg:base02)"
+conflicted = "[ conflicted ](fg:red bg:base02)"
+diverged = "[ diverged ](fg:red bg:base02)$ahead_behind"
+
+#   → ✗ 
+staged = "[ ${count}!](fg:green bg:base02)"
+modified = "[ ${count}!](fg:yellow bg:base02)"
+untracked = "[ ${count}?](fg:red bg:base02)"
+renamed = "[ ${count}→](fg:green bg:base02)"
+deleted = "[ ${count}✗](fg:red bg:base02)"
+stashed = "[ ${count}$](fg:blue bg:base02)"
+
+[git_commit]
+format = "[](fg:base02 bg:none)[ ](fg:blue bg:base02)[$hash](fg:cyan bg:base02)[](fg:base02 bg:none) [](fg:base02 bg:none)[ ](fg:blue bg:base02)[$tag](fg:cyan bg:base02)[](fg:base02 bg:none) "
+commit_hash_length = 8
+disabled = false
+only_detached = true
+tag_disabled = false
+
+[git_metrics]
+format = "[](fg:base02 bg:none)[  ](fg:blue bg:base02)[$added](fg:green bg:base02)[/](fg:dimmed white bg:base02)[$deleted](fg:red bg:base02)[](fg:base02 bg:none)"
+disabled = true
+only_nonzero_diffs = false
+
+[fill]
+symbol = " "
+
+[nix_shell]
+#  $state
+format = '[](fg:base02 bg:none)[nix: $name](fg:blue bg:base02)[](fg:base02 bg:none) '
+impure_msg = '[impure shell](red)'
+pure_msg = '[pure shell](green)'
+unknown_msg = '[unknown shell](yellow)'
+# format = 'via [☃️ $state( \($name\))](blue) '
+
+[java]
+format = "[](fg:base02 bg:none)[ ](fg:cyan bg:base02)[$version](fg:cyan bg:base02)[](fg:base02 bg:none)"
+disabled = false
+
+[cmd_duration]
+format = "[](fg:base02 bg:none)[took ](fg:dimmed white bg:base02)[$duration](fg:white bg:base02)[](fg:base02 bg:none) "
+show_milliseconds = false
+min_time = 3_000
+
+[time]
+format = "[](fg:base02 bg:none)[ ](fg:white bg:base02)[$time](bg:base02)[](fg:base02 bg:none)"
+time_format = '%r'
+disabled = false
+
+[sudo]
+format = '[](fg:base02 bg:none)[sudo](fg:red bg:base02)[](fg:base02 bg:none) '
+disabled = false
+
+[jobs]
+format = '[](fg:base02 bg:none)[$number](fg:base0 bg:base02)[](fg:base02 bg:none) '
+number_threshold = 1
+
+[character]
+# ﬌    → ✘
+format = "[→](white) "
+#success_symbol = "[](green)"
+#error_symbol = "[](red)"
+
+[shell]
+format = '[](fg:base02 bg:none)[$indicator](fg:cyan bg:base02)[](fg:base02 bg:none)'
+bash_indicator = 'bash'
+zsh_indicator = 'zsh'
+fish_indicator = 'fish'
+disabled = false
+
+
+# Colors: `black`, `red`, `green`, `blue`, `yellow`, `purple`, `cyan`, `white`.
+# You can optionally prefix these with `bright-` to get the bright version (e.g. `bright-white`).
+[palettes.solarized]
+black = "#002b36"
+white = "#fdf6e3"
+
+light_yellow = "#f6ba00"
+yellow = "#b58900"
+dark_yellow = "#906d00"
+
+light_orange = "#e86731"
+orange = "#cb4b16"
+dark_orange = "#a23b11"
+
+light_red = "#dc322f"
+red = "#dc322f"
+dark_red = "#b6211e"
+
+light_magenta = "#db5e9a"
+magenta = "#d33682"
+dark_magenta = "#ad2667"
+
+light_violet = "#898dcf"
+violet = "#6c71c4"
+purple = "#6c71c4"
+dark_violet = "#454bad"
+
+light_blue = "#4da2de"
+blue = "#268bd2"
+dark_blue = "#1e6fa8"
+
+light_cyan = "#3cccc1"
+cyan = "#2aa198"
+dark_cyan = "#218079"
+
+light_green = "#c3e000"
+green = "#859900"
+dark_green = "#6a7a00"
+
+base03 = "#002b36"
+base02 = "#073642"
+base01 = "#586e75"
+base00 = "#657b83"
+base0 = "#839496"
+base1 = "#93a1a1"
+base2 = "#eee8d5"
+base3 = "#fdf6e3"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
