@@ -713,7 +713,6 @@ key_bindings:
   - { key: U,              mods: Alt,                   chars: "\x1bu"             } # tmux move tabs
   - { key: Slash,          mods: Control,                  chars: "\x1f"             } # control slash
 
-alt_send_esc: false
 option_as_alt: true
 
 #debug:
