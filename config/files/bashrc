@@ -20,7 +20,7 @@
 # unset SOURCE
 # }}}
 # Source bash config files {{{
-for file in ~/.shell_config/bash/*; do
+for file in $HOME/.shell_config/*; do
   if [[ -f $file ]]; then
     source $file
   fi
