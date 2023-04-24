@@ -87,15 +87,16 @@ always_show_remote = false
 [git_status] #    
 # format = "[](fg:base02 bg:none)$ahead_behind$conflicted$diverged$staged$modified$renamed$deleted$untracked$stashed[](fg:base02 bg:none) "
 # format = "[](fg:base02 bg:none)$ahead_behind[](fg:base02 bg:none)$conflicted$diverged [](fg:base02 bg:none)$staged$modified$renamed$deleted$untracked[](fg:base02 bg:none)$stashed "
-format = "[](fg:base02 bg:none)$ahead_behind[](fg:base02 bg:none)$conflicted$diverged $stashed$staged$modified$renamed$deleted$untracked"
+# format = "[](fg:base02 bg:none)$ahead_behind[](fg:base02 bg:none)$conflicted$diverged $stashed$staged$modified$renamed$deleted$untracked"
+format = "[](fg:base02 bg:none)$ahead_behind[](fg:base02 bg:none) $stashed$staged$modified$renamed$deleted$untracked"
 
 up_to_date = "[✓](fg:green bg:base02)"
 ahead = "[ahead\\(×${count}\\)](fg:yellow bg:base02)"
 behind = "[behind\\(×${count}\\)](fg:yellow bg:base02)"
-# conflicted = "[ conflicted ](fg:red bg:base02)"
-conflicted = "[](fg:base02 bg:none)[conflicted](fg:red bg:base02)[](fg:base02 bg:none) "
-# diverged = "[ diverged ](fg:red bg:base02)$ahead_behind"
-diverged = "[](fg:base02 bg:none)[diverged](fg:red bg:base02)[](fg:base02 bg:none) "
+conflicted = "[ conflicted ](fg:red bg:base02)"
+# conflicted = "[](fg:base02 bg:none)[conflicted](fg:red bg:base02)[](fg:base02 bg:none) "
+diverged = "[ diverged ](fg:red bg:base02)$ahead_behind"
+# diverged = "[](fg:base02 bg:none)[diverged](fg:red bg:base02)[](fg:base02 bg:none) "
 
 #   → ✗ 
 # staged = "[${count}! ](fg:green bg:base02)"
