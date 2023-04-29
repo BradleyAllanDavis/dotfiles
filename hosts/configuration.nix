@@ -1,6 +1,6 @@
 # Main system configuration
 
-{ config, pkgs, inputs, username, userDescription, ... }:
+{ config, pkgs, inputs, username, userDescription, hostName, ... }:
 
 {
   imports = [
@@ -81,11 +81,6 @@
     "/crypto_keyfile.bin" = null;
   };
 
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-e3ddf490-ae07-413f-ba18-2dffe2aa03ec" = {
-    device = "/dev/disk/by-uuid/e3ddf490-ae07-413f-ba18-2dffe2aa03ec";
-    keyFile = "/crypto_keyfile.bin";
-  };
 
   time.timeZone = "America/Matamoros";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -147,7 +142,7 @@
 
   ### Networking
 
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "${hostName}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

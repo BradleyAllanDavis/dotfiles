@@ -21,6 +21,7 @@ in
     inherit system;
     specialArgs = {
       inherit inputs username userDescription;
+      hostName = desktopHostName;
       host = {
         hostName = "${desktopHostName}";
       };
@@ -43,6 +44,38 @@ in
           imports = [
             ./home.nix
             # ./${desktopHostName}/home.nix
+          ];
+        };
+      }
+    ];
+  };
+  ${serverHostName} = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit inputs username userDescription;
+      hostName = serverHostName;
+      host = {
+        hostName = "${serverHostName}";
+      };
+    };
+    modules = [
+      nurpkgs.nixosModules.nur
+      ./${serverHostNase}
+      ./configuration.nix
+
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          inherit pkgs username userDescription;
+          host = {
+            hostName = "${serverHostName}";
+          };
+        };
+        home-manager.users.${username} = {
+          imports = [
+            ./home.nix
+            # ./${serverHostName}/home.nix
           ];
         };
       }
