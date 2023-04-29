@@ -29,7 +29,7 @@ in
     modules = [
       nurpkgs.nixosModules.nur
       ./${desktopHostName}
-      ./configuration.nix
+      # ./configuration.nix
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -61,7 +61,7 @@ in
     modules = [
       nurpkgs.nixosModules.nur
       ./${serverHostNase}
-      ./configuration.nix
+      # ./configuration.nix
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
