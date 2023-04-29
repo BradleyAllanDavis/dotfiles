@@ -1,12 +1,8 @@
 pkgs: with pkgs; [
-  i3-gaps
   xorg.xbacklight
 
   # bash
   nix-bash-completions
-
-  # terminals
-  kitty
 
   # nix lsp
   nil
@@ -27,12 +23,9 @@ pkgs: with pkgs; [
   direnv
   xclip
   spotify-tui
-  spotify-tray
   llvm
-  polybar
   # compton, neocomp
   dunst
-  redshift
   neomutt
   taskwarrior
   findutils
@@ -41,36 +34,8 @@ pkgs: with pkgs; [
   pstree
   nix-direnv
 
-  # application launcher
-  rofi
-  dmenu
-
   # bitcoin
   # bitcoin
   # bitcoind
 
-  # GUI apps
-  _1password-gui
-  brave
-  expressvpn
-  spotify
-  slack
-  discord
-  zoom-us
-  gparted
-  github-desktop
-  postman
-  signal-desktop
-  tdesktop
-  whatsapp-for-linux
-  steam
-
-  # jetbrains
-  jetbrains.idea-ultimate
-  # jetbrains.datagrip
-  # jetbrains.clion
-  # jetbrains.goland
-  # jetbrains.webstorm
-  # jetbrains.pycharm-professional
-  # jetbrains.jdk
 ]

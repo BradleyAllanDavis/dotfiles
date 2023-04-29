@@ -3,8 +3,9 @@
 { pkgs, username, ... }:
 
 let
-  nixos-packages = import ./packages.nix;
   common-packages = import ../common-packages.nix;
+  nixos-packages = import ./packages.nix;
+  gui-packages = import ./gui-packages.nix;
 in
 {
   imports = [
@@ -17,7 +18,7 @@ in
     stateVersion = "22.11";
     username = "${username}";
     homeDirectory = "/home/${username}";
-    packages = (nixos-packages pkgs) ++ (common-packages pkgs);
+    packages = (common-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs);
   };
 
   xdg.enable = true;
