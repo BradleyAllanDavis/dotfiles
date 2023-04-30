@@ -60,7 +60,7 @@ in
     };
     modules = [
       nurpkgs.nixosModules.nur
-      ./${serverHostNase}
+      ./${serverHostName}
       # ./configuration.nix
 
       home-manager.nixosModules.home-manager {
