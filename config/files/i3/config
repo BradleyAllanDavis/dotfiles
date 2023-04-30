@@ -1,0 +1,418 @@
+# Key Variables {{{
+set $super Mod4
+set $alt Mod1
+
+# Direction
+set $left h
+set $down j
+set $up k
+set $right l
+# }}}
+# Solarized Colors {{{
+# Accent colors
+set $yellow  #b58900
+set $orange  #cb4b16
+set $red     #dc322f
+set $magenta #d33682
+set $violet  #6c71c4
+set $blue    #268bd2
+set $cyan    #2aa198
+set $green   #859900
+
+# Base colors
+set $deepblue  #002b36
+set $darkblue  #073642
+set $deepgray  #586e75
+set $darkgray  #657b83
+set $gray      #839496
+set $lightgray #93a1a1
+set $offwhite  #eee8d5
+set $white     #fdf6e3
+
+# Transparent/translucent colors
+set $trans        #00000000
+
+set $yellowtrans  #b58900b0
+set $orangetrans  #cb4b16b0
+set $redtrans     #dc322fb0
+set $magentatrans #d33682b0
+set $violettrans  #6c71c4b0
+set $bluetrans    #268bd2b0
+set $cyantrans    #2aa198b0
+set $greentrans   #859900b0
+
+set $deepbluetrans  #002b36b0
+set $darkbluetrans  #073642b0
+set $deepgraytrans  #586e75b0
+set $darkgraytrans  #657b83b0
+set $graytrans      #839496b0
+set $lightgraytrans #93a1a1b0
+set $offwhitetrans  #eee8d5b0
+set $whitetrans     #fdf6e3b0
+
+set $darkbluetransborder     #073642b0
+set $deepgraytransindicator  #586e7550
+# }}}
+# Window Theming {{{
+# clientclass		backgr border         text        indicator
+client.focused    	$trans $darkbluetrans $offwhite   $deepgraytransindicator
+# client.focused    	$trans $darkbluetrans $offwhite   $deepgraytransindicator
+client.focused_inactive $trans $trans         $lightgray  $trans
+client.unfocused  	$trans $trans         $lightgray  $trans
+client.urgent 	 	$trans $redtrans      $lightgray  $deepgray
+# }}}
+# Default Programs {{{
+set $terminal termite
+set $browser google-chrome-stable
+# }}}
+# Startup Programs {{{
+exec_always --no-startup-id $HOME/.screenlayout/home.sh
+# exec_always xrandr --output DVI-D-0 --off --output HDMI-0 --mode 1920x1200 --pos 5360x0 --rotate right --output DP-5 --off --output DP-4 --off --output DP-3 --off --output DP-2 --mode 3440x1440 --pos 1920x232 --scale 0.75x0.75 --rotate normal --output DP-1 --off --output DP-0 --mode 1920x1200 --pos 0x360 --rotate normal
+# exec xrandr --dpi 220
+
+# exec_always --no-startup-id xautolock -time 60 -locker ~/.config/i3/lock2.sh &
+exec_always --no-startup-id compton
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
+exec --no-startup-id unclutter
+exec --no-startup-id redshift-gtk
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id dropbox start -i
+# exec_always VBoxClient-all
+
+# exec --no-startup-id i3-msg 'workspace $workspace6; exec $terminal; exec $terminal'
+# exec --no-startup-id i3-msg 'workspace $workspace5; exec $terminal'
+# exec --no-startup-id i3-msg 'workspace $workspace4; exec $browser'
+
+# exec_always --no-startup-id notify-send 'i3 restarted'
+# }}}
+# Program Locations {{{
+for_window [class="Steam"] move to workspace $workspace7
+for_window [class="Spotify"] move to workspace $workspace8
+# for_window [class="Google-chrome"] border pixel 1
+for_window [class="Pantheon-files"] floating enable
+# }}}
+# Launch Programs {{{
+# Terminal
+bindsym $super+space exec $terminal
+bindsym $super+Shift+space exec $terminal -d `xcwd`
+
+# Tmux
+bindsym $super+Shift+t exec $terminal -e tmux
+
+# Browser
+bindsym $super+Return exec $browser
+
+# File Manager
+bindsym $super+g exec $terminal -e ranger
+
+# Application Launcher
+bindsym $super+d exec rofi -show run
+# }}}
+# Session Management {{{
+# Reload the configuration file
+bindsym $super+r reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $super+Shift+e exec i3-msg exit
+
+# Lock screen
+bindsym $super+s exec ~/.config/i3/lock2.sh
+
+# Sleep
+# bindsym $super+Shift+s exec ~/.config/i3/lock2.sh; exec sleep 10 && systemctl suspend
+bindsym $super+Shift+s exec systemctl suspend
+# }}}
+# Workspace Names {{{
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+# }}}
+# Workspace Monitors {{{
+# Home {{{
+set $left_monitor DP-0
+set $middle_monitor DP-2
+set $right_monitor HDMI-0
+
+# Left (horizontal)
+workspace $workspace1 output $left_monitor
+workspace $workspace2 output $left_monitor
+
+# Middle (horizontal)
+workspace $workspace3 output $middle_monitor
+workspace $workspace4 output $middle_monitor
+workspace $workspace5 output $middle_monitor
+workspace $workspace6 output $middle_monitor
+workspace $workspace7 output $middle_monitor
+workspace $workspace8 output $middle_monitor
+
+# Right (vertical)
+workspace $workspace9 output $right_monitor
+workspace $workspace10 output $right_monitor
+# }}}
+# }}}
+# Workspace Management {{{
+# Switch workspaces
+bindsym $super+u workspace prev
+bindsym $super+i workspace next
+
+# Switch to workspace
+bindsym $super+1 workspace $workspace1
+bindsym $super+2 workspace $workspace2
+bindsym $super+3 workspace $workspace3
+bindsym $super+4 workspace $workspace4
+bindsym $super+5 workspace $workspace5
+bindsym $super+6 workspace $workspace6
+bindsym $super+7 workspace $workspace7
+bindsym $super+8 workspace $workspace8
+bindsym $super+9 workspace $workspace9
+bindsym $super+0 workspace $workspace10
+
+# Move focused container to workspace
+bindsym $super+Shift+1 move container to workspace $workspace1
+bindsym $super+Shift+2 move container to workspace $workspace2
+bindsym $super+Shift+3 move container to workspace $workspace3
+bindsym $super+Shift+4 move container to workspace $workspace4
+bindsym $super+Shift+5 move container to workspace $workspace5
+bindsym $super+Shift+6 move container to workspace $workspace6
+bindsym $super+Shift+7 move container to workspace $workspace7
+bindsym $super+Shift+8 move container to workspace $workspace8
+bindsym $super+Shift+9 move container to workspace $workspace9
+bindsym $super+Shift+0 move container to workspace $workspace10
+
+# Move focused container to monitor
+bindsym $super+Shift+u move container to workspace prev
+bindsym $super+Shift+i move container to workspace next
+
+# Move focused container to monitor
+bindsym $super+Shift+Left move workspace to output left
+bindsym $super+Shift+Down move workspace to output down
+bindsym $super+Shift+Up move workspace to output up
+bindsym $super+Shift+Right move workspace to output right
+# }}}
+# Window Management {{{
+# Move focused window
+bindsym $super+Shift+$left move left
+bindsym $super+Shift+$down move down
+bindsym $super+Shift+$up move up
+bindsym $super+Shift+$right move right
+
+# Close focused window
+bindsym $super+Escape kill
+
+# Enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# Toggle tiling/floating
+bindsym $super+Shift+f floating toggle
+
+# Drag floating windows to wanted position
+floating_modifier $super
+
+# Toggle sticky (always visible on current workspace) window, must be floating
+bindsym $super+a sticky toggle
+
+# Change focus between tiling/floating windows
+bindsym $super+Tab focus mode_toggle
+
+# Center window in screen
+bindsym $super+b move position center
+
+# Change back to previous workspace
+# bindsym $super+Tab workspace back_and_forth
+# }}}
+# Window Resizing {{{
+bindsym $super+Left resize shrink width 3 px or 3 ppt
+bindsym $super+Down resize grow height 3 px or 3 ppt
+bindsym $super+Up resize shrink height 3 px or 3 ppt
+bindsym $super+Right resize grow width 3 px or 3 ppt
+# }}}
+# Move Cursor Focus {{{
+# Change focus
+bindsym $super+$left focus left
+bindsym $super+$down focus down
+bindsym $super+$up focus up
+bindsym $super+$right focus right
+
+# Disable focus wrapping in tabbed or stacked container?
+# force_focus_wrapping no
+# }}}
+# Splits & Layouts {{{
+# Toggle the direction of the next split (vertical or horizontal)
+bindsym $super+v split toggle
+
+# Toggle between container layouts (stacking|tabbed|split)
+bindsym $super+t layout toggle
+# }}}
+# Borders {{{
+for_window [class="^.*"] border pixel 12
+# }}}
+# Gaps {{{
+gaps inner 4
+gaps outer 4
+# }}}
+# Font {{{
+font pango:SFMono Bold 11
+# }}}
+# Mouse {{{
+mouse_warping none
+# }}}
+# Media Keys {{{
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# bindsym Pause exec amixer -q set Master 2dB+ unmute
+# bindsym Scroll_Lock exec amixer -q set Master 2dB- unmute
+# bindsym Print_Screen exec amixer -q set Master toggle
+
+# bindsym $super+Pause exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+# bindsym Pause exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+# bindsym $super+Scroll_Lock exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym Scroll_Lock exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym $super+Print_Screen exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# bindsym Print_Screen exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+# }}}
+# Scratchpads {{{
+# Move the currently focused window to the scratchpad
+bindsym $super+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window
+# If there are multiple scratchpad windows, this command cycles through them
+bindsym $super+minus scratchpad show
+# }}}
+# ScreenShots {{{
+# Fullscreen
+bindsym Print exec scrot $HOME/screenshot_`date +%Y-%m-%d_%H:%M:%S`.png
+
+# Window
+bindsym $super+Print exec scrot -u $HOME/screenshot_`date +%Y-%m-%d_%H:%M:%S`.png
+
+# Select windows
+bindsym $super+Shift+Print exec scrot -s $HOME/screenshot_`date +%Y-%m-%d_%H:%M:%S`.png
+# }}}
+
+# tray_output primary
+#for_window [class="Keepassx"] floating enable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim:foldmethod=marker:foldlevel=0 tw=0

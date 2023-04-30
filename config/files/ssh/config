@@ -1,0 +1,159 @@
+IgnoreUnknown UseKeychain
+UseKeychain yes
+
+# GitHub Personal {{{
+Host github.com-personal
+  Hostname github.com
+  User git
+  Port 22
+  IdentityFile ~/.ssh/id_rsa_personal
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+# }}}
+# Gitlab OKG {{{
+Host gitlab.okg.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa_okcoin
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+# }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# vim: fdm=marker:fdl=0 ai ts=2 sw=2 et sts=2

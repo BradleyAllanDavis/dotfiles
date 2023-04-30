@@ -1,0 +1,16 @@
+rofi.color-enabled: true
+rofi.color-window: #002b36, #002b36, #003642
+rofi.color-normal: #002b36, #819396, #002b36, #003642, #fdf6e3
+rofi.color-active: #002b36, #008ed4, #002b36, #003642, #008ed4
+rofi.color-urgent: #002b36, #da4281, #002b36, #003642, #da4281
+
+rofi.font:             SF Mono 24
+rofi.scrollbar-width:  0px
+rofi.bw:               10px
+rofi.width:            30
+rofi.padding:          20
+rofi.eh:               1
+rofi.lines:            8
+rofi.terminal:         termite
+/* rofi.kb-primary-paste: Control+Shift+v */
+rofi.case-sensitive:   false

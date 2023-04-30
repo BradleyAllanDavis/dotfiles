@@ -1,0 +1,5 @@
+#!/bin/bash
+
+defaults write org.n8gray.QLColorCode fontSizePoints 10
+defaults write org.n8gray.QLColorCode font Monaco
+defaults write org.n8gray.QLColorCode hlTheme solarized-dark
