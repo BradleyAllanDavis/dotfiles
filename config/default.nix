@@ -6,8 +6,6 @@
       ".bash_profile".source = ./files/bash_profile;
       ".bashrc".source = ./files/bashrc;
       ".bash/aliases".source = ./files/bash/aliases;
-      ".bash/directories".source = ./files/bash/directories;
-      ".bash/dotfiles".source = ./files/bash/dotfiles;
       ".bash/environment".source = ./files/bash/environment;
       ".bash/functions".source = ./files/bash/functions;
       ".bash/fzf".source = ./files/bash/fzf;
