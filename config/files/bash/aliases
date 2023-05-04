@@ -1,3 +1,36 @@
+# dotfiles {{{
+alias d="cd $DOTFILES"
+alias cdir="cd $DOTFILES/config/files"
+alias brc="\$EDITOR $DOTFILES/config/files/bashrc"
+# alias bp="\$EDITOR $DOTFILES/.bash_profile"
+# alias gitrc="\$EDITOR $DOTFILES/.config/git/config"
+alias vrc="\$EDITOR $DOTFILES/config/files/vimrc"
+alias trc="\$EDITOR $DOTFILES/config/files/tmux.conf"
+alias tmrc="\$EDITOR $DOTFILES/config/files/tmux.conf"
+alias tmc="\$EDITOR $DOTFILES/config/files/tmux.conf"
+# alias i3c="\$EDITOR $DOTFILES/.config/i3/config"
+# alias plc="\$EDITOR $DOTFILES/.config/polybar/config"
+# alias crc="\$EDITOR $DOTFILES/.config/compton.conf"
+# alias drc="\$EDITOR $DOTFILES/.config/dunst/dunstrc"
+# alias rrc="\$EDITOR $DOTFILES/.config/ranger/rc.conf"
+# alias rfrc="\$EDITOR $DOTFILES/.config/rofi/config"
+# alias rsrc="\$EDITOR $DOTFILES/.config/redshift.conf"
+# alias mrc="\$EDITOR $DOTFILES/.mutt/muttrc"
+# alias xpc="\$EDITOR $DOTFILES/.xprofile"
+# alias xrc="\$EDITOR $DOTFILES/.xinitrc"
+# alias sshrc="\$EDITOR $DOTFILES/.ssh/config"
+# }}}
+# directories {{{
+alias rroot='cd /'
+alias h="cd $HOME"
+alias dl="cd $HOME/Downloads"
+alias dt="cd $HOME/Desktop"
+alias dk="cd $HOME/Desktop"
+alias db="cd $HOME/Dropbox"
+alias docs="cd $HOME/Documents"
+alias p="cd $HOME/Projects"
+alias c='cd ~/Code'
+# }}}
 # cd pyramid {{{
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -110,6 +143,8 @@ alias chrome='google-chrome'
 alias termsize='echo "Rows = $(tput lines), Cols = $(tput cols)"'
 alias myip='curl icanhazip.com'
 
+# Delete all broken symlinks in current directory
+alias syms='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 
 

@@ -3,10 +3,6 @@ if [[ $platform == 'Darwin' ]]; then
   # brew
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
-  # Shortcuts
-  alias brewrc='vim $DOTFILES/.config/homebrew/Brewfile'
-  alias macrc='vim $DOTFILES/.config/macOS/preferences.sh'
-
   # `ls` colors
   export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
@@ -21,10 +17,6 @@ if [[ $platform == 'Darwin' ]]; then
   # Show/hide hidden files in Finder
   alias show='defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder'
   alias hide='defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder'
-
-  # Hide/show all desktop icons (useful when presenting)
-  alias hidedesktop='defaults write com.apple.finder CreateDesktop -bool false && killall Finder'
-  alias showdesktop='defaults write com.apple.finder CreateDesktop -bool true && killall Finder'
 
   # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
   # (useful when executing time-consuming commands)

@@ -8,21 +8,38 @@ echo "bash_profile"
 # X session {{{
 [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && exec startx
 # }}}
-# sdkman {{{
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-# }}}
-# jenv {{{
-# if which jenv > /dev/null; then
-# 	export JENV_ROOT="$HOME/.jenv"
-# 	eval "$(jenv init -)"
-# 	export PATH="$HOME/.jenv/bin:$PATH"
-# fi
-# }}}
 # Java {{{
 # export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
 export "JAVA_HOME=\$(/usr/libexec/java_home -v1.8.0)"
 # }}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

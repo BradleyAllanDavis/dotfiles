@@ -5,7 +5,7 @@ echo "bashrc"
 # Dotfiles location
 export DOTFILES="$HOME/.dotfiles"
 
-# Source bash config files {{{
+# Source other bash config files {{{
 for file in $HOME/.bash/*; do
   if [[ -f $file ]]; then
     source $file
