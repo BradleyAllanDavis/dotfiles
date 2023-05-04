@@ -1,21 +1,17 @@
-# Symlink script
-alias sym="`which python` $HOME/.config/symlink_dotfiles.py"
-
 # Delete all broken symlinks in current directory
 alias syms='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
 # Quick access to config files/dirs
-export DOTFILES="$HOME/.dotfiles"
 alias d="cd $DOTFILES"
 
 # alias cdir="cd $DOTFILES/.config"
-# alias brc="\$EDITOR $DOTFILES/.bashrc"
+alias brc="\$EDITOR $DOTFILES/config/files/bashrc"
 # alias bp="\$EDITOR $DOTFILES/.bash_profile"
 # alias gitrc="\$EDITOR $DOTFILES/.config/git/config"
-# alias vrc="\$EDITOR $DOTFILES/.vimrc"
-# alias trc="\$EDITOR $DOTFILES/.tmux.conf"
-# alias tmrc="\$EDITOR $DOTFILES/.tmux.conf"
-# alias tmc="\$EDITOR $DOTFILES/.tmux.conf"
+alias vrc="\$EDITOR $DOTFILES/config/files/vimrc"
+alias trc="\$EDITOR $DOTFILES/config/files/tmux.conf"
+alias tmrc="\$EDITOR $DOTFILES/config/files/tmux.conf"
+alias tmc="\$EDITOR $DOTFILES/config/files/tmux.conf"
 # alias i3c="\$EDITOR $DOTFILES/.config/i3/config"
 # alias plc="\$EDITOR $DOTFILES/.config/polybar/config"
 # alias crc="\$EDITOR $DOTFILES/.config/compton.conf"

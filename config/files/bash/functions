@@ -309,18 +309,24 @@ dots() {
   unset PWD
 }
 
-# Conditional bash config sourcing
 b() {
   echo ""
-  echo "Source bash dotfiles..."
+  echo "Sourcing bash config files..."
   source $HOME/.bashrc
-  echo "\$DOTFILES = $DOTFILES"
+  echo "\$DOTFILES directory = $DOTFILES"
 }
 
 # Add newlines around statement
 newline_echo() {
   printf "\n%b\n" "$1"
 }
+# }}}
+# NixOS {{{
+rebuild() {
+  sudo nixos-rebuild switch --flake "$DOTFILES/#$1"
+}
+
+
 # }}}
 
 

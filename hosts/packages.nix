@@ -1,4 +1,6 @@
 pkgs: with pkgs; [
+  neofetch
+
   xorg.xbacklight
 
   # bash

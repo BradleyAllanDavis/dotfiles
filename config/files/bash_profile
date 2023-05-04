@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "bash_profile"
+
 # When interactive, run bashrc {{{
 [[ $- = *i* ]] && [[ -r $HOME/.bashrc ]] && . $HOME/.bashrc
 # }}}
@@ -22,7 +24,20 @@
 export "JAVA_HOME=\$(/usr/libexec/java_home -v1.8.0)"
 # }}}
 
+# neofetch
+# if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
+#   neofetch
+# else
+#   echo "u in tmux"
+# fi
 
+# [ -z "${TMUX}" ] && neofetch
+
+if [ "$TERM_PROGRAM" = tmux ]; then
+  echo "u in tmux"
+else
+  neofetch
+fi
 
 
 
