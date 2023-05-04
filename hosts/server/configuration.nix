@@ -28,8 +28,35 @@
   boot.initrd.luks.devices."luks-828ad403-f995-40f5-86bf-5d0726f8bdae".device = "/dev/disk/by-uuid/828ad403-f995-40f5-86bf-5d0726f8bdae";
   boot.initrd.luks.devices."luks-828ad403-f995-40f5-86bf-5d0726f8bdae".keyFile = "/crypto_keyfile.bin";
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = "nixos";
+    wireless.enable = false; # Enables wireless support via wpa_supplicant
+    defaultGateway = "192.168.7.1";
+    nameservers = ["192.168.7.1" "8.8.8.8"];
+    interfaces = {
+      eno1 = {
+        useDHCP = false;
+        ipv4.addresses = [{
+          address = "192.168.7.101";
+          prefixLength = 24;
+        }];
+      };
+      # enp2so = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #     address = "192.168.7.101";
+      #     prefixLength = 24;
+      #   }];
+      # };
+      # enp6s0 = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #     address = "192.168.7.101";
+      #     prefixLength = 24;
+      #   }];
+      # };
+    };
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -94,10 +121,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  ];
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -110,7 +137,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
