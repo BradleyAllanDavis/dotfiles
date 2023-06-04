@@ -43,7 +43,37 @@ in
         home-manager.users.${username} = {
           imports = [
             ./home.nix
-            # ./${desktopHostName}/home.nix
+            ./${desktopHostName}/home.nix
+          ];
+        };
+      }
+    ];
+  };
+  ${laptopHostName} = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit inputs username userDescription;
+      hostName = laptopHostName;
+      host = {
+        hostName = "${laptopHostName}";
+      };
+    };
+    modules = [
+      ./${laptopHostName}
+
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          inherit pkgs username userDescription;
+          host = {
+            hostName = "${laptopHostName}";
+          };
+        };
+        home-manager.users.${username} = {
+          imports = [
+            ./home.nix
+            ./${laptopHostName}/home.nix
           ];
         };
       }
@@ -75,43 +105,10 @@ in
         home-manager.users.${username} = {
           imports = [
             ./home.nix
-            # ./${serverHostName}/home.nix
+            ./${serverHostName}/home.nix
           ];
         };
       }
     ];
   };
-  ${laptopHostName} = lib.nixosSystem {
-    inherit system;
-    specialArgs = {
-      inherit inputs username userDescription;
-      hostName = laptopHostName;
-      host = {
-        hostName = "${laptopHostName}";
-      };
-    };
-    modules = [
-      nurpkgs.nixosModules.nur
-      ./${laptopHostName}
-      # ./configuration.nix
-
-      home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          inherit pkgs username userDescription;
-          host = {
-            hostName = "${laptopHostName}";
-          };
-        };
-        home-manager.users.${username} = {
-          imports = [
-            ./home.nix
-            # ./${laptopHostName}/home.nix
-          ];
-        };
-      }
-    ];
-  };
-
 }

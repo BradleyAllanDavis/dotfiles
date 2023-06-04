@@ -6,5 +6,4 @@
     ./hardware-configuration.nix
   ];
 
-
 }
