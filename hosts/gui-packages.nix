@@ -11,27 +11,27 @@ pkgs: with pkgs; [
 
   # GUI apps
   _1password-gui
+  bitcoin
   brave
-  expressvpn
-  spotify
-  spotify-tray
-  slack
   discord
-  zoom-us
-  gparted
+  expressvpn
   github-desktop
-  postman
-  signal-desktop
-  tdesktop
-  whatsapp-for-linux
-  steam
-
-  # jetbrains
+  gparted
+  jetbrains-toolbox
   jetbrains.idea-ultimate
-  # jetbrains.datagrip
-  # jetbrains.clion
+  jetbrains.datagrip
+  jetbrains.clion
   # jetbrains.goland
   # jetbrains.webstorm
   # jetbrains.pycharm-professional
   # jetbrains.jdk
+  spotify
+  spotify-tray
+  slack
+  postman
+  signal-desktop
+  steam
+  tdesktop
+  whatsapp-for-linux
+  zoom-us
 ]

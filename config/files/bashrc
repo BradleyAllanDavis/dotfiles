@@ -40,14 +40,7 @@ export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
 # Autocomplete
 # source <(kubectl completion bash)
 # }}}
-# git-completion {{{
-[ -f $DOTFILES/.config/git/git-completion.bash ] && source $DOTFILES/.config/git/git-completion.bash
-# }}}
-# Java {{{
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home
-# }}}
 # Starship prompt {{{
-#if [ -x "$(command -v starship)" ]; then
 if command -v starship &> /dev/null; then
   eval "$(starship init bash)"
 fi

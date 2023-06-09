@@ -146,6 +146,8 @@ alias myip='curl icanhazip.com'
 # Delete all broken symlinks in current directory
 alias syms='find -L . -name . -o -type d -prune -o -type l -exec rm {} +'
 
+# alias logout="gnome-session-quit --no-prompt"
+# alias lock="gnome-screensaver-command -l"
 
 
 

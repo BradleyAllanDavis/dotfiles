@@ -27,9 +27,9 @@ in
       };
     };
     modules = [
-      nurpkgs.nixosModules.nur
+      ./base-configuration.nix
       ./${desktopHostName}
-      # ./configuration.nix
+      nurpkgs.nixosModules.nur
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
@@ -59,6 +59,7 @@ in
       };
     };
     modules = [
+      ./base-configuration.nix
       ./${laptopHostName}
 
       home-manager.nixosModules.home-manager {
@@ -89,9 +90,9 @@ in
       };
     };
     modules = [
-      nurpkgs.nixosModules.nur
+      ./base-configuration.nix
       ./${serverHostName}
-      # ./configuration.nix
+      nurpkgs.nixosModules.nur
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;

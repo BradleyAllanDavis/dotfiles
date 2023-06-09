@@ -18,6 +18,11 @@
   # Need the latest kernel for WiFi support on Framework
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Enable illum, a daemon for controlling screen brightness with brightness buttons
+  # services.illum.enable = true;
+  # hardware.brightnessctl.enable = true;
+  hardware.acpilight.enable = true;
+
   # Battery optimization
   # services.tlp = {
   #   enable = true;

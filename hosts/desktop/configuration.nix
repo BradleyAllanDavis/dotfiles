@@ -96,22 +96,11 @@
   # };
 
   services.xserver = {
-    enable = true;
     videoDrivers = [ "amdgpu" ];
-
-    autoRepeatDelay = 220;
-    autoRepeatInterval = 50;
-
-    layout = "us";
-    xkbVariant = "";
 
     # Enable KDE Plasma Desktop Environment.
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
-
-    # displayManager.sessionCommands = ''
-    #   ${pkgs.xorg.xset}`which xset` r rate 220 80
-    # '';
 
     # displayManager = {
     #   defaultSession = "none+i3";

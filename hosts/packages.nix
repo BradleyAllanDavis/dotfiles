@@ -1,8 +1,6 @@
 pkgs: with pkgs; [
   neofetch
 
-  xorg.xbacklight
-
   # bash
   nix-bash-completions
 
@@ -20,13 +18,17 @@ pkgs: with pkgs; [
   # language runtimes
   python3
   nodejs
+  # kotlin
+  rustup
+  openjdk
 
   trashy
   direnv
   xclip
   spotify-tui
   llvm
-  # compton, neocomp
+  # compton
+  # neocomp
   dunst
   neomutt
   taskwarrior
@@ -36,8 +38,5 @@ pkgs: with pkgs; [
   pstree
   nix-direnv
 
-  # bitcoin
-  # bitcoin
-  # bitcoind
-
+  xorg.xbacklight
 ]

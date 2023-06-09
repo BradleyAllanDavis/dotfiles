@@ -1,5 +1,8 @@
 export platform=$(uname)
 if [[ $platform == 'Darwin' ]]; then
+  # Java
+  export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home
+
   # brew
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
