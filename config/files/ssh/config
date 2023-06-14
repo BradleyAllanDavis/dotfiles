@@ -1,7 +1,8 @@
+# General {{{
 IgnoreUnknown UseKeychain
 UseKeychain yes
-
-# 1Password {{{
+# General }}}
+# 1Password Agent {{{
 # Host *
 #   IdentityAgent ~/.1password/agent.sock
 # }}}

@@ -41,6 +41,8 @@
       ".local/share/fonts/SF Mono Regular Nerd Font Complete.otf".source = ./files/local/share/fonts/SF_Mono_Regular_Nerd_Font_Complete.otf;
       ".screenlayout/home.sh".source = ./files/screenlayout/home.sh;
       ".ssh/config".source = ./files/ssh/config;
+      ".ssh/generate_ssh_key_okcoin.sh".source = ./files/ssh/generate_ssh_key_okcoin.sh;
+      ".ssh/generate_ssh_key_personal.sh".source = ./files/ssh/generate_ssh_key_personal.sh;
       ".tmux.conf".source = ./files/tmux.conf;
       ".tmux/linux.conf".source = ./files/tmux/linux.conf;
       ".tmux/mac.conf".source = ./files/tmux/mac.conf;
