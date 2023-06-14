@@ -3,9 +3,6 @@
 { config, pkgs, inputs, username, userDescription, hostName, ... }:
 
 {
-  imports = [
-  ];
-
   system = {
     autoUpgrade = {
       enable = true;
@@ -40,36 +37,6 @@
     '';
   };
 
-  environment = {
-    variables = {
-      TERMINAL = "alacritty";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
-    systemPackages = with pkgs; [
-      xclip
-      killall
-      pciutils
-      usbutils
-    ];
-  };
-
-  fonts.fonts = with pkgs; [
-    nerdfonts
-    # (nerdfonts.override {
-    #   fonts = [
-    #     "SFMono Nerd Font"
-    #     "Hack Nerd Font Mono"
-    #   ];
-    # })
-    # carlito                                 # NixOS
-    # vegur                                   # NixOS
-    # source-code-pro
-    # jetbrains-mono
-    # font-awesome                            # Icons
-    # corefonts                               # MS
-  ];
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -86,14 +53,6 @@
     device = "/dev/disk/by-uuid/e3ddf490-ae07-413f-ba18-2dffe2aa03ec";
     keyFile = "/crypto_keyfile.bin";
   };
-
-  time.timeZone = "America/Matamoros";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
 
   services.xserver = {
     videoDrivers = [ "amdgpu" ];
@@ -116,9 +75,6 @@
     #     # i3blocks # if you are planning on using i3blocks over i3status
     #  ];
     # };
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    # libinput.enable = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
@@ -145,11 +101,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
