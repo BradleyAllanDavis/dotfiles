@@ -65,6 +65,7 @@
       "dash"
       "discord"
       "electrum"
+      "balenaetcher"
       "evernote"
       "exodus"
       "fig"
