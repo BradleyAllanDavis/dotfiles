@@ -10,7 +10,7 @@ let
     config.allowUnfree = true;
   };
 
-  macbookHostName = "mac";
+  macbookHostName = "macbook";
 in
 {
   ${macbookHostName} = darwin.lib.darwinSystem {

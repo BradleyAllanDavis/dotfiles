@@ -4,7 +4,7 @@
 
 let
   darwin-packages = import ./packages.nix;
-  common-packages = import ../common-packages.nix;
+  base-packages = import ../base-packages.nix;
 in
 {
   imports = [
@@ -17,7 +17,7 @@ in
     stateVersion = "22.11";
     username = "${username}";
     # homeDirectory = "/Users/${username}";
-    packages = (darwin-packages pkgs) ++ (common-packages pkgs);
+    packages = (darwin-packages pkgs) ++ (base-packages pkgs);
   };
 
   xdg.enable = true;
