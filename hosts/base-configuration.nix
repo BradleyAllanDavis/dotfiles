@@ -15,5 +15,14 @@
     '';
   };
 
+  # Needed for etcher package
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-12.2.3"
+  # ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "openssl-1.1.1u"
+  # ];
+
+
 
 }

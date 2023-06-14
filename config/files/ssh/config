@@ -1,6 +1,10 @@
 IgnoreUnknown UseKeychain
 UseKeychain yes
 
+# 1Password {{{
+# Host *
+#   IdentityAgent ~/.1password/agent.sock
+# }}}
 # GitHub Personal {{{
 Host github.com-personal
   Hostname github.com

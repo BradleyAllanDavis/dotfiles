@@ -14,8 +14,9 @@ pkgs: with pkgs; [
   bitcoin
   brave
   discord
+  # etcher
   expressvpn
-  github-desktop
+  # github-desktop
   gparted
   hey
   jetbrains-toolbox

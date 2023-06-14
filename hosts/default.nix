@@ -13,8 +13,8 @@ let
   lib = nixpkgs.lib;
 
   desktopHostName = "desktop";
-  serverHostName = "server";
   laptopHostName = "laptop";
+  serverHostName = "server";
 in
 {
   ${desktopHostName} = lib.nixosSystem {
