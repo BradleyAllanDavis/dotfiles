@@ -7,8 +7,8 @@
     layout = "us";
     xkbVariant = "";
 
-    autoRepeatDelay = 220;
-    autoRepeatInterval = 50;
+    autoRepeatDelay = 250;
+    autoRepeatInterval = 80;
 
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xset}`which xset` r rate 220 80

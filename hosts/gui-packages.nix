@@ -17,6 +17,7 @@ pkgs: with pkgs; [
   expressvpn
   github-desktop
   gparted
+  hey
   jetbrains-toolbox
   jetbrains.idea-ultimate
   jetbrains.datagrip
@@ -25,6 +26,7 @@ pkgs: with pkgs; [
   # jetbrains.webstorm
   # jetbrains.pycharm-professional
   # jetbrains.jdk
+  sparrow
   spotify
   spotify-tray
   slack
