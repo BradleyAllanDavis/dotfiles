@@ -35,6 +35,7 @@ pkgs: with pkgs; [
   signal-desktop
   steam
   tdesktop
+  vivaldi
   whatsapp-for-linux
   zoom-us
 ]

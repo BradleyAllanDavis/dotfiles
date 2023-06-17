@@ -16,7 +16,9 @@ pkgs: with pkgs; [
   nix-direnv
   nix-zsh-completions
   nodejs
+  nostr-rs-relay
   openjdk
+  podman
   pstree
   python3
   rustup

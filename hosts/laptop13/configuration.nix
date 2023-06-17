@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, hostName, ... }:
 
 {
   # Bootloader.
@@ -39,7 +39,7 @@
   boot.initrd.luks.devices."luks-f37dedc7-74ea-47b1-83cb-6aad9576fef0".device = "/dev/disk/by-uuid/f37dedc7-74ea-47b1-83cb-6aad9576fef0";
   boot.initrd.luks.devices."luks-f37dedc7-74ea-47b1-83cb-6aad9576fef0".keyFile = "/crypto_keyfile.bin";
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "${hostName}";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
