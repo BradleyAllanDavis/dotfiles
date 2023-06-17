@@ -3,9 +3,6 @@
 { ... }:
 
 {
-  imports = [
-  ];
-
   services.nix-daemon.enable = true;
 
   nix.extraOptions = ''
@@ -98,29 +95,5 @@
   #   '';
   # };
 
-  # system = {
-  #   defaults = {
-  #     NSGlobalDomain = {                  # Global macOS system settings
-  #       KeyRepeat = 1;
-  #       NSAutomaticCapitalizationEnabled = false;
-  #       NSAutomaticSpellingCorrectionEnabled = false;
-  #     };
-  #     dock = {                            # Dock settings
-  #       autohide = true;
-  #       orientation = "bottom";
-  #       showhidden = true;
-  #       tilesize = 40;
-  #     };
-  #     finder = {                          # Finder settings
-  #       QuitMenuItem = false;             # I believe this probably will need to be true if using spacebar
-  #     };
-  #     trackpad = {                        # Trackpad settings
-  #       Clicking = true;
-  #       TrackpadRightClick = true;
-  #     };
-  #   };
-  #   activationScripts.postActivation.text = ''sudo chsh -s ${pkgs.zsh}/bin/zsh''; # Since it's not possible to declare default shell, run this command after build
-  #   stateVersion = 4;
-  # };
 
 }

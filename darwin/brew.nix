@@ -102,6 +102,7 @@
       "quicklook-json"
       "quitter"
       "ransomwhere"
+      "raycast"
       "roam-research"
       "rocket"
       "spotify"

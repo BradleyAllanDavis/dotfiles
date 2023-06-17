@@ -20,8 +20,8 @@ in
     packages = (darwin-packages pkgs) ++ (base-packages pkgs);
   };
 
-  xdg.enable = true;
-  xdg.configHome = "/Users/${username}/.config";
+  # xdg.enable = true;
+  # xdg.configHome = "/Users/${username}/.config";
 
   manual.manpages.enable = false;
 

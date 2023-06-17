@@ -1,42 +1,32 @@
 pkgs: with pkgs; [
-  neofetch
-
-  # bash
-  nix-bash-completions
-
-  # nix lsp
-  nil
-
-  # zsh
-  zsh-fzf-tab
-  # zsh-completions
-  nix-zsh-completions
-  zsh-nix-shell
-  # oh-my-zsh
-  fzf-zsh
-
-  # language runtimes
-  python3
-  nodejs
-  # kotlin
-  rustup
-  openjdk
-
-  trashy
-  direnv
-  xclip
-  spotify-tui
-  llvm
-  # compton
-  # neocomp
-  dunst
-  neomutt
-  taskwarrior
-  findutils
   atool
+  # compton
+  direnv
+  dunst
+  findutils
+  fzf-zsh
   httpie
-  pstree
+  # kotlin
+  llvm
+  # neocomp
+  neofetch
+  neomutt
+  nil
+  nix-bash-completions
   nix-direnv
-
+  nix-zsh-completions
+  nodejs
+  openjdk
+  pstree
+  python3
+  rustup
+  spotify-tui
+  taskwarrior
+  trashy
+  vifm
+  xclip
   xorg.xbacklight
+  # zsh-completions
+  zsh-fzf-tab
+  zsh-nix-shell
 ]

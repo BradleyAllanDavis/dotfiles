@@ -11,8 +11,8 @@ nix build .#darwinConfigurations.macbook.system --extra-experimental-features "n
 #/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t # read below
 
 # now we can finally darwin-rebuild
-./result/sw/bin/darwin-rebuild switch --flake .
-# ./result/sw/bin/darwin-rebuild switch --flake . --show-trace
+# ./result/sw/bin/darwin-rebuild switch --flake .
+./result/sw/bin/darwin-rebuild switch --flake . --show-trace
 
 # new ? doesnt work right now
 # sudo darwin-rebuild switch --flake .#mac

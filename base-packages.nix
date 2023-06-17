@@ -29,7 +29,6 @@ pkgs: with pkgs; [
   tldr
   tree
   tmux
-  vifm
   wget
   youtube-dl
   zsh
