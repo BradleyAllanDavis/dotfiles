@@ -90,6 +90,7 @@
       "obsidian"
       "paw"
       "postman"
+      # "polar", not available in brew
       "proxyman"
       "qlcolorcode"
       "qlmarkdown"
@@ -105,6 +106,7 @@
       "raycast"
       "roam-research"
       "rocket"
+      "santa"
       "spotify"
       "tower"
       "trezor-suite"
@@ -157,6 +159,7 @@
       "Transmit" = 1436522307;
       "WhatsApp" = 1147396723;
       "Xcode" = 497799835;
+      "Zones" = 1612523936;
     };
   };
 }

@@ -3,6 +3,7 @@ pkgs: with pkgs; [
   alacritty
   bash
   bat
+  comma
   curl
   diff-so-fancy
   entr
