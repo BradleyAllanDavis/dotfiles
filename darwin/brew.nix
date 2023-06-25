@@ -106,7 +106,7 @@
       "raycast"
       "roam-research"
       "rocket"
-      "santa"
+      # "santa"
       "spotify"
       "tower"
       "trezor-suite"

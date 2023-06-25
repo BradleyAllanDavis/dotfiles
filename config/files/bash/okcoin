@@ -1,4 +1,4 @@
-if [ "$HOSTNAME" = mac ]; then
+if [ "$HOSTNAME" = macbook ]; then
   alias dacs="cd $DACS"
   alias c="cd $DACS/Documents/Code"
 fi
