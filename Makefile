@@ -13,7 +13,7 @@ $(DARWIN_SYSTEMS):
 	./result/sw/bin/darwin-rebuild switch --flake . --show-trace
 
 $(NIXOS_SYSTEMS):
-	sudo nixos-rebuild switch --flake .\#$(NIXOS_SYSTEMS)
+	sudo nixos-rebuild switch --flake .\#$@
 
 # Specifies these are not files
 .PHONY: $(DARWIN_SYSTEMS) $(NIXOS_SYSTEMS)
