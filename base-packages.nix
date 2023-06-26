@@ -32,6 +32,7 @@ pkgs: with pkgs; [
   tree
   tmux
   wget
+  whois
   youtube-dl
   zsh
 ]
