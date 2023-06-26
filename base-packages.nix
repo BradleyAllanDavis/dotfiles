@@ -12,7 +12,7 @@ pkgs: with pkgs; [
   gcc
   git
   git-crypt
-  # gnumake
+  gnumake
   helix
   htop
   jq
