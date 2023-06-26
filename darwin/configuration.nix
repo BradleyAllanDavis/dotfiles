@@ -1,6 +1,6 @@
 # Main system configuration
 
-{ ... }:
+{ username, ... }:
 
 {
   services.nix-daemon.enable = true;
@@ -16,10 +16,10 @@
   nix.gc.user = "bradley";
   nix.gc.automatic = true;
 
-  # users.users."${user}" = {               # macOS user
-  #   home = "/Users/${user}";
-  #   shell = pkgs.zsh;                     # Default shell
-  # };
+  users.users."${username}" = {               # macOS user
+    home = "/Users/${username}";
+    # shell = pkgs.zsh;                     # Default shell
+  };
 
   # networking = {
   #   computerName = "MacBook";             # Host name
