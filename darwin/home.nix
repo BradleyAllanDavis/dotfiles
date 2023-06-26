@@ -1,6 +1,6 @@
 # General home-manager configuration
 
-{ lib, config, pkgs, username, userDescription, ... }:
+{ lib, config, pkgs, username, userDescription, hostName, ... }:
 
 let
   darwin-packages = import ./packages.nix;

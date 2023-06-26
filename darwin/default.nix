@@ -17,6 +17,7 @@ in
     inherit system lib pkgs;
     specialArgs = {
       inherit inputs username userDescription;
+      hostName = macbookHostName;
       host = {
         hostName = "${macbookHostName}";
       };
@@ -31,6 +32,9 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = {
           inherit username userDescription;
+          host = {
+            hostName = "${macbookHostName}";
+          };
         };
         home-manager.users.${username} = {
           imports = [

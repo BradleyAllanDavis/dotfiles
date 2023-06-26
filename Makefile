@@ -15,6 +15,5 @@ $(DARWIN_SYSTEMS):
 $(NIXOS_SYSTEMS):
 	sudo nixos-rebuild switch --flake .\#$(NIXOS_SYSTEMS)
 
-
 # Specifies these are not files
 .PHONY: $(DARWIN_SYSTEMS) $(NIXOS_SYSTEMS)
