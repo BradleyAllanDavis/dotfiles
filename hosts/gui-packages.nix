@@ -11,6 +11,7 @@ pkgs: with pkgs; [
 
   # GUI apps
   _1password-gui
+  # bisq-desktop
   bitcoin
   brave
   discord

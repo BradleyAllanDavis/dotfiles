@@ -1,4 +1,4 @@
-{ config, pkgs, hostName, ... }:
+{ config, pkgs, username, userDescription, hostName, ... }:
 
 {
   time.timeZone = "America/Matamoros";
@@ -16,6 +16,15 @@
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xset}`which xset` r rate 220 80
     '';
+  };
+
+  networking.networkmanager.enable = true;
+  networking.hostName = "${hostName}";
+
+  users.users.${username} = {
+    isNormalUser = true;
+    description = "${userDescription}";
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   environment = {
