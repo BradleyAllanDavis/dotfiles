@@ -1,42 +1,8 @@
 # Main system configuration
 
-{ config, pkgs, inputs, username, userDescription, hostName, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  system = {
-    autoUpgrade = {
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
-    };
-    stateVersion = "22.11";
-  };
-
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${userDescription}";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
-  security.sudo.wheelNeedsPassword = false;
-
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    package = pkgs.nixVersions.unstable;
-    registry.nixpkgs.flake = inputs.nixpkgs;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs          = true
-      keep-derivations      = true
-    '';
-  };
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -92,15 +58,11 @@
 
   ### Networking
 
-  networking.hostName = "${hostName}";
   # networking.wireless.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

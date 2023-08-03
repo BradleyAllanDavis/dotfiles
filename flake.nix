@@ -15,23 +15,23 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nurpkgs, darwin, home-manager }:
-    let
-      username = "bradley";
-      userDescription = "Bradley Allan Davis";
-    in {
-      nixosConfigurations = (
-        import ./hosts {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager nurpkgs username userDescription;
-        }
-      );
-      darwinConfigurations = (
-        import ./darwin {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs home-manager darwin username userDescription;
-        }
-      );
-    };
+  outputs = { self, nixpkgs, nurpkgs, darwin, home-manager, ... }@inputs:
+  let
+    username = "bradley";
+    userDescription = "Bradley Allan Davis";
+  in {
+    nixosConfigurations = (
+      import ./machines {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager nurpkgs username userDescription;
+      }
+    );
+    darwinConfigurations = (
+      import ./darwin {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager darwin username userDescription;
+      }
+    );
+  };
 
 }

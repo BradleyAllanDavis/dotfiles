@@ -1,6 +1,32 @@
-{ config, pkgs, username, userDescription, hostName, ... }:
+{ config, inputs, pkgs, username, userDescription, hostName, ... }:
 
 {
+  system = {
+    autoUpgrade = {
+      enable = true;
+      channel = "https://nixos.org/channels/nixos-unstable";
+    };
+    stateVersion = "22.11";
+  };
+
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    package = pkgs.nixVersions.unstable;
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs          = true
+      keep-derivations      = true
+    '';
+  };
+
   time.timeZone = "America/Matamoros";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -18,6 +44,9 @@
     '';
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
+  # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "${hostName}";
 

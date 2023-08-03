@@ -13,7 +13,8 @@ let
   lib = nixpkgs.lib;
 
   desktopHostName = "desktop";
-  laptopHostName = "laptop13";
+  laptop13HostName = "laptop13";
+  laptop16HostName = "laptop16";
   serverHostName = "server";
   routerHostName = "router";
 in
@@ -50,18 +51,18 @@ in
       }
     ];
   };
-  ${laptopHostName} = lib.nixosSystem {
+  ${laptop13HostName} = lib.nixosSystem {
     inherit system;
     specialArgs = {
       inherit inputs username userDescription;
-      hostName = laptopHostName;
+      hostName = laptop13HostName;
       host = {
-        hostName = "${laptopHostName}";
+        hostName = "${laptop13HostName}";
       };
     };
     modules = [
       ./base-configuration.nix
-      ./${laptopHostName}
+      ./${laptop13HostName}
       # nurpkgs.nixosModules.nur
 
       home-manager.nixosModules.home-manager {
@@ -70,13 +71,45 @@ in
         home-manager.extraSpecialArgs = {
           inherit pkgs username userDescription;
           host = {
-            hostName = "${laptopHostName}";
+            hostName = "${laptop13HostName}";
           };
         };
         home-manager.users.${username} = {
           imports = [
             ./home.nix
-            ./${laptopHostName}/home.nix
+            ./${laptop13HostName}/home.nix
+          ];
+        };
+      }
+    ];
+  };
+  ${laptop16HostName} = lib.nixosSystem {
+    inherit system;
+    specialArgs = {
+      inherit inputs username userDescription;
+      hostName = laptop16HostName;
+      host = {
+        hostName = "${laptop16HostName}";
+      };
+    };
+    modules = [
+      ./base-configuration.nix
+      ./${laptop16HostName}
+      # nurpkgs.nixosModules.nur
+
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          inherit pkgs username userDescription;
+          host = {
+            hostName = "${laptop16HostName}";
+          };
+        };
+        home-manager.users.${username} = {
+          imports = [
+            ./home.nix
+            ./${laptop16HostName}/home.nix
           ];
         };
       }
