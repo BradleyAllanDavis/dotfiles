@@ -1,6 +1,6 @@
 # General home-manager configuration
 
-{ pkgs, username, ... }:
+{ username, ... }:
 
 {
   imports = [
@@ -17,5 +17,22 @@
   xdg.enable = true;
   xdg.configHome = "/home/${username}/.config";
 
+  # xdg.portal.enable = true;
+
+  xdg.mimeApps.defaultApplications = {
+    "text/plain" = [ "neovide.desktop" ];
+    "application/pdf" = [ "zathura.desktop" ];
+    "image/*" = [ "sxiv.desktop" ];
+    "video/png" = [ "mpv.desktop" ];
+    "video/jpg" = [ "mpv.desktop" ];
+    "video/*" = [ "mpv.desktop" ];
+  };
+
   manual.manpages.enable = false;
+
+  # programs.zsh = {
+  #   enable = true;
+  #   enableAutosuggestions = true;
+  #   enableCompletion = true;
+  # };
 }

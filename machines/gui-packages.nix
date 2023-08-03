@@ -20,18 +20,23 @@ pkgs: with pkgs; [
   # jetbrains.pycharm-professional
   # jetbrains.jdk
   kitty
+  mpv
+  neovide
   polybar
   redshift
   rofi
+  # rofi-wayland
+  slack
   sparrow
   spotify
   spotify-tray
-  slack
+  sxiv
   postman
   signal-desktop
   steam
   tdesktop
   vivaldi
   whatsapp-for-linux
+  zathura
   zoom-us
 ]

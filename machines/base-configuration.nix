@@ -36,6 +36,9 @@
     layout = "us";
     xkbVariant = "";
 
+    # Enable touchpad support
+    libinput.enable = true;
+
     autoRepeatDelay = 220;
     autoRepeatInterval = 80;
     displayManager.sessionCommands = ''
@@ -60,6 +63,20 @@
     #  ];
     # };
   };
+
+  # # Hyprland
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
+  # environment.sessionVariables = {
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  #   NIXOS_OZONE_WL = "1";
+  # };
+  # hardware = {
+  #   opengl.enable = true;
+  #   nvidia.modesetting.enable = true;
+  # };
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -119,4 +136,24 @@
   # nixpkgs.config.permittedInsecurePackages = [
   #   "electron-12.2.3"
   # ];
+
+  # Enable sound with pipewire
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
 }
