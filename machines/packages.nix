@@ -7,6 +7,8 @@ pkgs: with pkgs; [
   fzf-zsh
   httpie
   # kotlin
+  k3s
+  k9s
   llvm
   # neocomp
   neofetch
