@@ -1,22 +1,15 @@
-{ config, pkgs, hostName, ... }:
+{ username, ... }:
 
 {
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "${hostName}";
+  # Bootloader
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -35,16 +28,11 @@
     #media-session.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.bradley = {
-    isNormalUser = true;
-    description = "Bradley";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "bradley";
+  services.xserver.displayManager.autoLogin = {
+    enable = true;
+    user = "${username}";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

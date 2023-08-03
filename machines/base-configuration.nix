@@ -36,12 +36,31 @@
     layout = "us";
     xkbVariant = "";
 
-    autoRepeatDelay = 250;
+    autoRepeatDelay = 220;
     autoRepeatInterval = 80;
 
     displayManager.sessionCommands = ''
       ${pkgs.xorg.xset}`which xset` r rate 220 80
     '';
+
+    # Enable KDE Plasma Desktop Environment.
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+
+    # displayManager = {
+    #   defaultSession = "none+i3";
+    # };
+
+    # windowManager.i3 = {
+    #   enable = true;
+    #   package = pkgs.i3-gaps;
+    #   extraPackages = with pkgs; [
+    #     dmenu # application launcher most people use
+    #     i3status # gives you the default i3 status bar
+    #     i3lock # default i3 screen locker
+    #     # i3blocks # if you are planning on using i3blocks over i3status
+    #  ];
+    # };
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -54,6 +73,11 @@
     isNormalUser = true;
     description = "${userDescription}";
     extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
   };
 
   environment = {
@@ -93,13 +117,18 @@
     # corefonts                               # MS
   ];
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
-
-
-
 
   # Needed for naughty packages
   # nixpkgs.config.permittedInsecurePackages = [

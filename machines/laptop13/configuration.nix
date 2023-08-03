@@ -1,20 +1,20 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot = {
+    # Fix for brightness keys?
+    kernelParams = [ "module_blacklist=hid_sensor_hub" ];
+    # Need the latest kernel for WiFi support on Framework
+    kernelPackages = pkgs.linuxPackages_latest;
 
-  # Fix for brightness keys?
-  boot.kernelParams = [ "module_blacklist=hid_sensor_hub" ];
-
-  # Need the latest kernel for WiFi support on Framework
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+  };
 
   # Enable illum, a daemon for controlling screen brightness with brightness buttons
   # services.illum.enable = true;
@@ -32,11 +32,6 @@
   #     RUNTIME_PM_ON_BAT = "auto";
   #   };
   # };
-
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
 
   # Enable swap on luks
   boot.initrd.luks.devices."luks-f37dedc7-74ea-47b1-83cb-6aad9576fef0".device = "/dev/disk/by-uuid/f37dedc7-74ea-47b1-83cb-6aad9576fef0";
@@ -89,13 +84,5 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
 
 }
