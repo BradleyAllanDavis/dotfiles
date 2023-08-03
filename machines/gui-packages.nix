@@ -1,25 +1,16 @@
 pkgs: with pkgs; [
-  i3-gaps
-
-  # application launcher
-  rofi
-  dmenu
-
-  kitty
-  polybar
-  redshift
-
-  # GUI apps
   _1password-gui
   # bisq-desktop
   bitcoin
   brave
   discord
+  dmenu
   # etcher
   expressvpn
   # github-desktop
   gparted
   hey
+  i3-gaps
   jetbrains-toolbox
   jetbrains.idea-ultimate
   jetbrains.datagrip
@@ -28,6 +19,10 @@ pkgs: with pkgs; [
   # jetbrains.webstorm
   # jetbrains.pycharm-professional
   # jetbrains.jdk
+  kitty
+  polybar
+  redshift
+  rofi
   sparrow
   spotify
   spotify-tray

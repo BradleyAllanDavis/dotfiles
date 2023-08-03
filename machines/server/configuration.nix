@@ -1,21 +1,25 @@
 { config, pkgs, ... }:
 
 {
+  system.stateVersion = "22.11";
+
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme0n1";
-  boot.loader.grub.useOSProber = true;
-
-  # Enable grub cryptodisk
-  boot.loader.grub.enableCryptodisk=true;
-
-  boot.initrd.luks.devices."luks-93bea6a8-cfb2-4481-b1d6-f16cf7259576".keyFile = "/crypto_keyfile.bin";
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-828ad403-f995-40f5-86bf-5d0726f8bdae".device = "/dev/disk/by-uuid/828ad403-f995-40f5-86bf-5d0726f8bdae";
-  boot.initrd.luks.devices."luks-828ad403-f995-40f5-86bf-5d0726f8bdae".keyFile = "/crypto_keyfile.bin";
+  boot = {
+    loader.grub = {
+      enable = true;
+      device = "/dev/nvme0n1";
+      useOSProber = true;
+      enableCryptodisk=true;
+    };
+    initrd.luks.devices = {
+      "luks-93bea6a8-cfb2-4481-b1d6-f16cf7259576".keyFile = "/crypto_keyfile.bin";
+      # Enable swap on luks
+      "luks-828ad403-f995-40f5-86bf-5d0726f8bdae".device = "/dev/disk/by-uuid/828ad403-f995-40f5-86bf-5d0726f8bdae";
+      "luks-828ad403-f995-40f5-86bf-5d0726f8bdae".keyFile = "/crypto_keyfile.bin";
+    };
+  };
 
   networking = {
-    # Enables wireless support via wpa_supplicant
     wireless.enable = false;
     defaultGateway = "192.168.7.1";
     nameservers = ["192.168.7.1" "8.8.8.8"];
@@ -68,23 +72,9 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
 }

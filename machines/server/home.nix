@@ -6,6 +6,7 @@ let
 in
 {
   home = {
+    stateVersion = "22.11";
     packages = (base-packages pkgs) ++ (nixos-packages pkgs);
   };
 

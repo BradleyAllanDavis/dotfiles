@@ -20,9 +20,8 @@ let
 in
 {
   ${desktopHostName} = lib.nixosSystem {
-    inherit system;
     specialArgs = {
-      inherit inputs username userDescription;
+      inherit system inputs username userDescription;
       hostName = desktopHostName;
       host = {
         hostName = "${desktopHostName}";
@@ -52,9 +51,8 @@ in
     ];
   };
   ${laptop13HostName} = lib.nixosSystem {
-    inherit system;
     specialArgs = {
-      inherit inputs username userDescription;
+      inherit system inputs username userDescription;
       hostName = laptop13HostName;
       host = {
         hostName = "${laptop13HostName}";
@@ -84,9 +82,8 @@ in
     ];
   };
   ${laptop16HostName} = lib.nixosSystem {
-    inherit system;
     specialArgs = {
-      inherit inputs username userDescription;
+      inherit system inputs username userDescription;
       hostName = laptop16HostName;
       host = {
         hostName = "${laptop16HostName}";
@@ -116,9 +113,8 @@ in
     ];
   };
   ${serverHostName} = lib.nixosSystem {
-    inherit system;
     specialArgs = {
-      inherit inputs username userDescription;
+      inherit system inputs username userDescription;
       hostName = serverHostName;
       host = {
         hostName = "${serverHostName}";
@@ -148,9 +144,8 @@ in
     ];
   };
   ${routerHostName} = lib.nixosSystem {
-    inherit system;
     specialArgs = {
-      inherit inputs username userDescription;
+      inherit system inputs username userDescription;
       hostName = routerHostName;
       host = {
         hostName = "${routerHostName}";

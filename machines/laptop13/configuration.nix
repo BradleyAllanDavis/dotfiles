@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  system.stateVersion = "22.11";
+
   boot = {
     # Fix for brightness keys?
     kernelParams = [ "module_blacklist=hid_sensor_hub" ];
@@ -44,10 +46,6 @@
   # Enable the X11 windowing system.
   services.xserver.videoDrivers = [ "modesetting" ];
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -71,18 +69,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
 }
