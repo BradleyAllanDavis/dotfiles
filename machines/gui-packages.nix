@@ -22,6 +22,7 @@ pkgs: with pkgs; [
   kitty
   mpv
   neovide
+  newsflash
   polybar
   redshift
   rofi

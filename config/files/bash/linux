@@ -1,7 +1,7 @@
 export platform=$(uname)
 if [[ "$platform" == 'Linux' ]]; then
   # Set key repeat delay and rate
-  [ -f `which xset` ] && `which xset` r rate 250 80
+  [ -f `which xset` ] && `which xset` r rate 150 100
 fi
 
 
