@@ -1,16 +1,18 @@
 # NixOS host configuration
 
-{ lib, inputs, nixpkgs, home-manager, nurpkgs, username, userDescription, ... }:
+{ inputs, nixpkgs, home-manager, nurpkgs, username, userDescription, ... }:
 
 let
   system = "x86_64-linux";
+  lib = nixpkgs.lib;
+
+  stateVersion2211 = "22.11";
+  stateVersion2305 = "23.05";
 
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
   };
-
-  lib = nixpkgs.lib;
 
   desktopHostName = "desktop";
   laptop13HostName = "laptop13";
@@ -25,7 +27,7 @@ let
 in
 {
   ${desktopHostName} = lib.nixosSystem {
-    system.stateVersion = "22.11";
+    system.stateVersion = "${stateVersion2211}";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = desktopHostName;
@@ -52,7 +54,7 @@ in
             ./home.nix
           ];
           home = {
-            stateVersion = "22.11";
+            stateVersion = "${stateVersion2211}";
             packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs);
           };
         };
@@ -60,7 +62,7 @@ in
     ];
   };
   ${laptop13HostName} = lib.nixosSystem {
-    system.stateVersion = "22.11";
+    system.stateVersion = "${stateVersion2211}";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = laptop13HostName;
@@ -87,7 +89,7 @@ in
             ./home.nix
           ];
           home = {
-            stateVersion = "22.11";
+            stateVersion = "${stateVersion2211}";
             packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs) ++ (laptop-packages pkgs);
           };
         };
@@ -95,7 +97,7 @@ in
     ];
   };
   ${laptop16HostName} = lib.nixosSystem {
-    system.stateVersion = "23.05";
+    system.stateVersion = "${stateVersion2305}";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = laptop16HostName;
@@ -122,7 +124,7 @@ in
             ./home.nix
           ];
           home = {
-            stateVersion = "23.05";
+            stateVersion = "${stateVersion2305}";
             packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs) ++ (laptop-packages pkgs);
           };
         };
@@ -130,7 +132,7 @@ in
     ];
   };
   ${routerHostName} = lib.nixosSystem {
-    system.stateVersion = "23.05";
+    system.stateVersion = "${stateVersion2305}";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = routerHostName;
@@ -157,7 +159,7 @@ in
             ./home.nix
           ];
           home = {
-            stateVersion = "23.05";
+            stateVersion = "${stateVersion2305}";
             packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs);
           };
         };
@@ -165,7 +167,7 @@ in
     ];
   };
   ${serverHostName} = lib.nixosSystem {
-    system.stateVersion = "22.11";
+    system.stateVersion = "${stateVersion2211}";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = serverHostName;
@@ -192,7 +194,7 @@ in
             ./home.nix
           ];
           home = {
-            stateVersion = "22.11";
+            stateVersion = "${stateVersion2211}";
             packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs);
           };
         };
