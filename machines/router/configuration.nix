@@ -1,8 +1,6 @@
 { username, ... }:
 
 {
-  system.stateVersion = "23.05";
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;

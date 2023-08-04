@@ -1,8 +1,6 @@
 { pkgs, inputs, ... }:
 
 {
-  system.stateVersion = "22.11";
-
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;

@@ -1,8 +1,6 @@
 { username, ... }:
 
 {
-  system.stateVersion = "22.11";
-
   boot = {
     loader.grub = {
       enable = true;

@@ -3,8 +3,8 @@
 { lib, config, pkgs, username, userDescription, hostName, ... }:
 
 let
-  darwin-packages = import ./packages.nix;
-  base-packages = import ../base-packages.nix;
+  base-packages = import ../packages/base-packages.nix;
+  darwin-packages = import ../packages/darwin-packages.nix;
 in
 {
   imports = [

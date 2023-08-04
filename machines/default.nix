@@ -17,9 +17,15 @@ let
   laptop16HostName = "laptop16";
   serverHostName = "server";
   routerHostName = "router";
+
+  base-packages = import ../packages/base-packages.nix;
+  nixos-packages = import ../packages/nixos-packages.nix;
+  gui-packages = import ../packages/gui-packages.nix;
+  laptop-packages = import ../packages/laptop-packages.nix;
 in
 {
   ${desktopHostName} = lib.nixosSystem {
+    system.stateVersion = "22.11";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = desktopHostName;
@@ -44,13 +50,17 @@ in
         home-manager.users.${username} = {
           imports = [
             ./home.nix
-            ./${desktopHostName}/home.nix
           ];
+          home = {
+            stateVersion = "22.11";
+            packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs);
+          };
         };
       }
     ];
   };
   ${laptop13HostName} = lib.nixosSystem {
+    system.stateVersion = "22.11";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = laptop13HostName;
@@ -75,13 +85,17 @@ in
         home-manager.users.${username} = {
           imports = [
             ./home.nix
-            ./${laptop13HostName}/home.nix
           ];
+          home = {
+            stateVersion = "22.11";
+            packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs) ++ (laptop-packages pkgs);
+          };
         };
       }
     ];
   };
   ${laptop16HostName} = lib.nixosSystem {
+    system.stateVersion = "23.05";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = laptop16HostName;
@@ -106,44 +120,17 @@ in
         home-manager.users.${username} = {
           imports = [
             ./home.nix
-            ./${laptop16HostName}/home.nix
           ];
-        };
-      }
-    ];
-  };
-  ${serverHostName} = lib.nixosSystem {
-    specialArgs = {
-      inherit system inputs username userDescription;
-      hostName = serverHostName;
-      host = {
-        hostName = "${serverHostName}";
-      };
-    };
-    modules = [
-      ./base-configuration.nix
-      ./${serverHostName}
-      # nurpkgs.nixosModules.nur
-
-      home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {
-          inherit pkgs username userDescription;
-          host = {
-            hostName = "${serverHostName}";
+          home = {
+            stateVersion = "23.05";
+            packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs) ++ (laptop-packages pkgs);
           };
-        };
-        home-manager.users.${username} = {
-          imports = [
-            ./home.nix
-            ./${serverHostName}/home.nix
-          ];
         };
       }
     ];
   };
   ${routerHostName} = lib.nixosSystem {
+    system.stateVersion = "23.05";
     specialArgs = {
       inherit system inputs username userDescription;
       hostName = routerHostName;
@@ -168,8 +155,46 @@ in
         home-manager.users.${username} = {
           imports = [
             ./home.nix
-            ./${routerHostName}/home.nix
           ];
+          home = {
+            stateVersion = "23.05";
+            packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs);
+          };
+        };
+      }
+    ];
+  };
+  ${serverHostName} = lib.nixosSystem {
+    system.stateVersion = "22.11";
+    specialArgs = {
+      inherit system inputs username userDescription;
+      hostName = serverHostName;
+      host = {
+        hostName = "${serverHostName}";
+      };
+    };
+    modules = [
+      ./base-configuration.nix
+      ./${serverHostName}
+      # nurpkgs.nixosModules.nur
+
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {
+          inherit pkgs username userDescription;
+          host = {
+            hostName = "${serverHostName}";
+          };
+        };
+        home-manager.users.${username} = {
+          imports = [
+            ./home.nix
+          ];
+          home = {
+            stateVersion = "22.11";
+            packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs);
+          };
         };
       }
     ];

@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  system.stateVersion = "22.11";
-
   boot = {
     # Fix for brightness keys?
     kernelParams = [ "module_blacklist=hid_sensor_hub" ];
