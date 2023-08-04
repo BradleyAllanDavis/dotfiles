@@ -37,6 +37,7 @@ pkgs: with pkgs; [
   steam
   tdesktop
   vivaldi
+  vscode
   whatsapp-for-linux
   zathura
   zoom-us
