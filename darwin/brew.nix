@@ -107,6 +107,7 @@
       "roam-research"
       "rocket"
       # "santa"
+      "sigmaos"
       "spotify"
       "tower"
       "trezor-suite"
