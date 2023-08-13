@@ -73,6 +73,7 @@ in
     modules = [
       ./base-configuration.nix
       ./${laptop13HostName}
+      ../modules/bitcoin
       # nurpkgs.nixosModules.nur
 
       home-manager.nixosModules.home-manager {
