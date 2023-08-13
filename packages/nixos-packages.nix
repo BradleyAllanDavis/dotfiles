@@ -20,6 +20,7 @@ pkgs: with pkgs; [
   nodejs
   nostr-rs-relay
   openjdk
+  # oraclejdk
   podman
   pstree
   python3
