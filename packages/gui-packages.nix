@@ -5,6 +5,7 @@ pkgs: with pkgs; [
   brave
   discord
   dmenu
+  # dropbox
   # etcher
   expressvpn
   # github-desktop
