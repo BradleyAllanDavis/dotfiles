@@ -9,6 +9,16 @@ in
 {
   imports = [
     ../config
+    ../modules/alacritty
+    ../modules/bash
+    ../modules/git
+    ../modules/nvim
+    ../modules/ssh
+    ../modules/starship
+    ../modules/tmux
+    ../modules/wallpaper
+    ../modules/xorg
+    ../modules/zsh
   ];
 
   programs.home-manager.enable = true;
