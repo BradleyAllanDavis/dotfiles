@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "bashrc"
-
 # Dotfiles location
 export DOTFILES="$HOME/.dotfiles"
 

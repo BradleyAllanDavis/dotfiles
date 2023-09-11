@@ -1,5 +1,3 @@
-echo "fzf"
-
 # Enable fzf keybindings in bash
 if command -v fzf-share >/dev/null; then
   source "$(fzf-share)/key-bindings.bash"
