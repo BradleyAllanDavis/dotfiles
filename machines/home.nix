@@ -9,7 +9,11 @@
     ../modules/bash
     ../modules/git
     ../modules/nvim
+    ../modules/ssh
+    ../modules/starship
     ../modules/tmux
+    ../modules/wallpaper
+    ../modules/xorg
     ../modules/zsh
   ];
 
@@ -36,9 +40,4 @@
 
   manual.manpages.enable = false;
 
-  # programs.zsh = {
-  #   enable = true;
-  #   enableAutosuggestions = true;
-  #   enableCompletion = true;
-  # };
 }

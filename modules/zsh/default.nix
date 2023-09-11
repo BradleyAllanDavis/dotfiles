@@ -1,5 +1,11 @@
 { ... }:
 {
+  # programs.zsh = {
+  #   enable = true;
+  #   enableAutosuggestions = true;
+  #   enableCompletion = true;
+  # };
+
   home = {
     file = {
       ".config/zsh/zlogin".source = ./zlogin;
