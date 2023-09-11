@@ -63,6 +63,7 @@
       "cleanshot"
       "coteditor"
       "dash"
+      "devutils"
       "discord"
       "electrum"
       "balenaetcher"
