@@ -5,9 +5,12 @@
 {
   imports = [
     ../config
+    ../modules/alacritty
     ../modules/bash
+    ../modules/git
     ../modules/nvim
     ../modules/tmux
+    ../modules/zsh
   ];
 
   programs.home-manager.enable = true;
