@@ -37,6 +37,7 @@ pkgs: with pkgs; [
   signal-desktop
   steam
   tdesktop
+  transmission-qt
   vivaldi
   vscode
   whatsapp-for-linux

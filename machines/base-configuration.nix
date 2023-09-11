@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, username, userDescription, hostName, ... }:
+{ inputs, pkgs, username, userDescription, hostName, ... }:
 
 {
   system = {

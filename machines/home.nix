@@ -5,6 +5,9 @@
 {
   imports = [
     ../config
+    ../modules/bash
+    # ../modules/tmux
+    # ../modules/vim
   ];
 
   programs.home-manager.enable = true;
