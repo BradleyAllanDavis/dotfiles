@@ -6,8 +6,8 @@
   imports = [
     ../config
     ../modules/bash
-    # ../modules/tmux
-    # ../modules/vim
+    ../modules/nvim
+    ../modules/tmux
   ];
 
   programs.home-manager.enable = true;

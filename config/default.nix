@@ -10,8 +10,6 @@
       ".config/git/gitconfig-okcoin".source = ./files/git/gitconfig-okcoin;
       ".config/git/gitconfig-personal".source = ./files/git/gitconfig-personal;
       ".config/git/ignore".source = ./files/git/ignore;
-      ".config/nvim/coc-settings.json".source = ./files/nvim/coc-settings.json;
-      ".config/nvim/init.vim".source = ./files/vimrc;
       ".config/redshift.conf".source = ./files/redshift.conf;
       ".config/starship.toml".source = ./files/starship.toml;
       ".config/user-dirs.dirs".source = ./files/user-dirs.dirs;
@@ -22,7 +20,6 @@
       ".gdbinit".source = ./files/gdbinit;
       ".ghc/ghci.conf".source = ./files/ghc/ghci.conf;
       ".hushlogin".source = ./files/hushlogin;
-      ".ideavimrc".source = ./files/ideavimrc;
       ".inputrc".source = ./files/inputrc;
       ".lesskey".source = ./files/lesskey;
       ".local/share/fonts/SF Mono Regular Nerd Font Complete.otf".source = ./files/local/share/fonts/SF_Mono_Regular_Nerd_Font_Complete.otf;
@@ -30,13 +27,6 @@
       ".ssh/config".source = ./files/ssh/config;
       ".ssh/generate_ssh_key_okcoin.sh".source = ./files/ssh/generate_ssh_key_okcoin.sh;
       ".ssh/generate_ssh_key_personal.sh".source = ./files/ssh/generate_ssh_key_personal.sh;
-      ".tmux.conf".source = ./files/tmux.conf;
-      ".tmux/linux.conf".source = ./files/tmux/linux.conf;
-      ".tmux/mac.conf".source = ./files/tmux/mac.conf;
-      ".tmux/remote.conf".source = ./files/tmux/remote.conf;
-      ".tmux/snapshot.conf".source = ./files/tmux/snapshot.conf;
-      ".tmux/tpm.conf".source = ./files/tmux/tpm.conf;
-      ".vimrc".source = ./files/vimrc;
       ".wallpapers/wall".source = ./files/wallpapers/1920x1080/solarized_texture_horizontal.jpg;
       ".wallpapers/1920x1080/solarized_texture_horizontal.jpg".source = ./files/wallpapers/1920x1080/solarized_texture_horizontal.jpg;
       ".wallpapers/1920x1080/solarized_texture_vertical.jpg".source = ./files/wallpapers/1920x1080/solarized_texture_vertical.jpg;
