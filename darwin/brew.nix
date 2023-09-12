@@ -116,6 +116,8 @@
       "tunnelblick"
       "visual-studio-code"
       "warp"
+      "wavebox"
+      "webcatalog"
     ];
     masApps = {
       "24 Hour Wallpaper" = 1226087575;
