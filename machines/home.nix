@@ -1,14 +1,14 @@
 # General home-manager configuration
-
 { username, ... }:
-
 {
   imports = [
     ../config
     ../modules/alacritty
     ../modules/bash
     ../modules/git
+    ../modules/i3
     ../modules/nvim
+    ../modules/polybar
     ../modules/ssh
     ../modules/starship
     ../modules/tmux

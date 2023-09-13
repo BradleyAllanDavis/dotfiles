@@ -52,6 +52,7 @@ in
         home-manager.users.${username} = {
           imports = [
             ./home.nix
+            ./${desktopHostName}/home.nix
           ];
           home = {
             stateVersion = "${stateVersion2211}";
