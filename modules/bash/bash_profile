@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "bash_profile"
-
 # When interactive, run bashrc {{{
 [[ $- = *i* ]] && [[ -r $HOME/.bashrc ]] && . $HOME/.bashrc
 # }}}
