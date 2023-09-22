@@ -1,4 +1,5 @@
 pkgs: with pkgs; [
-  playerctl
   fprintd
+  playerctl
+  touchegg
 ]
