@@ -118,6 +118,8 @@ endif
 Plug 'kh3phr3n/python-syntax',     { 'for': [ 'python' ] }
 " }}}
 " Filetype {{{
+" Plug 'vmchale/just-vim'                 " Justfiles
+Plug 'NoahTheDuke/vim-just'             " Justfiles
 " Plug 'sheerun/vim-polyglot'             " Collection of language packs
 " Plug 's3rvac/AutoFenc'                  " Detect file encoding
 " Plug 'jparise/vim-graphql'              " GraphQL filetype

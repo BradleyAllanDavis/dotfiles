@@ -15,6 +15,7 @@ pkgs: with pkgs; [
   gnumake
   helix
   htop
+  just
   jq
   k9s
   kubectx
