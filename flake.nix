@@ -19,7 +19,18 @@
   let
     username = "bradley";
     userDescription = "Bradley Allan Davis";
+
+    createDevShell = system: let
+      pkgs = import nixpkgs { inherit system; };
+    in
+      pkgs.mkShell {
+        buildInputs = with pkgs; [
+          just
+        ];
+      };
   in {
+    devShell.x86_64-linux = createDevShell "x86_64-linux";
+    devShell.aarch64-linux = createDevShell "aarch64-linux";
     nixosConfigurations = (
       import ./machines {
         inherit (nixpkgs) lib;

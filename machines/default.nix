@@ -1,5 +1,3 @@
-# NixOS host configuration
-
 { inputs, nixpkgs, home-manager, nurpkgs, username, userDescription, ... }:
 
 let
@@ -27,9 +25,9 @@ let
 in
 {
   ${desktopHostName} = lib.nixosSystem {
-    system.stateVersion = "${stateVersion2211}";
     specialArgs = {
       inherit system inputs username userDescription;
+      stateVersion = "${stateVersion2211}";
       hostName = desktopHostName;
       host = {
         hostName = "${desktopHostName}";
@@ -63,9 +61,9 @@ in
     ];
   };
   ${laptop13HostName} = lib.nixosSystem {
-    system.stateVersion = "${stateVersion2211}";
     specialArgs = {
       inherit system inputs username userDescription;
+      stateVersion = "${stateVersion2211}";
       hostName = laptop13HostName;
       host = {
         hostName = "${laptop13HostName}";
@@ -74,7 +72,7 @@ in
     modules = [
       ./base-configuration.nix
       ./${laptop13HostName}
-      ../modules/bitcoin
+      # ../modules/bitcoin
       # nurpkgs.nixosModules.nur
 
       home-manager.nixosModules.home-manager {
@@ -99,9 +97,9 @@ in
     ];
   };
   ${laptop16HostName} = lib.nixosSystem {
-    system.stateVersion = "${stateVersion2305}";
     specialArgs = {
       inherit system inputs username userDescription;
+      stateVersion = "${stateVersion2305}";
       hostName = laptop16HostName;
       host = {
         hostName = "${laptop16HostName}";
@@ -134,9 +132,9 @@ in
     ];
   };
   ${routerHostName} = lib.nixosSystem {
-    system.stateVersion = "${stateVersion2305}";
     specialArgs = {
       inherit system inputs username userDescription;
+      stateVersion = "${stateVersion2305}";
       hostName = routerHostName;
       host = {
         hostName = "${routerHostName}";
@@ -169,9 +167,9 @@ in
     ];
   };
   ${serverHostName} = lib.nixosSystem {
-    system.stateVersion = "${stateVersion2211}";
     specialArgs = {
       inherit system inputs username userDescription;
+      stateVersion = "${stateVersion2211}";
       hostName = serverHostName;
       host = {
         hostName = "${serverHostName}";
