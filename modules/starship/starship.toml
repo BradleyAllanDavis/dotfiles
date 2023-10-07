@@ -33,10 +33,10 @@ $git_commit\
 $fill\
 $env_var\
 $custom\
-$nix_shell\
 $cmd_duration\
 $sudo\
 $line_break\
+$nix_shell\
 $jobs\
 $character\
 """
@@ -130,7 +130,8 @@ symbol = " "
 
 [nix_shell]
 #  $state
-format = '[](fg:base02 bg:none)[nix: $name](fg:blue bg:base02)[](fg:base02 bg:none) '
+# format = '[](fg:base02 bg:none)[nix: $name](fg:blue bg:base02)[](fg:base02 bg:none) '
+format = '[](fg:base02 bg:none)[](fg:blue bg:base02)[](fg:base02 bg:none) '
 impure_msg = '[impure shell](red)'
 pure_msg = '[pure shell](green)'
 unknown_msg = '[unknown shell](yellow)'
