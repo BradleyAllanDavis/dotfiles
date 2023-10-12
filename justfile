@@ -1,8 +1,11 @@
 alias l13 := laptop13
 alias l16 := laptop16
 
+# default:
+#   @just --list --unsorted --justfile {{justfile()}}
+
 default:
-  @just --list --unsorted --justfile {{justfile()}}
+  sudo nixos-rebuild switch --flake .\"$#"
 
 desktop:
   sudo nixos-rebuild switch --flake .\#desktop
