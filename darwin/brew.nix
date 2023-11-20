@@ -113,7 +113,7 @@
       "ransomwhere"
       "raycast"
       "roam-research"
-      "rocket"
+      # "rocket"
       # "santa"
       "sigmaos"
       "spotify"
