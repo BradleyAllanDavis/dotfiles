@@ -68,7 +68,7 @@ alias l='\ls -F ${lscolorflag}'
 alias lh='l -A'
 
 # Long
-alias sl='ls'
+# alias sl='ls'
 alias ll='ls'
 alias la='ls -A'
 # }}}

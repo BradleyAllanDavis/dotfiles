@@ -27,6 +27,7 @@ pkgs: with pkgs; [
   ngrok
   ranger
   ripgrep
+  sl
   starship
   tig
   tldr
