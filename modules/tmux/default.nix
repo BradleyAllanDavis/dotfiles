@@ -44,12 +44,13 @@
       # }
 
       tmuxPlugins.sensible
-      {
-        plugin = tmuxPlugins.prefix-highlight;
-        extraConfig = ''
-          set -g status-left '#{prefix_highlight}'
-        '';
-      }
+      tmuxPlugins.prefix-highlight
+      # {
+      #   plugin = tmuxPlugins.prefix-highlight;
+      #   extraConfig = ''
+      #     set -g status-left '#{prefix_highlight}'
+      #   '';
+      # }
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''

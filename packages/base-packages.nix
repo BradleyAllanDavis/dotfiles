@@ -5,6 +5,7 @@ pkgs: with pkgs; [
   bat
   comma
   curl
+  delta
   diff-so-fancy
   entr
   fish
