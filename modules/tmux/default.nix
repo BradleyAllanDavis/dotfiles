@@ -44,13 +44,13 @@
       # }
 
       tmuxPlugins.sensible
-      tmuxPlugins.prefix-highlight
-      # {
-      #   plugin = tmuxPlugins.prefix-highlight;
-      #   extraConfig = ''
-      #     set -g status-left '#{prefix_highlight}'
-      #   '';
-      # }
+      # tmuxPlugins.prefix-highlight
+      {
+        plugin = tmuxPlugins.prefix-highlight;
+        extraConfig = ''
+          set -g status-left '#{prefix_highlight}'
+        '';
+      }
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
@@ -59,8 +59,8 @@
           set -g @resurrect-strategy-nvim 'session'
           set -g @resurrect-save-bash-history 'on'
           set -g @resurrect-capture-pane-contents 'on'
-          # set -g @resurrect-save 'S'
-          # set -g @resurrect-restore 'R'
+          set -g @resurrect-save 'S'
+          set -g @resurrect-restore 'R'
         '';
       }
       {

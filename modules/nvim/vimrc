@@ -70,7 +70,7 @@ Plug 'henrik/vim-indexed-search'        " Additional search (/) information
 " Tmux {{{
 Plug 'christoomey/vim-tmux-navigator'   " Vim/Tmux navigation integration
 Plug 'tmux-plugins/vim-tmux'            " Helps with tmux things
-Plug 'edkolev/tmuxline.vim'             " Tmux statusline customization
+" Plug 'edkolev/tmuxline.vim'             " Tmux statusline customization
 " }}}
 " Mac {{{
 " if has('mac')
@@ -230,7 +230,7 @@ let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline#extensions#tabline#buffers_label = ''
 
 " Tmuxline integration
-let g:airline#extensions#tmuxline#enabled = 1
+" let g:airline#extensions#tmuxline#enabled = 1
 
 " Hide error and warning sections as they are annoying
 let g:airline_section_error=0
@@ -537,7 +537,7 @@ set pastetoggle=<leader>pm
 nnoremap <leader>rm :delmarks a-z A-Z<CR>
 
 " Tmuxline snapshot
-nnoremap <leader>ts :TmuxlineSnapshot! ~/.tmux/snapshot.conf<CR>
+" nnoremap <leader>ts :TmuxlineSnapshot! ~/.tmux/snapshot.conf<CR>
 
 " Tagbar
 nnoremap <leader>tb :TagbarToggle<CR>

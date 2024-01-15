@@ -7,4 +7,6 @@
     # port = 8332;
   };
 
+  services.clightning.enable = true;
+
 }
