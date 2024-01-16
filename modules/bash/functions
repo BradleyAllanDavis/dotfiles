@@ -87,32 +87,7 @@ t() {
   elif [[ $# -gt 0 ]]; then
     tmux -2 "$@"
   else
-    # tmux new-session -A -s main
     tmux
-  fi
-}
-# }}}
-# tmux-static {{{
-ts() {
-  if [[ "$1" == "a" ]]; then
-    tmux-static attach-session -t "$2"
-  elif [[ "$1" == "ls" ]]; then
-    tmux-static ls
-  elif [[ "$1" == "new" ]]; then
-    tmux-static -2 new -s
-  elif [[ "$1" == "kill" ]]; then
-    tmux-static -2 kill-session -t "$2"
-  elif [[ "$1" == "server" ]]; then
-    tmux-static kill-server
-  elif [[ "$1" == "keys" ]]; then
-    tmux-static list-keys
-  elif [[ "$1" == "commands" ]]; then
-    tmux-static list-commands
-  elif [[ $# -gt 0 ]]; then
-    tmux-static -2 "$@"
-  else
-    # tmux new-session -A -s main
-    tmux-static
   fi
 }
 # }}}

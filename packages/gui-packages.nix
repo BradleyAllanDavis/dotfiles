@@ -33,7 +33,7 @@ pkgs: with pkgs; [
   spotify
   spotify-tray
   sxiv
-  postman
+  # postman
   signal-desktop
   steam
   tdesktop

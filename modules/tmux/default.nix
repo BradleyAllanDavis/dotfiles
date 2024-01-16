@@ -54,13 +54,14 @@
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
-          # set -g @plugin 'tmux-plugins/tmux-resurrect'
-          set -g @resurrect-strategy-vim 'session'
-          set -g @resurrect-strategy-nvim 'session'
+          # set -g @resurrect-strategy-vim 'session'
+          # set -g @resurrect-strategy-nvim 'session'
           set -g @resurrect-save-bash-history 'on'
           set -g @resurrect-capture-pane-contents 'on'
-          set -g @resurrect-save 'S'
-          set -g @resurrect-restore 'R'
+          set -g @resurrect-save 'C-s'
+          set -g @resurrect-restore 'C-r'
+          # set -g @resurrect-save 'S'
+          # set -g @resurrect-restore 'R'
         '';
       }
       {

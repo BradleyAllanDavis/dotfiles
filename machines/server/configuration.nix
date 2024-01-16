@@ -18,6 +18,12 @@
     };
   };
 
+  # AMD GPU
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  environment.variables = {
+    ROC_ENABLE_PRE_VEGA = "1";
+  };
+
   # Enable automatic login for the user
   services.xserver.displayManager.autoLogin = {
     enable = true;
