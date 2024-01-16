@@ -2,23 +2,52 @@
 
 Welcome to my new dotfiles based on Nix flakes!
 
-## Homelab TODOs
+## Dotfiles I like
 
+These are other peoples' dotfiles that have elements I take inspiration from.
+
+- [malob, darwin, well documented](https://github.com/malob/nixpkgs)
+- [matthias](https://github.com/MatthiasBenaets/nixos-config)
+
+# Homelab TODOs
+
+## General
+- [X] Wrapper script to call flake with hostname
 - [X] Nixify tmux
+- [ ] Manage secrets
+- [ ] Parameterize nixpkgs for consumption by both macOS and NixOS
+- [ ] Global color theme [nix-colors](https://github.com/Misterio77/nix-colors)
+
+## `server`
 - [ ] Figure solution for headless
 - [ ] Migrate to rack (setup and everything)
 - [ ] Lighting node
 - [ ] Home assistant
 - [ ] Nostr
 - [ ] Tor
-- [ ] Set up router
+
+## `desktop`
+- [ ] Tiling window manager (hyprland?)
+- [ ] Menu bar
 - [ ] Nixify Vim/Neovim config
 - [ ] Migrate to zsh
 - [ ] Nixify bash
-- [ ] Parameterize nixpkgs for consumption by both macOS and NixOS.
-- [ ] Migrate macOS preferences
-- [ ] Wrapper script to call flake with hostname
+- [ ] [Configure Plasma](https://www.youtube.com/watch?v=2r0KnIZX5HY)
+
+## `router`
+- [ ] Set up router
+
+## `framework13`
+- [ ] Fix all hardware issues
+
+## `framework16`
 - [ ]
+
+## Darwin/`macbook`
+- [ ] Nixify preferences
+
+
+# Instructions for machine
 
 ## NixOS
 
@@ -33,12 +62,6 @@ Welcome to my new dotfiles based on Nix flakes!
 
 - Hardware/VM settings
 
-## Dotfiles I like
-
-These are other peoples' dotfiles that have elements I want to emulate in some way.
-
-- [malob, darwin, well documented](https://github.com/malob/nixpkgs)
-- [matthias](https://github.com/MatthiasBenaets/nixos-config)
 
 
 
