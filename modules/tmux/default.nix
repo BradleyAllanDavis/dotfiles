@@ -17,21 +17,24 @@
     terminal = "xterm-256color";
     historyLimit = 100000;
     plugins = with pkgs; [
-      # tmuxPlugins.tmux-nvim
-      # tmuxPlugins.tmux-thumbs
-
+      # tmuxPlugins.1password
+      tmuxPlugins.better-mouse-mode
+      tmuxPlugins.copycat
+      tmuxPlugins.fpp
+      tmuxPlugins.logging
+      tmuxPlugins.open
+      tmuxPlugins.sensible
+      tmuxPlugins.sidebar
       tmuxPlugins.tmux-colors-solarized
+      tmuxPlugins.urlview
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.vim-tmux-focus-events
-
-      # # TODO: why do I have to manually set this
-      # {
-      #   plugin = t-smart-manager;
-      #   extraConfig = ''
-      #     set -g @t-fzf-prompt '  '
-      #     set -g @t-bind "T"
-      #   '';
-      # }
+      tmuxPlugins.yank
+      # tmuxPlugins.open
+      # tmuxPlugins.logging
+      # tmuxPlugins.battery
+      # tmuxPlugins.tmux-nvim
+      # tmuxPlugins.tmux-thumbs
       # {
       #   plugin = tmux-super-fingers;
       #   extraConfig = "set -g @super-fingers-key f";
@@ -42,8 +45,6 @@
       #     set -g @browser_close_on_deattach '1'
       #   '';
       # }
-
-      tmuxPlugins.sensible
       # tmuxPlugins.prefix-highlight
       {
         plugin = tmuxPlugins.prefix-highlight;
@@ -74,11 +75,6 @@
           set -g @continuum-boot-options 'iterm'
         '';
       }
-      tmuxPlugins.better-mouse-mode
-      # tmuxPlugins.yank
-      # tmuxPlugins.open
-      # tmuxPlugins.logging
-      # tmuxPlugins.battery
     ];
     # extraConfig = ''
     # '';
