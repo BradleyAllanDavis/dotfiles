@@ -22,7 +22,7 @@ Welcome to my new dotfiles based on Nix flakes!
 
 ## NixOS
 
-1.
+1. Pull down flake
 
 ## Darwin/macOS
 
@@ -31,7 +31,7 @@ Welcome to my new dotfiles based on Nix flakes!
 
 ## VMs
 
-1.
+- Hardware/VM settings
 
 ## Dotfiles I like
 
