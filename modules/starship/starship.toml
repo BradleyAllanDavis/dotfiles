@@ -20,7 +20,6 @@ right_format = """
 # $time\
 # $line_break\
 # $os\
-# $localip\
 # $hostname\
 # $username\
 format = """
@@ -35,6 +34,7 @@ $env_var\
 $custom\
 $cmd_duration\
 $sudo\
+$localip\
 $line_break\
 $nix_shell\
 $jobs\
@@ -43,11 +43,19 @@ $character\
 # $shell\
 # $java\
 
+# [prompt.ssh]
+# symbol = "@"
+
 [status]
 #  ✓
 format = "$symbol"
 symbol = '[](fg:base02 bg:none)[✗](fg:red bg:base02)[](fg:base02 bg:none) '
 success_symbol = '[](fg:base02 bg:none)[✓](fg:green bg:base02)[](fg:base02 bg:none) '
+disabled = false
+
+[localip]
+ssh_only = true
+format = "[](fg:base02 bg:none)[$localipv4](fg:yellow bg:base02)[](fg:base02 bg:none) "
 disabled = false
 
 [os]
@@ -62,8 +70,7 @@ Windows = ""
 
 [hostname] # 
 format = "[](fg:base02 bg:none)[$hostname](fg:yellow bg:base02)[](fg:base02 bg:none) "
-ssh_only = false
-
+ssh_only = true
 #  local ip
 
 [username] # 
