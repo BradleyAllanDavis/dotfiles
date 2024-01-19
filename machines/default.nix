@@ -13,8 +13,8 @@ let
   };
 
   desktopHostName = "desktop";
-  laptop13HostName = "laptop13";
-  laptop16HostName = "laptop16";
+  framework13HostName = "framework13";
+  framework16HostName = "framework16";
   serverHostName = "server";
   routerHostName = "router";
 
@@ -60,18 +60,18 @@ in
       }
     ];
   };
-  ${laptop13HostName} = lib.nixosSystem {
+  ${framework13HostName} = lib.nixosSystem {
     specialArgs = {
       inherit system inputs username userDescription;
       stateVersion = "${stateVersion2211}";
-      hostName = laptop13HostName;
+      hostName = framework13HostName;
       host = {
-        hostName = "${laptop13HostName}";
+        hostName = "${framework13HostName}";
       };
     };
     modules = [
       ./base-configuration.nix
-      ./${laptop13HostName}
+      ./${framework13HostName}
       # ../modules/bitcoin
       # nurpkgs.nixosModules.nur
 
@@ -81,7 +81,7 @@ in
         home-manager.extraSpecialArgs = {
           inherit pkgs username userDescription;
           host = {
-            hostName = "${laptop13HostName}";
+            hostName = "${framework13HostName}";
           };
         };
         home-manager.users.${username} = {
@@ -96,18 +96,18 @@ in
       }
     ];
   };
-  ${laptop16HostName} = lib.nixosSystem {
+  ${framework16HostName} = lib.nixosSystem {
     specialArgs = {
       inherit system inputs username userDescription;
       stateVersion = "${stateVersion2305}";
-      hostName = laptop16HostName;
+      hostName = framework16HostName;
       host = {
-        hostName = "${laptop16HostName}";
+        hostName = "${framework16HostName}";
       };
     };
     modules = [
       ./base-configuration.nix
-      ./${laptop16HostName}
+      ./${framework16HostName}
       # nurpkgs.nixosModules.nur
 
       home-manager.nixosModules.home-manager {
@@ -116,7 +116,7 @@ in
         home-manager.extraSpecialArgs = {
           inherit pkgs username userDescription;
           host = {
-            hostName = "${laptop16HostName}";
+            hostName = "${framework16HostName}";
           };
         };
         home-manager.users.${username} = {

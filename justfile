@@ -1,5 +1,5 @@
-alias l13 := laptop13
-alias l16 := laptop16
+alias f13 := framework13
+alias f16 := framework16
 
 # default:
 #   @just --list --unsorted --justfile {{justfile()}}
@@ -10,11 +10,11 @@ default:
 desktop:
   sudo nixos-rebuild switch --flake .\#desktop
 
-laptop13:
-  sudo nixos-rebuild switch --flake .\#laptop13
+framework13:
+  sudo nixos-rebuild switch --flake .\#framework13
 
-laptop16:
-  sudo nixos-rebuild switch --flake .\#laptop16
+framework16:
+  sudo nixos-rebuild switch --flake .\#framework16
 
 router:
   sudo nixos-rebuild switch --flake .\#router
