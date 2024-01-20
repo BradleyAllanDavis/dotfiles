@@ -38,7 +38,8 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Nixify Vim/Neovim config
 - [ ] Migrate to zsh
 - [ ] Nixify bash
-- [ ] [Configure Plasma](https://www.youtube.com/watch?v=2r0KnIZX5HY)
+- [ ] Nixify nvim
+- [ ] [Configure Plasma?](https://www.youtube.com/watch?v=2r0KnIZX5HY)
 
 ## `router`
 - [ ] Set up router

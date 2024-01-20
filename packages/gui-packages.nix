@@ -42,6 +42,7 @@ pkgs: with pkgs; [
   vivaldi
   vscode
   whatsapp-for-linux
+  wofi
   zathura
   zoom-us
 ]
