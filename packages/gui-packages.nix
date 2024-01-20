@@ -22,6 +22,7 @@ pkgs: with pkgs; [
   # jetbrains.pycharm-professional
   # jetbrains.jdk
   kitty
+  lyx                                      # LaTeX GUI
   mpv
   neovide
   newsflash
@@ -32,6 +33,7 @@ pkgs: with pkgs; [
   slack
   sparrow
   spotify
+  # spotify-launcher
   spotify-tray
   sxiv
   # postman
@@ -39,6 +41,7 @@ pkgs: with pkgs; [
   steam
   tdesktop
   transmission-qt
+  # ungoogled-chromium
   vivaldi
   vscode
   whatsapp-for-linux

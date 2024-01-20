@@ -47,6 +47,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 
 ## `framework13`
 - [ ] Fix all hardware issues
+- [ ] Fingerprint sensor
 
 ## `framework16`
 - [ ]

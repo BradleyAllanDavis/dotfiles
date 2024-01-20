@@ -9,6 +9,7 @@ pkgs: with pkgs; [
   diff-so-fancy
   entr
   eza
+  fastfetch
   fish
   fzf
   gcc
@@ -27,6 +28,7 @@ pkgs: with pkgs; [
   manix
   neovim
   ngrok
+  nnn
   ranger
   ripgrep
   sl

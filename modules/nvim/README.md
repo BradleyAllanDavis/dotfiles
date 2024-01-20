@@ -1,0 +1,3 @@
+## Neovim
+- [ ] Noice plugin
+
