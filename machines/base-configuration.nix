@@ -41,9 +41,10 @@
 
     autoRepeatDelay = 220;
     autoRepeatInterval = 80;
-    displayManager.sessionCommands = ''
-      ${pkgs.xorg.xset}`which xset` r rate 220 80
-    '';
+      # ${pkgs.xorg.xset}`which xset` r rate 220 80
+    # displayManager.sessionCommands = ''
+    #   ${pkgs.xorg.xset}`which xset` r rate 220 80
+    # '';
 
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;

@@ -6,17 +6,23 @@ Welcome to my new dotfiles based on Nix flakes!
 
 These are other peoples' dotfiles that have elements I take inspiration from.
 
+- [zaney](https://gitlab.com/Zaney/zaneyos)
 - [malob, darwin, well documented](https://github.com/malob/nixpkgs)
 - [matthias](https://github.com/MatthiasBenaets/nixos-config)
+- []()
 
 # Homelab TODOs
 
 ## General
 - [X] Wrapper script to call flake with hostname
 - [X] Nixify tmux
+- [X] Fix tmux theme
+- [ ] Fix key repeat
+- [ ] Fix tmux resurrect
 - [ ] Manage secrets
 - [ ] Parameterize nixpkgs for consumption by both macOS and NixOS
 - [ ] Global color theme [nix-colors](https://github.com/Misterio77/nix-colors)
+- [ ] Reverse (natural) mouse scrolling
 
 ## `server`
 - [ ] Figure solution for headless

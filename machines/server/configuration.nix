@@ -59,6 +59,18 @@
     };
   };
 
+  # Hard drives
+  # fileSystems = {
+  #   "/mnt/disk1" = {
+  #     device = "/dev/sda";
+  #     fsType = "ext4";
+  #   };
+  #   "/mnt/disk2" = {
+  #     device = "/dev/sdb";
+  #     fsType = "ext4";
+  #   };
+  # };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

@@ -6,6 +6,7 @@
     ../modules/alacritty
     ../modules/bash
     ../modules/git
+    ../modules/hyprland
     ../modules/i3
     ../modules/nvim
     ../modules/polybar
@@ -18,6 +19,7 @@
   ];
 
   programs.home-manager.enable = true;
+  # programs.hyprland.enable = true;
 
   home = {
     username = "${username}";
