@@ -5,20 +5,16 @@
   #   ../modules/hyprland
   # ];
 
+  # # Hyprland
   # programs.hyprland = {
   #   enable = true;
   #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #   # xwayland.enable = true;
   # };
   # lib.wayland.windowManager.hyprland = {
   #   enable = true;
   #   xwayland.enable = true;
   #   systemd.enable = true;
-  # };
-
-  # # Hyprland
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
   # };
   # environment.sessionVariables = {
   #   WLR_NO_HARDWARE_CURSORS = "1";
