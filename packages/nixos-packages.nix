@@ -6,6 +6,7 @@ pkgs: with pkgs; [
   findutils
   fzf-zsh
   httpie
+  hyprpaper
   # kotlin
   k3s
   k9s
@@ -29,6 +30,8 @@ pkgs: with pkgs; [
   taskwarrior
   trashy
   vifm
+  waybar
+  wayland
   xclip
   xorg.xbacklight
   # zsh-completions

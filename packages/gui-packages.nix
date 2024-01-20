@@ -11,6 +11,7 @@ pkgs: with pkgs; [
   # github-desktop
   gparted
   hey
+  hyprland
   i3-gaps
   jetbrains-toolbox
   jetbrains.idea-ultimate

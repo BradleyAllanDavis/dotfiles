@@ -6,7 +6,6 @@
     ../modules/alacritty
     ../modules/bash
     ../modules/git
-    ../modules/hyprland
     ../modules/i3
     ../modules/nvim
     ../modules/polybar

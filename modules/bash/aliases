@@ -49,6 +49,7 @@ alias ...............='cd ../../../../../../../../../../../../../..'
 # }}}
 # ls {{{
 # Detect which `ls` flavor is in use
+# alias ls = 'eza'
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   export lscolorflag='--color=auto'
   # alias ls='ls -ghF ${lscolorflag} --group-directories-first'

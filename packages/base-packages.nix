@@ -8,6 +8,7 @@ pkgs: with pkgs; [
   delta
   diff-so-fancy
   entr
+  eza
   fish
   fzf
   gcc

@@ -1,6 +1,69 @@
 { inputs, pkgs, username, userDescription, hostName, ... }:
 
 {
+  # imports = [
+  #   ../modules/hyprland
+  # ];
+
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  # };
+  # lib.wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  #   systemd.enable = true;
+  # };
+
+  # # Hyprland
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
+  # environment.sessionVariables = {
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  #   NIXOS_OZONE_WL = "1";
+  # };
+  # hardware = {
+  #   opengl.enable = true;
+  #   nvidia.modesetting.enable = true;
+  # };
+
+  services.xserver = {
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+
+    enable = true;
+    layout = "us";
+    xkbVariant = "";
+
+    # Enable touchpad support
+    libinput.enable = true;
+
+    autoRepeatDelay = 220;
+    autoRepeatInterval = 80;
+      # ${pkgs.xorg.xset}`which xset` r rate 220 80
+    # displayManager.sessionCommands = ''
+    #   ${pkgs.xorg.xset}`which xset` r rate 220 80
+    # '';
+
+    # displayManager = {
+    #   defaultSession = "none+i3";
+    # };
+
+    # windowManager.i3 = {
+    #   enable = true;
+    #   package = pkgs.i3-gaps;
+    #   extraPackages = with pkgs; [
+    #     dmenu # application launcher most people use
+    #     i3status # gives you the default i3 status bar
+    #     i3lock # default i3 screen locker
+    #     # i3blocks # if you are planning on using i3blocks over i3status
+    #  ];
+    # };
+  };
+
+
   system = {
     autoUpgrade = {
       enable = true;
@@ -30,54 +93,6 @@
 
   time.timeZone = "America/Matamoros";
   i18n.defaultLocale = "en_US.UTF-8";
-
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbVariant = "";
-
-    # Enable touchpad support
-    libinput.enable = true;
-
-    autoRepeatDelay = 220;
-    autoRepeatInterval = 80;
-      # ${pkgs.xorg.xset}`which xset` r rate 220 80
-    # displayManager.sessionCommands = ''
-    #   ${pkgs.xorg.xset}`which xset` r rate 220 80
-    # '';
-
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-
-    # displayManager = {
-    #   defaultSession = "none+i3";
-    # };
-
-    # windowManager.i3 = {
-    #   enable = true;
-    #   package = pkgs.i3-gaps;
-    #   extraPackages = with pkgs; [
-    #     dmenu # application launcher most people use
-    #     i3status # gives you the default i3 status bar
-    #     i3lock # default i3 screen locker
-    #     # i3blocks # if you are planning on using i3blocks over i3status
-    #  ];
-    # };
-  };
-
-  # # Hyprland
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  # };
-  # environment.sessionVariables = {
-  #   WLR_NO_HARDWARE_CURSORS = "1";
-  #   NIXOS_OZONE_WL = "1";
-  # };
-  # hardware = {
-  #   opengl.enable = true;
-  #   nvidia.modesetting.enable = true;
-  # };
 
   security.sudo.wheelNeedsPassword = false;
 
