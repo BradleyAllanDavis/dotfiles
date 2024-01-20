@@ -8,8 +8,10 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 
 - [well documented starter configs](https://github.com/Misterio77/nix-starter-configs)
 - [zaney](https://gitlab.com/Zaney/zaneyos)
+- [xnm1](https://github.com/XNM1/linux-nixos-hyprland-config-dotfiles)
 - [malob, darwin, well documented](https://github.com/malob/nixpkgs)
 - [matthias](https://github.com/MatthiasBenaets/nixos-config)
+- []()
 - []()
 
 # Homelab TODOs

@@ -32,6 +32,7 @@ pkgs: with pkgs; [
   vifm
   waybar
   wayland
+  wdisplays
   xclip
   xorg.xbacklight
   # zsh-completions

@@ -116,7 +116,7 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 11
+  size: 12
   normal:
     # Default:
     #   - (macOS) Menlo
