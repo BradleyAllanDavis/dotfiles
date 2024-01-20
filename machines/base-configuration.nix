@@ -1,30 +1,6 @@
 { inputs, pkgs, username, userDescription, hostName, ... }:
 
 {
-  # imports = [
-  #   ../modules/hyprland
-  # ];
-
-  # Hyprland
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  #   # xwayland.enable = true;
-  # };
-  # lib.wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  #   systemd.enable = true;
-  # };
-  # environment.sessionVariables = {
-  #   WLR_NO_HARDWARE_CURSORS = "1";
-  #   NIXOS_OZONE_WL = "1";
-  # };
-  # hardware = {
-  #   opengl.enable = true;
-  #   nvidia.modesetting.enable = true;
-  # };
-
   services.xserver = {
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
@@ -38,14 +14,13 @@
 
     autoRepeatDelay = 220;
     autoRepeatInterval = 80;
+    displayManager= {
+      # defaultSession = "none+i3";
       # ${pkgs.xorg.xset}`which xset` r rate 220 80
-    # displayManager.sessionCommands = ''
-    #   ${pkgs.xorg.xset}`which xset` r rate 220 80
-    # '';
-
-    # displayManager = {
-    #   defaultSession = "none+i3";
-    # };
+      sessionCommands = ''
+        ${pkgs.xorg.xset}/bin/xset r rate 200 50
+      '';
+    };
 
     # windowManager.i3 = {
     #   enable = true;
@@ -58,7 +33,6 @@
     #  ];
     # };
   };
-
 
   system = {
     autoUpgrade = {

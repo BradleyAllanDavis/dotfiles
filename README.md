@@ -6,6 +6,7 @@ Welcome to my new dotfiles based on Nix flakes!
 
 These are other peoples' dotfiles that have elements I take inspiration from.
 
+- [well documented starter configs](https://github.com/Misterio77/nix-starter-configs)
 - [zaney](https://gitlab.com/Zaney/zaneyos)
 - [malob, darwin, well documented](https://github.com/malob/nixpkgs)
 - [matthias](https://github.com/MatthiasBenaets/nixos-config)
@@ -52,6 +53,9 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 
 ## Darwin/`macbook`
 - [ ] Nixify preferences
+
+## Windows
+- [ ] Nix WSL
 
 
 # Instructions for machine

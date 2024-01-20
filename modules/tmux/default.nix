@@ -70,7 +70,7 @@
         extraConfig = ''
           set -g @continuum-restore 'on'
           set -g @continuum-kill-default 'on'
-          set -g @continuum-save-interval '5'
+          set -g @continuum-save-interval '1'
           set -g @continuum-boot 'on'
           set -g @continuum-boot-options 'iterm'
         '';

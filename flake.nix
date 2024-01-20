@@ -16,7 +16,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, nurpkgs, darwin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nurpkgs, darwin, home-manager, hyprland, ... }@inputs:
   let
     username = "bradley";
     userDescription = "Bradley Allan Davis";
