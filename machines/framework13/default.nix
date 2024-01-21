@@ -4,7 +4,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/xserver
-    # ../../modules/hyprland
   ];
 
   system.stateVersion = "${stateVersion}";

@@ -61,11 +61,17 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Nix WSL
 
 
-# Instructions for machine
+# Installation Instructions
 
 ## NixOS
 
-1. Pull down flake
+1. Install latest NixOS via USB ISO
+2. Install temp utilities `nix-shell -p git vim`
+3. Clone this repo `git clone https://github.com/BradleyAllanDavis/dotfiles ~/.dotfiles` OR transfer via sneakernet
+4. Create new directory for machine and integrate `configuration.nix` and `hardware-configuration.nix`
+5. Add justfile target for new machine
+6. Rebuild NixOS from dotfiles flake
+7. Restart machine
 
 ## Darwin/macOS
 
