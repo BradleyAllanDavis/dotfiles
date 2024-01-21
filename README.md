@@ -28,15 +28,16 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Reverse (natural) mouse scrolling
 
 ## `server`
-- [ ] Figure solution for headless
 - [ ] Migrate to rack (setup and everything)
+- [ ] Nixify power settings
+- [ ] Figure solution for headless
 - [ ] Lighting node
 - [ ] Home assistant
 - [ ] Nostr
 - [ ] Tor
 
 ## `desktop`
-- [ ] Tiling window manager (hyprland?)
+- [ ] Tiling window manager (i3?, hyprland?)
 - [ ] Menu bar
 - [ ] Nixify Vim/Neovim config
 - [ ] Migrate to zsh
