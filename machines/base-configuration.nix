@@ -5,6 +5,8 @@
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
 
+    videoDrivers = [ "modesetting" ];
+
     enable = true;
     layout = "us";
     xkbVariant = "";
@@ -78,9 +80,9 @@
   };
 
   # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  # boot.initrd.secrets = {
+  #   "/crypto_keyfile.bin" = null;
+  # };
 
   environment = {
     variables = {
@@ -99,6 +101,7 @@
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = true;
+    settings.X11Forwarding = true;
   };
 
   fonts.packages = with pkgs; [

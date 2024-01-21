@@ -6,6 +6,7 @@ let
 
   stateVersion2211 = "22.11";
   stateVersion2305 = "23.05";
+  stateVersion2311 = "23.11";
 
   pkgs = import nixpkgs {
     inherit system;
@@ -169,7 +170,7 @@ in
   ${serverHostName} = lib.nixosSystem {
     specialArgs = {
       inherit system inputs username userDescription;
-      stateVersion = "${stateVersion2211}";
+      stateVersion = "${stateVersion2311}";
       hostName = serverHostName;
       host = {
         hostName = "${serverHostName}";

@@ -8,17 +8,18 @@
   system.stateVersion = "${stateVersion}";
 
   boot = {
-    loader.grub = {
-      enable = true;
-      device = "/dev/nvme0n1";
-      useOSProber = true;
-      enableCryptodisk=true;
-    };
-    initrd.luks.devices = {
-      "luks-93bea6a8-cfb2-4481-b1d6-f16cf7259576".keyFile = "/crypto_keyfile.bin";
-      # Enable swap on luks
-      "luks-828ad403-f995-40f5-86bf-5d0726f8bdae".device = "/dev/disk/by-uuid/828ad403-f995-40f5-86bf-5d0726f8bdae";
-      "luks-828ad403-f995-40f5-86bf-5d0726f8bdae".keyFile = "/crypto_keyfile.bin";
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        # efiSysMountPoint = "/boot/efi";
+      };
+      #grub = {
+      #  enable = true;
+      #  #device = "/dev/nvme0n1";
+      #  useOSProber = true;
+      #  #enableCryptodisk=true;
+      #};
     };
   };
 
