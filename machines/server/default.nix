@@ -1,4 +1,4 @@
-{ stateVersion, pkgs, lib, username, ... }:
+{ stateVersion, username, ... }:
 
 {
   imports = [
@@ -29,7 +29,6 @@
     ROC_ENABLE_PRE_VEGA = "1";
   };
 
-  # Enable automatic login for the user
   services.xserver.displayManager.autoLogin = {
     enable = true;
     user = "${username}";
@@ -47,20 +46,20 @@
           prefixLength = 24;
         }];
       };
-      enp3s0 = {
-        useDHCP = false;
-        ipv4.addresses = [{
-          address = "192.168.7.102";
-          prefixLength = 24;
-        }];
-      };
-      enp7s0 = {
-        useDHCP = false;
-        ipv4.addresses = [{
-          address = "192.168.7.103";
-          prefixLength = 24;
-        }];
-      };
+      # enp3s0 = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #     address = "192.168.7.102";
+      #     prefixLength = 24;
+      #   }];
+      # };
+      # enp7s0 = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #     address = "192.168.7.103";
+      #     prefixLength = 24;
+      #   }];
+      # };
     };
   };
 
