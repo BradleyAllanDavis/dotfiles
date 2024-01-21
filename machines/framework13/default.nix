@@ -1,8 +1,9 @@
-{ stateVersion, pkgs, lib, username, ... }:
+{ stateVersion, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/xserver
     # ../../modules/hyprland
   ];
 
