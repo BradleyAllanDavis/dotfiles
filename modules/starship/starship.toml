@@ -23,6 +23,7 @@ right_format = """
 # $username\
 format = """
 $status\
+$localip\
 $hostname\
 $directory\
 $git_branch\
@@ -34,7 +35,6 @@ $env_var\
 $custom\
 $cmd_duration\
 $sudo\
-$localip\
 $line_break\
 $nix_shell\
 $jobs\
@@ -55,7 +55,7 @@ disabled = false
 
 [localip]
 ssh_only = true
-format = "[](fg:base02 bg:none)[$localipv4](fg:yellow bg:base02)[](fg:base02 bg:none) "
+format = "[](fg:orange bg:none)[$localipv4](fg:base02 bg:orange)[](fg:orange bg:none) "
 disabled = false
 
 [os]
@@ -70,7 +70,7 @@ Windows = ""
 
 [hostname] # 
 # format = "[](fg:base02 bg:none)[$hostname](fg:yellow bg:base02)[](fg:base02 bg:none) "
-format = "[](bg:red fg:none)[$hostname](fg:red bg:base02)[](bg:red fg:none) "
+format = "[](bg:base02 fg:bright-red)[$hostname](fg:base02 bg:bright-red)[](bg:base02 fg:bright-red) "
 ssh_only = true
 #  local ip
 
