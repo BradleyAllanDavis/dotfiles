@@ -20,10 +20,10 @@ right_format = """
 # $time\
 # $line_break\
 # $os\
-# $hostname\
 # $username\
 format = """
 $status\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -69,7 +69,8 @@ NixOS = ""
 Windows = ""
 
 [hostname] # 
-format = "[](fg:base02 bg:none)[$hostname](fg:yellow bg:base02)[](fg:base02 bg:none) "
+# format = "[](fg:base02 bg:none)[$hostname](fg:yellow bg:base02)[](fg:base02 bg:none) "
+format = "[](bg:red fg:none)[$hostname](fg:red bg:base02)[](bg:red fg:none) "
 ssh_only = true
 #  local ip
 
