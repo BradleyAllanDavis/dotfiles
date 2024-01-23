@@ -43,6 +43,10 @@ if command -v starship &> /dev/null; then
   eval "$(starship init bash)"
 fi
 # }}}
+# Source OpenAI key
+if [ -f ~/.OPENAI_API_KEY.txt ]; then
+  export OPENAI_API_KEY=$(cat ~/.OPENAI_API_KEY.txt)
+fi
 
 
 

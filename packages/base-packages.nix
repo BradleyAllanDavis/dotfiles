@@ -3,6 +3,7 @@ pkgs: with pkgs; [
   alacritty
   bash
   bat
+  chatgpt-cli
   comma
   curl
   delta
@@ -31,12 +32,14 @@ pkgs: with pkgs; [
   nnn
   ranger
   ripgrep
+  shell_gpt
   sl
   starship
   tig
   tldr
   tree
   tmux
+  unzip
   wget
   whois
   youtube-dl
