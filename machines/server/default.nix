@@ -24,6 +24,12 @@
     };
   };
 
+  # systemd.services.systemd-udev-settle.enable = false;
+  # systemd.services.NetworkManager-wait-online.enable = false;
+  # systemd.extraConfig = ''
+  #   DefaultTimeoutStopSec=10s
+  # '';
+
   # AMD GPU
   services.xserver.videoDrivers = [ "amdgpu" ];
   environment.variables = {
@@ -47,27 +53,27 @@
           prefixLength = 24;
         }];
       };
-      enp3s0 = {
-        useDHCP = false;
-        ipv4.addresses = [{
-          address = "192.168.7.102";
-          prefixLength = 24;
-        }];
-      };
-      enp6s0 = {
-        useDHCP = false;
-        ipv4.addresses = [{
-          address = "192.168.7.103";
-          prefixLength = 24;
-        }];
-      };
-      enp7s0 = {
-        useDHCP = false;
-        ipv4.addresses = [{
-          address = "192.168.7.103";
-          prefixLength = 24;
-        }];
-      };
+      # enp3s0 = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #     address = "192.168.7.102";
+      #     prefixLength = 24;
+      #   }];
+      # };
+      # enp6s0 = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #     address = "192.168.7.103";
+      #     prefixLength = 24;
+      #   }];
+      # };
+      # enp7s0 = {
+      #   useDHCP = false;
+      #   ipv4.addresses = [{
+      #     address = "192.168.7.103";
+      #     prefixLength = 24;
+      #   }];
+      # };
     };
   };
 
