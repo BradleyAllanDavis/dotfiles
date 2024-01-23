@@ -19,7 +19,7 @@ pkgs: with pkgs; [
   jetbrains.clion
   # jetbrains.goland
   # jetbrains.webstorm
-  # jetbrains.pycharm-professional
+  jetbrains.pycharm-professional
   # jetbrains.jdk
   kitty
   lyx                                      # LaTeX GUI

@@ -8,6 +8,7 @@ pkgs: with pkgs; [
   httpie
   hyprpaper
   # kotlin
+  jupyter-all
   k3s
   k9s
   llvm
