@@ -1,7 +1,7 @@
 [user]
   user = BradleyDavis
 	name = bradley.davis
-	email = 1110-BradleyDavis@users.noreply.gitlab.okg.com
+  email = bradley.davis@okg.com
 
 # 1Password SSH key
 #[user]
