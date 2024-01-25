@@ -1,3 +1,13 @@
+let
+  my-python-packages = ps: with ps; [
+    # csv
+    matplotlib
+    numpy
+    pillow
+    torch
+    torchvision
+  ];
+in
 pkgs: with pkgs; [
   atool
   # compton
@@ -18,6 +28,7 @@ pkgs: with pkgs; [
   nil
   nix-bash-completions
   nix-direnv
+  nix-index
   nix-zsh-completions
   nodejs
   nostr-rs-relay
@@ -25,7 +36,7 @@ pkgs: with pkgs; [
   # oraclejdk
   podman
   pstree
-  python3
+  (python3.withPackages my-python-packages)
   rustup
   spotify-tui
   taskwarrior
