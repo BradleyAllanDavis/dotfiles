@@ -37,6 +37,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Tor
 
 ## `desktop`
+- [ ] Update encrypted disk password
 - [ ] Tiling window manager (i3?, hyprland?)
 - [ ] Menu bar
 - [ ] Nixify Vim/Neovim config
@@ -51,6 +52,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 ## `framework13`
 - [ ] Fix all hardware issues
 - [ ] Fingerprint sensor
+- [ ] Update encrypted disk password
 
 ## `framework16`
 - [ ]
