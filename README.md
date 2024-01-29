@@ -26,6 +26,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Parameterize nixpkgs for consumption by both macOS and NixOS
 - [ ] Global color theme [nix-colors](https://github.com/Misterio77/nix-colors)
 - [ ] Reverse (natural) mouse scrolling
+- [ ] Add justfile target for home-manager
 
 ## `server`
 - [ ] Migrate to rack (setup and everything)
