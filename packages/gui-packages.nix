@@ -7,6 +7,7 @@ pkgs: with pkgs; [
   dmenu
   # dropbox
   # etcher
+  electrum
   expressvpn
   # github-desktop
   gparted
@@ -44,6 +45,7 @@ pkgs: with pkgs; [
   # ungoogled-chromium
   vivaldi
   vscode
+  wasabiwallet
   whatsapp-for-linux
   wofi
   zathura

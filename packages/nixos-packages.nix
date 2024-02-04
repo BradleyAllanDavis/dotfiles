@@ -11,6 +11,7 @@ in
 pkgs: with pkgs; [
   atool
   # compton
+  # bitcoind-knots
   direnv
   dunst
   findutils
