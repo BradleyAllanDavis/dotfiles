@@ -8,6 +8,7 @@ pkgs: with pkgs; [
   curl
   delta
   diff-so-fancy
+  direnv
   entr
   eza
   fastfetch
