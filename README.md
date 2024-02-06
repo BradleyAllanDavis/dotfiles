@@ -22,6 +22,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [X] Fix tmux theme
 - [ ] Fix key repeat
 - [ ] Fix tmux resurrect
+- [ ] Fix tmux mouse settings
 - [ ] Manage secrets
 - [ ] Parameterize nixpkgs for consumption by both macOS and NixOS
 - [ ] Global color theme [nix-colors](https://github.com/Misterio77/nix-colors)
@@ -56,7 +57,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Update encrypted disk password
 
 ## `framework16`
-- [ ]
+- [ ] Get hardware
 
 ## Darwin/`macbook`
 - [ ] Nixify preferences
