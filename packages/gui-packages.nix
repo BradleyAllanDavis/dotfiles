@@ -3,6 +3,7 @@ pkgs: with pkgs; [
   # bisq-desktop
   bitcoin
   brave
+  chromium
   discord
   dmenu
   # dropbox
@@ -10,6 +11,7 @@ pkgs: with pkgs; [
   electrum
   expressvpn
   # github-desktop
+  google-chrome
   gparted
   hey
   hyprland
