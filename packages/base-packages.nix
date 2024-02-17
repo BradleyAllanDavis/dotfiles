@@ -18,6 +18,7 @@ pkgs: with pkgs; [
   git
   git-crypt
   gnumake
+  gnupg
   helix
   htop
   just
