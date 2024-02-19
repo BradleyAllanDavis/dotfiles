@@ -1,5 +1,9 @@
+alias d := desktop
 alias f13 := framework13
 alias f16 := framework16
+alias m := macbook
+alias r := router
+alias s := server
 
 # default:
 #   @just --list --unsorted --justfile {{justfile()}}
@@ -16,12 +20,6 @@ framework13:
 framework16:
   sudo nixos-rebuild switch --flake .\#framework16
 
-router:
-  sudo nixos-rebuild switch --flake .\#router
-
-server:
-  sudo nixos-rebuild switch --flake .\#server
-
 macbook:
   @# Needed for first time setup
   @#printf 'run\tprivate/var/run\n' | sudo tee -a /etc/synthetic.conf
@@ -30,3 +28,10 @@ macbook:
   nix build .\#darwinConfigurations.macbook.system --extra-experimental-features "nix-command flakes"
   trash ~/.zshrc ~/.bash_profile
   ./result/sw/bin/darwin-rebuild switch --flake . --show-trace
+
+router:
+  sudo nixos-rebuild switch --flake .\#router
+
+server:
+  sudo nixos-rebuild switch --flake .\#server
+

@@ -25,6 +25,7 @@ pkgs: with pkgs; [
   jetbrains.pycharm-professional
   jetbrains.rust-rover
   # jetbrains.jdk
+  keybase
   kitty
   lyx                                      # LaTeX GUI
   mpv
@@ -35,6 +36,8 @@ pkgs: with pkgs; [
   redshift
   rofi
   # rofi-wayland
+  shutter
+  signal-desktop
   slack
   sparrow
   spotify
@@ -43,8 +46,8 @@ pkgs: with pkgs; [
   # standardnotes
   sxiv
   # postman
-  signal-desktop
   steam
+  sxiv
   tdesktop
   transmission-qt
   # ungoogled-chromium
