@@ -14,20 +14,40 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [dustin lyons](https://github.com/dustinlyons/nixos-config)
 - []()
 
-# Homelab TODOs
+# TODOs
 
 ## General
 - [X] Wrapper script to call flake with hostname
 - [X] Nixify tmux
 - [X] Fix tmux theme
 - [ ] Fix key repeat
-- [ ] Fix tmux resurrect
-- [ ] Fix tmux mouse settings
 - [ ] Manage secrets
 - [ ] Parameterize nixpkgs for consumption by both macOS and NixOS
 - [ ] Global color theme [nix-colors](https://github.com/Misterio77/nix-colors)
 - [ ] Reverse (natural) mouse scrolling
 - [ ] Add justfile target for home-manager
+- [ ] Migrate to zsh
+- [ ] Nixify bash
+
+## Tmux
+- [ ] Fix resurrect
+- [ ] Fix mouse settings
+- [ ] Tmuxifier
+- [ ]
+
+## Neovim
+- [ ] Nixify Vim/Neovim config
+- [ ] Rewrite neovim config in Lua?
+- [ ] AstroVim
+- [ ] LunarVim
+- [ ] LuaLine
+- [ ] Telescope
+- [ ] TreeSitter
+- [ ] NVChad
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 
 ## `server`
 - [ ] Migrate to rack (setup and everything)
@@ -42,10 +62,6 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Update encrypted disk password
 - [ ] Tiling window manager (i3?, hyprland?)
 - [ ] Menu bar
-- [ ] Nixify Vim/Neovim config
-- [ ] Migrate to zsh
-- [ ] Nixify bash
-- [ ] Nixify nvim
 - [ ] [Configure Plasma?](https://www.youtube.com/watch?v=2r0KnIZX5HY)
 
 ## `router`
@@ -61,9 +77,29 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 
 ## Darwin/`macbook`
 - [ ] Nixify preferences
+- [ ] TempBox app
 
 ## Windows
 - [ ] Nix WSL
+- [ ] FreeSync for monitor
+
+## Stuff to Try
+- [ ] Tailscale
+- [ ] IRC
+- [ ] GitHub Copilot
+- [ ] Git Butler
+- [ ] Zed Editor
+- [ ] BitWarden
+- [ ] Proton Mail
+- [ ] Standard Notes
+- [ ] Matador
+- [ ] OperaOne
+- [ ] OpenWRT
+- [ ] Impervious Browser
+- [ ]
+
+## Games
+- [ ] Starfield
 
 
 # Installation Instructions
