@@ -45,6 +45,7 @@ pkgs: with pkgs; [
   vifm
   waybar
   wayland
+  wezterm
   wdisplays
   xclip
   xorg.xbacklight

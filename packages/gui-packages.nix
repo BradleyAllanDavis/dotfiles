@@ -23,10 +23,12 @@ pkgs: with pkgs; [
   # jetbrains.goland
   # jetbrains.webstorm
   jetbrains.pycharm-professional
+  jetbrains.rust-rover
   # jetbrains.jdk
   kitty
   lyx                                      # LaTeX GUI
   mpv
+  mullvad-browser
   neovide
   newsflash
   polybar
@@ -38,6 +40,7 @@ pkgs: with pkgs; [
   spotify
   # spotify-launcher
   spotify-tray
+  # standardnotes
   sxiv
   # postman
   signal-desktop

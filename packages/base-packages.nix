@@ -9,6 +9,7 @@ pkgs: with pkgs; [
   delta
   diff-so-fancy
   direnv
+  doas
   entr
   eza
   fastfetch
@@ -27,6 +28,7 @@ pkgs: with pkgs; [
   kubectx
   lazygit
   lf
+  loc
   lsd
   manix
   neovim

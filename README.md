@@ -11,7 +11,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [xnm1](https://github.com/XNM1/linux-nixos-hyprland-config-dotfiles)
 - [malob, darwin, well documented](https://github.com/malob/nixpkgs)
 - [matthias](https://github.com/MatthiasBenaets/nixos-config)
-- []()
+- [dustin lyons](https://github.com/dustinlyons/nixos-config)
 - []()
 
 # Homelab TODOs
