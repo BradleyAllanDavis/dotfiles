@@ -13,6 +13,9 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [matthias](https://github.com/MatthiasBenaets/nixos-config)
 - [dustin lyons](https://github.com/dustinlyons/nixos-config)
 - [sioodmy](https://github.com/sioodmy/dotfiles)
+- [fufexan](https://github.com/fufexan/dotfiles)
+- [notusknot](https://github.com/notusknot/dotfiles-nix)
+- []()
 - []()
 
 # TODOs
