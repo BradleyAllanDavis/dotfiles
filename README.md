@@ -12,6 +12,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [malob, darwin, well documented](https://github.com/malob/nixpkgs)
 - [matthias](https://github.com/MatthiasBenaets/nixos-config)
 - [dustin lyons](https://github.com/dustinlyons/nixos-config)
+- [sioodmy](https://github.com/sioodmy/dotfiles)
 - []()
 
 # TODOs
