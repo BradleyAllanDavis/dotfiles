@@ -6,7 +6,7 @@ pkgs: with pkgs; [
   chromium
   discord
   dmenu
-  # dropbox
+  dropbox
   # etcher
   electrum
   expressvpn
