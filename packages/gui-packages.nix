@@ -44,7 +44,6 @@ pkgs: with pkgs; [
   # spotify-launcher
   spotify-tray
   # standardnotes
-  sxiv
   # postman
   steam
   sxiv
