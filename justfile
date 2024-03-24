@@ -26,9 +26,9 @@ macbook:
   @#/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
   @echo 'Rebuild config'
   nix build .\#darwinConfigurations.macbook.system --extra-experimental-features "nix-command flakes"
-  trash ~/.zshrc ~/.bash_profile
   ./result/sw/bin/darwin-rebuild switch --flake . --show-trace
 
+  #/* rm ~/.zshrc ~/.bash_profile */
 router:
   sudo nixos-rebuild switch --flake .\#router
 

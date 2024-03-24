@@ -9,7 +9,7 @@ pkgs: with pkgs; [
   delta
   diff-so-fancy
   direnv
-  doas
+  # doas
   entr
   eza
   fastfetch
