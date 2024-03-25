@@ -100,7 +100,7 @@ in
   ${framework16HostName} = lib.nixosSystem {
     specialArgs = {
       inherit system inputs username userDescription;
-      stateVersion = "${stateVersion2305}";
+      stateVersion = "${stateVersion2311}";
       hostName = framework16HostName;
       host = {
         hostName = "${framework16HostName}";
@@ -125,7 +125,7 @@ in
             ./home.nix
           ];
           home = {
-            stateVersion = "${stateVersion2305}";
+            stateVersion = "${stateVersion2311}";
             packages = (base-packages pkgs) ++ (nixos-packages pkgs) ++ (gui-packages pkgs) ++ (laptop-packages pkgs);
           };
         };

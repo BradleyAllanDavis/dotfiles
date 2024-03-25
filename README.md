@@ -110,12 +110,20 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 
 ## NixOS
 
-1. Install latest NixOS via USB ISO
-2. Install temp utilities `nix-shell -p git vim`
-3. Clone this repo `git clone https://github.com/BradleyAllanDavis/dotfiles ~/.dotfiles` OR transfer via sneakernet
-4. Create new directory for machine and integrate `configuration.nix` and `hardware-configuration.nix`
+1. Install latest NixOS onto machine via USB ISO
+2. Install temp utilities `nix-shell -p git vim just`
+3. Clone this repo onto new machine:
+  - Via git:
+    ```
+    git clone https://github.com/BradleyAllanDavis/dotfiles ~/.dotfiles
+    ```
+  - Transfer via sneakernet:
+    ```
+    cp -r .dotfiles <mounted USB drive>
+    ```
+4. Create new directory for machine in dotfiles repo and integrate generated `configuration.nix` and `hardware-configuration.nix`
 5. Add justfile target for new machine
-6. Rebuild NixOS from dotfiles flake
+6. Rebuild NixOS from dotfiles flake `just <machine name>`
 7. Restart machine
 
 ## Darwin/macOS
