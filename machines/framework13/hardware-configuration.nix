@@ -13,16 +13,6 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-    # Set up deep sleep + hibernation
-  # swapDevices = [
-  #   { device = "/swapfile"; }
-  # ];
-  # # Partition swapfile is on (after LUKS decryption)
-  # boot.resumeDevice = "/dev/disk/by-uuid/05032ea4-beb1-4237-ac66-ab0bf79f39a7";
-  # # Resume Offset is offset of swapfile
-  # # https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Hibernation_into_swap_file
-  # boot.kernelParams = [ "mem_sleep_default=deep" "resume_offset=80424960" ];
-
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/e821bff2-5f50-4ddb-a9ed-fde547beb0cf";
       fsType = "ext4";
@@ -49,4 +39,15 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    # Set up deep sleep + hibernation
+  # swapDevices = [
+  #   { device = "/swapfile"; }
+  # ];
+  # # Partition swapfile is on (after LUKS decryption)
+  # boot.resumeDevice = "/dev/disk/by-uuid/05032ea4-beb1-4237-ac66-ab0bf79f39a7";
+  # # Resume Offset is offset of swapfile
+  # # https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Hibernation_into_swap_file
+  # boot.kernelParams = [ "mem_sleep_default=deep" "resume_offset=80424960" ];
+
 }
