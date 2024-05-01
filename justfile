@@ -15,7 +15,7 @@ desktop:
   sudo nixos-rebuild switch --flake .\#desktop
 
 framework13:
-  sudo nixos-rebuild switch --flake .\#framework13
+  sudo nixos-rebuild switch --flake .\#framework13 |& nom
 
 framework16:
   sudo nixos-rebuild switch --flake .\#framework16

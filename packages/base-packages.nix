@@ -33,6 +33,7 @@ pkgs: with pkgs; [
   manix
   neovim
   ngrok
+  nix-output-monitor
   nnn
   ranger
   ripgrep
