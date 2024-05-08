@@ -13,11 +13,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils.url = "github:numtide/flake-utils";
     hyprland.url = "github:hyprwm/Hyprland";
-    hosts.url = github:StevenBlack/hosts;
+    hosts.url = "github:StevenBlack/hosts";
   };
 
-  outputs = { self, nixpkgs, nurpkgs, darwin, home-manager, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, nurpkgs, darwin, home-manager, hyprland, hosts, ... }@inputs:
   let
     username = "bradley";
     userDescription = "Bradley Allan Davis";
@@ -36,7 +37,7 @@
     nixosConfigurations = (
       import ./machines {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager nurpkgs username userDescription;
+        inherit inputs nixpkgs home-manager nurpkgs username userDescription hosts;
       }
     );
     darwinConfigurations = (
