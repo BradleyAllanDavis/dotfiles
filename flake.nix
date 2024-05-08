@@ -14,6 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    hosts.url = github:StevenBlack/hosts;
   };
 
   outputs = { self, nixpkgs, nurpkgs, darwin, home-manager, hyprland, ... }@inputs:

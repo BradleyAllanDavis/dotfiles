@@ -25,10 +25,10 @@ macbook:
   @#printf 'run\tprivate/var/run\n' | sudo tee -a /etc/synthetic.conf
   @#/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
   @echo 'Rebuild config'
+  @rm ~/.zshrc ~/.bash_profile
   nix build .\#darwinConfigurations.macbook.system --extra-experimental-features "nix-command flakes"
   ./result/sw/bin/darwin-rebuild switch --flake . --show-trace
 
-  #/* rm ~/.zshrc ~/.bash_profile */
 router:
   sudo nixos-rebuild switch --flake .\#router
 

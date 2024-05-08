@@ -49,11 +49,18 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] TreeSitter
 - [ ] NVChad
 - [ ]
-- [ ]
-- [ ]
-- [ ]
 
-## `server`
+## Browser
+
+### Extensions
+- [ ] StevenBlackHosts
+- [ ] ByPassPayWalls
+
+## Machines
+
+### NixOS
+
+#### `server`
 - [ ] Migrate to rack (setup and everything)
 - [ ] Nixify power settings
 - [ ] Figure solution for headless
@@ -62,28 +69,28 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [ ] Nostr
 - [ ] Tor
 
-## `desktop`
+#### `desktop`
 - [ ] Update encrypted disk password
 - [ ] Tiling window manager (i3?, hyprland?)
 - [ ] Menu bar
 - [ ] [Configure Plasma?](https://www.youtube.com/watch?v=2r0KnIZX5HY)
 
-## `router`
+#### `router`
 - [ ] Set up router
 
-## `framework13`
+#### `framework13`
 - [ ] Fix all hardware issues
 - [ ] Fingerprint sensor
 - [ ] Update encrypted disk password
 
-## `framework16`
-- [ ] Get hardware
+#### `framework16`
+- [X] Get hardware
 
-## Darwin/`macbook`
+### Darwin/`macbook`
 - [ ] Nixify preferences
 - [ ] TempBox app
 
-## Windows
+### Windows
 - [ ] Nix WSL
 - [ ] FreeSync for monitor
 

@@ -38,6 +38,7 @@ in
       ./base-configuration.nix
       ./${desktopHostName}
       nurpkgs.nixosModules.nur
+      ../modules/stevenBlackHosts
 
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
