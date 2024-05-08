@@ -55,6 +55,8 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 ### Extensions
 - [ ] StevenBlackHosts
 - [ ] ByPassPayWalls
+- [ ] TabFS
+- [ ]
 
 ## Machines
 
