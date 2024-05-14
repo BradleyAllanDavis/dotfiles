@@ -35,6 +35,7 @@ pkgs: with pkgs; [
   polybar
   redshift
   rofi
+  qbittorrent
   # rofi-wayland
   shutter
   signal-desktop
