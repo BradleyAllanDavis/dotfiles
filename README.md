@@ -15,7 +15,7 @@ These are other peoples' dotfiles that have elements I take inspiration from.
 - [sioodmy](https://github.com/sioodmy/dotfiles)
 - [fufexan](https://github.com/fufexan/dotfiles)
 - [notusknot](https://github.com/notusknot/dotfiles-nix)
-- []()
+- [emergentmind](https://github.com/EmergentMind/nix-config)
 - []()
 
 # TODOs

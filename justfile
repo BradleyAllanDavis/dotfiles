@@ -5,14 +5,14 @@ alias m := macbook
 alias r := router
 alias s := server
 
-# default:
-#   @just --list --unsorted --justfile {{justfile()}}
-
 default:
-  sudo nixos-rebuild switch --flake .\"$#"
+  @just --list
+
+# default:
+#   sudo nixos-rebuild switch --flake .\"$#"
 
 desktop:
-  sudo nixos-rebuild switch --flake .\#desktop
+  sudo nixos-rebuild switch --flake .\#desktop |& nom
 
 framework13:
   sudo nixos-rebuild switch --flake .\#framework13 |& nom
