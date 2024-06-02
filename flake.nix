@@ -13,7 +13,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     flake-utils.url = "github:numtide/flake-utils";
+
     hyprland.url = "github:hyprwm/Hyprland";
     hosts.url = "github:StevenBlack/hosts";
   };
