@@ -15,7 +15,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 90d";
+      options = "--delete-older-than 365d";
     };
     package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
@@ -46,11 +46,6 @@
     isNormalUser = true;
     description = "${userDescription}";
     extraGroups = [ "networkmanager" "wheel" ];
-  };
-
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
   };
 
   environment = {

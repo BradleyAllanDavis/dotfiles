@@ -17,7 +17,7 @@
 
   # Setup keyfile
   boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
+    "/crypto_keyfile.bin" = "/root/crypto_keyfile.bin";
   };
 
   # Enable swap on luks
@@ -41,4 +41,5 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
 }
