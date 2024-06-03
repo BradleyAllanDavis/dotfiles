@@ -11,7 +11,7 @@ pkgs: with pkgs; [
   electrum
   expressvpn
   # github-desktop
-  google-chrome
+  # google-chrome
   gparted
   hey
   hyprland
@@ -51,9 +51,9 @@ pkgs: with pkgs; [
   tdesktop
   transmission-qt
   # ungoogled-chromium
-  vivaldi
+  # vivaldi
   vscode
-  wasabiwallet
+  # wasabiwallet
   whatsapp-for-linux
   wofi
   zathura
