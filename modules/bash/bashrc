@@ -13,7 +13,11 @@ done
 
 # tmux {{{
 # Install tmux plugin manager if not installed
-command -v git >/dev/null 2>&1 && [[ ! -d "$HOME/.tmux/plugins/tpm" ]] && git clone http://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# command -v git >/dev/null 2>&1 && [[ ! -d "$HOME/.tmux/plugins/tpm" ]] && git clone http://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# Reload tmux config
+if [ -n "$TMUX" ]; then
+  tmux source-file ~/.tmux.conf
+fi
 # }}}
 # bash-completion {{{
 export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
