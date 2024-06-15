@@ -35,6 +35,7 @@ pkgs: with pkgs; [
   ngrok
   nix-output-monitor
   nnn
+  nvme-cli
   ranger
   ripgrep
   shell_gpt
